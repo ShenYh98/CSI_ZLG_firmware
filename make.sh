@@ -6,8 +6,11 @@ if [ "$1" != "x86" ] && [ "$1" != "clean" ]; then
   exit 1
 fi
 
+# 获取脚本所在目录
+script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
 # 进入build目录
-cd build
+cd "$script_dir/build"
 
 # 根据输入的参数选择操作
 if [ $1 = "clean" ]; then
