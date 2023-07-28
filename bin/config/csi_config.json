@@ -1,3 +1,5 @@
 {
-    "msg" : "hello world"
+    "log_path" : "log/log.txt",
+    "log_level" : 1,
+    "log_size" : 128
 }

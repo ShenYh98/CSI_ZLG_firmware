@@ -8,6 +8,8 @@
 using namespace std;
 
 int main() {
+    std::cout << "version 0.1" << endl;
+
     std::string path = "./config/csi_config.json";
 
     // 读取 JSON 文件

@@ -9,6 +9,10 @@ fi
 # 获取脚本所在目录
 script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
+if [ ! -d "$script_dir/build" ]; then
+  mkdir "$script_dir/build"
+fi
+
 # 进入build目录
 cd "$script_dir/build"
 
