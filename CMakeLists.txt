@@ -44,16 +44,18 @@ if(ARGUMENT)
 
 	find_package(Boost REQUIRED COMPONENTS system)
 	target_link_libraries(${ARGUMENT} PRIVATE Boost::system)
+	target_link_libraries(${ARGUMENT} PRIVATE pthread)
 else()
 	# 生成可执行文件
-	add_executable(executable ${SOURCES} ${CMAKE_SOURCE_DIR}/src/main.cpp)
+	add_executable(csiexec ${SOURCES} ${CMAKE_SOURCE_DIR}/src/main.cpp)
   
 	file(GLOB_RECURSE LIBRARIES 
 	  ${CMAKE_SOURCE_DIR}/src/lib_base/*.so
 	)
 	# 链接库文件
-	target_link_libraries(executable ${LIBRARIES})
+	target_link_libraries(csiexec ${LIBRARIES})
 
 	find_package(Boost REQUIRED COMPONENTS system)
-	target_link_libraries(executable PRIVATE Boost::system)
+	target_link_libraries(csiexec PRIVATE Boost::system)
+	target_link_libraries(csiexec PRIVATE pthread)
 endif()

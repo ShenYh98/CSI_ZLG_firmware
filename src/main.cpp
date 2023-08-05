@@ -20,7 +20,6 @@ void parseJSONFile(const std::string& filename) {
     int password = jsonData["password"];
 }
 
-
 #include <websocketpp/config/asio_no_tls.hpp>
 #include <websocketpp/server.hpp>
 
