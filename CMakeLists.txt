@@ -35,23 +35,25 @@ file(GLOB_RECURSE SOURCES
 if(ARGUMENT)
 	# 生成库文件
 	add_library(${ARGUMENT} SHARED ${SOURCES})
-	# 链接库文件
-	target_link_libraries(${ARGUMENT} ${LIBRARIES})
   
 	file(GLOB_RECURSE LIBRARIES 
 	  ${CMAKE_SOURCE_DIR}/src/lib_base/*.so
 	)
 	# 链接库文件
 	target_link_libraries(${ARGUMENT} ${LIBRARIES})
+
+	find_package(Boost REQUIRED COMPONENTS system)
+	target_link_libraries(${ARGUMENT} PRIVATE Boost::system)
 else()
 	# 生成可执行文件
 	add_executable(executable ${SOURCES} ${CMAKE_SOURCE_DIR}/src/main.cpp)
-	# 链接库文件
-	target_link_libraries(executable ${LIBRARIES})
   
 	file(GLOB_RECURSE LIBRARIES 
 	  ${CMAKE_SOURCE_DIR}/src/lib_base/*.so
 	)
 	# 链接库文件
 	target_link_libraries(executable ${LIBRARIES})
+
+	find_package(Boost REQUIRED COMPONENTS system)
+	target_link_libraries(executable PRIVATE Boost::system)
 endif()
