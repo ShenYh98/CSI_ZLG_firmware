@@ -1,5 +1,7 @@
 #include "WebSocketService.h"
 
+using namespace NetWorkMiddleware;
+
 WebSocketService::WebSocketService() {
     // 在连接建立时将连接句柄添加到集合中
     echo_server.set_open_handler([&](connection_hdl hdl) {

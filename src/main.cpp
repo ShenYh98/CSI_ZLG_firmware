@@ -4,9 +4,12 @@
 
 #include "nlohmann/json.hpp"
 
-#include "code/webserver/WebSocketService.h"
-
 using json = nlohmann::json;
+
+#include "code/webserver/WebSocketService.h"
+#include "code/webserver/NetWorkLayerImp.h"
+
+using namespace NetWorkMiddleware;
 
 void parseJSONFile(const std::string& filename) {
     // 打开JSON文件
@@ -24,19 +27,16 @@ void parseJSONFile(const std::string& filename) {
 
 int main() {
     NetworkService* websocketService = new WebSocketService();
+    NetWorkLayer* sendCommonInfo = new NetWorkLayerImp(websocketService);
 
     while (true) {
-        double voltage = 220.0;
-        double current = 10.0;
-        double temperature = 25.0;
+        sendCommonInfo->operation(taskId::common);
 
-        std::string data = std::to_string(voltage) + "," + std::to_string(current) + "," + std::to_string(temperature);
-        websocketService->send(data);
-        std::cout << data << std::endl;
         std::this_thread::sleep_for(3s);
     }
     
     delete(websocketService);
+    delete(sendCommonInfo);
 
     return 0;
 }

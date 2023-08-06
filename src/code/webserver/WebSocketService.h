@@ -13,6 +13,8 @@ using websocketpp::config::asio;
 using namespace std::placeholders;
 using namespace std::chrono_literals;
 
+namespace NetWorkMiddleware {
+
 class WebSocketService : public NetworkService {
 public:
     WebSocketService();
@@ -31,3 +33,5 @@ private:
 private:
     static void on_message(connection_hdl hdl, server<asio>::message_ptr msg);
 };
+
+}
