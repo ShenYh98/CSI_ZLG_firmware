@@ -11,6 +11,8 @@ using json = nlohmann::json;
 
 using namespace NetWorkMiddleware;
 
+#include "code/webserver/HttpService.h"
+
 void parseJSONFile(const std::string& filename) {
     // 打开JSON文件
     std::ifstream file(filename);
@@ -26,17 +28,30 @@ void parseJSONFile(const std::string& filename) {
 }
 
 int main() {
-    NetworkService* websocketService = new WebSocketService();
-    NetWorkLayer* sendCommonInfo = new NetWorkLayerImp(websocketService);
+    // NetworkService* websocketService = new WebSocketService();
+    // NetWorkLayer* sendCommonInfo = new NetWorkLayerImp(websocketService);
+
+    // while (true) {
+    //     sendCommonInfo->operation(taskId::common);
+
+    //     std::this_thread::sleep_for(3s);
+    // }
+    
+    // delete(websocketService);
+    // delete(sendCommonInfo);
+
+    NetworkService* httpService = new HttpService("192.168.193.134");
+
+    std::string send_data = "send ok";
+    httpService->send(send_data);
 
     while (true) {
-        sendCommonInfo->operation(taskId::common);
-
-        std::this_thread::sleep_for(3s);
+        std::string data;
+        httpService->receive(data);
+        if (!data.empty()) {
+            std::cout << "从h5收到的消息：" << data << std::endl;
+        }
     }
-    
-    delete(websocketService);
-    delete(sendCommonInfo);
 
     return 0;
 }
