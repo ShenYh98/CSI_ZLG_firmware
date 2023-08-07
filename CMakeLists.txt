@@ -41,9 +41,6 @@ if(ARGUMENT)
 	)
 	# 链接库文件
 	target_link_libraries(${ARGUMENT} ${LIBRARIES})
-
-	find_package(Boost REQUIRED COMPONENTS system)
-	target_link_libraries(${ARGUMENT} PRIVATE Boost::system)
 	target_link_libraries(${ARGUMENT} PRIVATE pthread)
 else()
 	# 生成可执行文件
@@ -54,8 +51,5 @@ else()
 	)
 	# 链接库文件
 	target_link_libraries(csiexec ${LIBRARIES})
-
-	find_package(Boost REQUIRED COMPONENTS system)
-	target_link_libraries(csiexec PRIVATE Boost::system)
 	target_link_libraries(csiexec PRIVATE pthread)
 endif()

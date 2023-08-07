@@ -3,6 +3,11 @@
 using namespace NetWorkMiddleware;
 
 WebSocketService::WebSocketService() {
+    // 创建条件变量和互斥量
+    std::condition_variable cv;
+    std::mutex cv_m;
+    bool ready = false;
+
     // 在连接建立时将连接句柄添加到集合中
     echo_server.set_open_handler([&](connection_hdl hdl) {
         connections.insert(hdl);
@@ -22,8 +27,19 @@ WebSocketService::WebSocketService() {
 
     // 在构造函数中创建线程
     server_thread = std::thread([&]() {
+        {
+            std::lock_guard<std::mutex> lk(cv_m);
+            ready = true;
+        }
+        cv.notify_one();
+
         echo_server.run();
     });
+
+    {
+        std::unique_lock<std::mutex> lk(cv_m);
+        cv.wait(lk, [&] { return ready; });
+    }
 }
 
 WebSocketService::~WebSocketService() {

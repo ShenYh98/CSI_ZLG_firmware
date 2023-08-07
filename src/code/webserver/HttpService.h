@@ -8,7 +8,7 @@ namespace NetWorkMiddleware {
 
 class HttpService : public NetworkService {
 public:
-    HttpService(std::string httpPath);
+    HttpService(const std::string& httpPath, int port);
     ~HttpService();
 
     void receive(std::string& data) override;

@@ -3,10 +3,12 @@
 #include "NetWorkLayer.h"
 #include "NetworkService.h"
 
+#include "nlohmann/json.hpp"
+
 namespace NetWorkMiddleware {
     
 typedef enum {
-    common
+    GetPassWord
 } taskId;
 
 class NetWorkLayerImp : public NetWorkLayer {
@@ -15,12 +17,13 @@ public:
     NetWorkLayerImp(NetworkService* networkSrv);
     ~NetWorkLayerImp();
 
-    void operation(int taskId) override;
+    void operation() override;
 private:
     void receive(std::string& data) override;
     void send(std::string& data) override;
 
-    void sendCommonInfo();
+    int getPassWord(const std::string filename, const std::string recv_data);
+    int getTaskId(const std::string recv_data);
 
 private:
     NetworkService* _networkSrv;

@@ -40,18 +40,22 @@ int main() {
     // delete(websocketService);
     // delete(sendCommonInfo);
 
-    NetworkService* httpService = new HttpService("192.168.193.134");
+    std::string path = "192.168.1.136";
+    int port = 9000;
+    NetworkService* httpService = new HttpService(path, port);
 
-    std::string send_data = "send ok";
-    httpService->send(send_data);
+    NetWorkLayer* getPassWord = new NetWorkLayerImp(httpService);
+
+    // std::string send_data = "send ok";
+    // httpService->send(send_data);
 
     while (true) {
-        std::string data;
-        httpService->receive(data);
-        if (!data.empty()) {
-            std::cout << "从h5收到的消息：" << data << std::endl;
-        }
+        getPassWord->operation();
+        std::this_thread::sleep_for(3s);
     }
+
+    delete getPassWord;
+    delete httpService;
 
     return 0;
 }
