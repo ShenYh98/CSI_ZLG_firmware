@@ -40,7 +40,7 @@ int main() {
     // delete(websocketService);
     // delete(sendCommonInfo);
 
-    std::string path = "192.168.1.136";
+    std::string path = "192.168.193.134";
     int port = 9000;
     NetworkService* httpService = new HttpService(path, port);
 

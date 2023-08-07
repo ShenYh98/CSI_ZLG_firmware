@@ -29,25 +29,35 @@ void  NetWorkLayerImp::operation() {
 
     switch (taskId)
     {
-    case taskId::GetPassWord:
-        if ( 200 == getPassWord("config/csi_user.json", recv_data) ) {
-            std::string res = "用户密码正确";
-            this->send(res);
-        } else if ( 400 == getPassWord("config/csi_user.json", recv_data) ) {
-            std::string res = "请求错误";
-            this->send(res);
-        }
-        break;
-    
-    default:
-        break;
-    }
+        case taskId::GetPassWord: {
+            int result = getPassWord("config/csi_user.json", recv_data);
+            if ( 200 ==  result ) {
+                // 创建 JSON 对象
+                nlohmann::json jsonObject;
+                jsonObject["response"] = "ok";
+                jsonObject["errorCode"] = result;
 
-    {
-        std::lock_guard<std::mutex> lk(cv_m);
-        response_ready = true;
+                // 将 JSON 对象序列化为字符串
+                std::string jsonString = jsonObject.dump();
+
+                this->send(jsonString);
+            } else {
+                // 创建 JSON 对象
+                nlohmann::json jsonObject;
+                jsonObject["response"] = "ok";
+                jsonObject["errorCode"] = result;
+
+                // 将 JSON 对象序列化为字符串
+                std::string jsonString = jsonObject.dump();
+
+                this->send(jsonString);
+            }
+            break;
+        }
+        
+        default:
+            break;
     }
-    sem_post(&sem);
 }
 
 int NetWorkLayerImp::getPassWord(const std::string filename, const std::string recv_data) {

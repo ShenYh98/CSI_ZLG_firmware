@@ -5,15 +5,11 @@
 #include <set>
 
 #include <mutex>
-#include <semaphore.h>
+#include <condition_variable>
 
 #include "nlohmann/json.hpp"
 
 using json = nlohmann::json;
-
-static sem_t sem;
-static std::mutex cv_m;
-static bool response_ready = false;
 
 class NetworkService {
 public:

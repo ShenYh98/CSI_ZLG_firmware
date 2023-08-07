@@ -6,11 +6,9 @@ HttpService::HttpService(const std::string& httpPath, int port) {
     // 默认回复ok
     response_data = "ok";
 
-    sem_init(&sem, 0, 0);
-
     // 创建条件变量和互斥量
-    std::condition_variable cv;
-    std::mutex cv_m;
+    std::condition_variable http_cv;
+    std::mutex http_cv_m;
     bool ready = false;
 
     // 处理路径为 /api 的 POST 请求
@@ -24,17 +22,17 @@ HttpService::HttpService(const std::string& httpPath, int port) {
     // 在构造函数中创建线程,线程里必须完成监听，主函数才能执行
     server_thread = std::thread([&]() {
         {
-            std::lock_guard<std::mutex> lk(cv_m);
+            std::lock_guard<std::mutex> lk(http_cv_m);
             ready = true;
         }
-        cv.notify_one();
+        http_cv.notify_one();
         
         server.listen(httpPath, port);
     });
 
     {
-        std::unique_lock<std::mutex> lk(cv_m);
-        cv.wait(lk, [&] { return ready; });
+        std::unique_lock<std::mutex> lk(http_cv_m);
+        http_cv.wait(lk, [&] { return ready; });
     }
 }
 
@@ -43,9 +41,8 @@ HttpService::~HttpService() {
 }
 
 void HttpService::receive(std::string& data) {
-    printf("[receive]data:%s /recv_data:%s\n", data.c_str(), recv_data.c_str());
     data = recv_data;
-    // recv_data.clear(); // 收到消息后清掉，准备接收新消息
+    recv_data.clear(); // 收到消息后清掉，准备接收新消息
 }
 
 void HttpService::send(std::string& data) {
@@ -53,32 +50,86 @@ void HttpService::send(std::string& data) {
 }
 
 void HttpService::handle_request(const httplib::Request& req, httplib::Response& res) {
-    printf("[handle_request]req.body:%s /recv_data:%s\n", req.body.c_str(), recv_data.c_str());
+    printf("[handle_request]req.body:%s\n", req.body.c_str());
     // 处理接收到的消息，并返回响应给 H5
     if (req.method == "POST") {
         // 处理 H5 发来的请求
         recv_data = req.body;
     }
 
-    // 等待网络层完成操作
-    sem_wait(&sem);
+    int time = getResponseTime(recv_data);
 
-    // 根据网络层的操作结果设置响应数据
-    res.set_content(response_data, "text/plain");
+    // 回复等待（不同的请求不同等待，后期加入超时重传机制）
+    std::this_thread::sleep_for(std::chrono::seconds(time));
 
-    recv_data.clear();
+    printf("[handle_request]======================http接受回复======================\n");
+    printf("[handle_request]response_data：%s\n", response_data.c_str());
+    if (!response_data.empty()) {
+        int codeError = getCodeError(response_data);
+
+        // 返回响应给客户端
+        if (codeError == 200) {
+            res.status = codeError; // 设置响应状态码
+            // 设置响应头部
+            res.set_header("Content-Type", "application/json");
+            // 设置响应体
+            res.set_content(response_data, "application/json");
+        } else {
+            res.status = codeError; // 设置响应状态码
+            // 设置响应体
+            res.set_content(response_data, "text/plain");
+        }
+    }
     
-    // 返回响应给客户端
-    // if (name == http_name && password == http_password) {
-    //     printf("用户密码正确！\n");
-    //     res.status = 200; // 设置响应状态码
-    //     // 设置响应头部
-    //     res.set_header("Content-Type", "application/json");
-    //     // 设置响应体
-    //     res.set_content("用户密码正确", "application/json");
-    // } else {
-    //     res.status = 400; // 设置响应状态码
-    //     // 设置响应体
-    //     res.set_content("请求错误", "text/plain");
-    // }
+    response_data.clear();
+}
+
+int HttpService::getCodeError(const std::string response_data) {
+    // 解析JSON数据
+    json http_jsonData;
+    int http_codeError;
+    try {
+        http_jsonData = json::parse(response_data);
+
+        // 验证JSON数据的有效性
+        if (!http_jsonData.is_object()) {
+            throw std::runtime_error("Invalid JSON data: not an object");
+        }
+
+        // 获取字段的值
+        http_codeError = http_jsonData["errorCode"].get<int>();
+        printf("错误码:%d\n", http_codeError);
+
+    } catch(const std::exception& e) {
+        // Json解析错误
+        printf("Json解析错误\n");
+        return 0;
+    }
+
+    return http_codeError;
+}
+
+int HttpService::getResponseTime(const std::string recv_data) {
+    // 解析JSON数据
+    json http_jsonData;
+    int http_responseTime;
+    try {
+        http_jsonData = json::parse(recv_data);
+
+        // 验证JSON数据的有效性
+        if (!http_jsonData.is_object()) {
+            throw std::runtime_error("Invalid JSON data: not an object");
+        }
+
+        // 获取字段的值
+        http_responseTime = http_jsonData["responseTime"].get<int>();
+        printf("响应时间:%d\n", http_responseTime);
+
+    } catch(const std::exception& e) {
+        // Json解析错误
+        printf("Json解析错误\n");
+        return 0;
+    }
+
+    return http_responseTime;
 }

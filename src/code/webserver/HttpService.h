@@ -17,6 +17,8 @@ public:
 
 private:
     void handle_request(const httplib::Request& req, httplib::Response& res);
+    int getResponseTime(const std::string recv_data);
+    int getCodeError(const std::string response_data);
 
 private:
     httplib::Server server;
