@@ -4,6 +4,10 @@
 #include <string>
 #include <fstream>
 
+#include "../common/CommonLog.h"
+
+using namespace CommonLib;
+
 class NetWorkLayer {
 public:
     virtual void operation() = 0;

@@ -50,7 +50,7 @@ void HttpService::send(std::string& data) {
 }
 
 void HttpService::handle_request(const httplib::Request& req, httplib::Response& res) {
-    printf("[handle_request]req.body:%s\n", req.body.c_str());
+    LOG_DEBUG("[handle_request]req.body: {}\n", req.body.c_str());
     // 处理接收到的消息，并返回响应给 H5
     if (req.method == "POST") {
         // 处理 H5 发来的请求
@@ -62,8 +62,8 @@ void HttpService::handle_request(const httplib::Request& req, httplib::Response&
     // 回复等待（不同的请求不同等待，后期加入超时重传机制）
     std::this_thread::sleep_for(std::chrono::seconds(time));
 
-    printf("[handle_request]======================http接受回复======================\n");
-    printf("[handle_request]response_data：%s\n", response_data.c_str());
+    LOG_DEBUG("[handle_request]======================http接受回复======================\n");
+    LOG_DEBUG("[handle_request]response_data: {}\n", response_data.c_str());
     if (!response_data.empty()) {
         int codeError = getCodeError(response_data);
 
@@ -98,11 +98,11 @@ int HttpService::getCodeError(const std::string response_data) {
 
         // 获取字段的值
         http_codeError = http_jsonData["errorCode"].get<int>();
-        printf("错误码:%d\n", http_codeError);
+        LOG_ERROR("错误码: {}\n", http_codeError);
 
     } catch(const std::exception& e) {
         // Json解析错误
-        printf("Json解析错误\n");
+        LOG_ERROR("Json解析错误\n");
         return 0;
     }
 
@@ -123,11 +123,11 @@ int HttpService::getResponseTime(const std::string recv_data) {
 
         // 获取字段的值
         http_responseTime = http_jsonData["responseTime"].get<int>();
-        printf("响应时间:%d\n", http_responseTime);
-
+        LOG_DEBUG("响应时间:{}\n", http_responseTime);
+        
     } catch(const std::exception& e) {
         // Json解析错误
-        printf("Json解析错误\n");
+        LOG_ERROR("Json解析错误\n");
         return 0;
     }
 

@@ -48,7 +48,7 @@ WebSocketService::~WebSocketService() {
 
 void WebSocketService::receive(std::string& data) {
     data = message;
-    std::cout << "收到H5页面的消息: " << data << std::endl;
+    LOG_DEBUG("receive msg:{}\n", data);
 }
 
 void WebSocketService::send(std::string& data) {

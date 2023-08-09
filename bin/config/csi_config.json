@@ -1,5 +1,6 @@
 {
     "log_path" : "log/log.txt",
     "log_level" : 1,
-    "log_size" : 128
+    "log_size" : 128,
+    "log_num" : 2
 }

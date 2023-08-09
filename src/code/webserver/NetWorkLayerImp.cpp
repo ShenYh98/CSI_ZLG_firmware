@@ -67,12 +67,12 @@ int NetWorkLayerImp::getPassWord(const std::string filename, const std::string r
     std::ifstream file(filename);
     if (!file.is_open()) {
         // 文件打开失败，进行相应的处理
-        printf("文件打开失败\n");
+        LOG_ERROR("文件打开失败\n");
         return 0;
     } else {
         // 文件成功打开，继续读取文件内容
         std::string content((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
-        printf("Json解析：%s\n", content.c_str());
+        LOG_DEBUG("Json解析: {}\n", content.c_str());
 
         // 解析JSON数据
         json jsonData;
@@ -87,11 +87,11 @@ int NetWorkLayerImp::getPassWord(const std::string filename, const std::string r
             // 获取字段的值
             name = jsonData["username"].get<std::string>();
             password = jsonData["password"].get<int>();
-            printf("保存的用户名密码：%s/%d\n", name.c_str(), password);
+            LOG_DEBUG("保存的用户名密码：{}/{}\n", name.c_str(), password);
 
         } catch(const std::exception& e) {
             // Json解析错误
-            printf("Json解析错误\n");
+            LOG_ERROR("Json解析错误\n");
             return 0;
         }
 
@@ -113,17 +113,17 @@ int NetWorkLayerImp::getPassWord(const std::string filename, const std::string r
         // 获取字段的值
         http_name = http_jsonData["data"]["username"].get<std::string>();
         http_password = http_jsonData["data"]["password"].get<int>();
-        printf("http的用户名密码：%s/%d\n", http_name.c_str(), http_password);
+        LOG_DEBUG("http的用户名密码: {}/{}\n", http_name.c_str(), http_password);
 
     } catch(const std::exception& e) {
         // Json解析错误
-        printf("Json解析错误\n");
+        LOG_ERROR("Json解析错误\n");
         return 0;
     }
 
     // 返回响应给客户端
     if (name == http_name && password == http_password) {
-        printf("用户密码正确！\n");
+        LOG_ERROR("用户密码正确！\n");
         return 200; // 设置响应状态码
     } else {
         return 400;
@@ -146,11 +146,11 @@ int NetWorkLayerImp::getTaskId(const std::string recv_data) {
 
         // 获取字段的值
         http_taskid = http_jsonData["taskID"].get<int>();
-        printf("任务id:%d\n", http_taskid);
+        LOG_DEBUG("任务id: {}\n", http_taskid);
 
     } catch(const std::exception& e) {
         // Json解析错误
-        printf("Json解析错误\n");
+        LOG_ERROR("Json解析错误\n");
         return 0;
     }
 

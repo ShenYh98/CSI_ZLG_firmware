@@ -8,8 +8,10 @@
 #include <condition_variable>
 
 #include "nlohmann/json.hpp"
+#include "../common/CommonLog.h"
 
 using json = nlohmann::json;
+using namespace CommonLib;
 
 class NetworkService {
 public:
