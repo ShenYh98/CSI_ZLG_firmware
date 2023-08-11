@@ -13,10 +13,10 @@ CommonLog& CommonLog::createInstance() {
 }
 
 CommonLog::CommonLog() {
-    log_size = 0;
-    log_level = 0;
-    log_num = 0;
-    log_path.clear();
+}
+
+CommonLog::~CommonLog() {
+    spdlog::drop_all(); // 关闭并刷新所有日志记录器的缓冲区
 }
 
 void CommonLog::initLogParam(const std::string& path) {

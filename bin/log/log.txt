@@ -1,7 +1,10 @@
-[2023-08-08 22:38:39] [info] [main.cpp:46] hello world
-[2023-08-08 22:55:13] [info] [main.cpp:46] hello world
-[2023-08-08 22:55:14] [info] [main.cpp:46] hello world
-[2023-08-08 22:55:14] [info] [main.cpp:46] hello world
-[2023-08-08 22:55:15] [info] [main.cpp:46] hello world
-[2023-08-08 22:55:15] [info] [main.cpp:46] hello world
-[2023-08-08 22:55:16] [info] [main.cpp:46] hello world
+[2023-08-11 00:34:05] [info] hello world
+
+[2023-08-11 00:34:05] [error] hello world
+
+[2023-08-11 00:34:05] [warning] hello world
+
+[2023-08-11 00:34:05] [debug] hello world
+
+[2023-08-11 00:34:05] [critical] hello world
+

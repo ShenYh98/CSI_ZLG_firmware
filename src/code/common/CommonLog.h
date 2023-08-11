@@ -14,30 +14,36 @@ using json = nlohmann::json;
 #define LOG_INFO(msg, ...)                  \
     {                                  \
         COMMONLOG_INSTANCE.fileLogger->info(msg, ##__VA_ARGS__);    \
+        COMMONLOG_INSTANCE.fileLogger->flush();                     \
     }
 #define LOG_ERROR(msg, ...)                 \
     {                                  \
         COMMONLOG_INSTANCE.fileLogger->error(msg, ##__VA_ARGS__);    \
+        COMMONLOG_INSTANCE.fileLogger->flush();                     \
     }
 
 #define LOG_WARN(msg, ...)                  \
     {                                  \
         COMMONLOG_INSTANCE.fileLogger->warn(msg, ##__VA_ARGS__);    \
+        COMMONLOG_INSTANCE.fileLogger->flush();                     \
     }
 
 #define LOG_TRACE(msg, ...)                 \
     {                                  \
         COMMONLOG_INSTANCE.fileLogger->trace(msg, ##__VA_ARGS__);    \
+        COMMONLOG_INSTANCE.fileLogger->flush();                     \
     }
 
 #define LOG_DEBUG(msg, ...)                 \
     {                                  \
         COMMONLOG_INSTANCE.fileLogger->debug(msg, ##__VA_ARGS__);    \
+        COMMONLOG_INSTANCE.fileLogger->flush();                     \
     }
 
 #define LOG_CRITICAL(msg, ...)              \
     {                                  \
         COMMONLOG_INSTANCE.fileLogger->critical(msg, ##__VA_ARGS__);    \
+        COMMONLOG_INSTANCE.fileLogger->flush();                     \
     }
 
 // 宏定义在外部调用静态成员函数来创建实例
@@ -65,6 +71,7 @@ public:
 
 private:
     CommonLog();
+    ~CommonLog();
 
     static CommonLog& createInstance();
 

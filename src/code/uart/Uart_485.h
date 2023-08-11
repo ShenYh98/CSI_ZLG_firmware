@@ -4,12 +4,12 @@
 namespace UartMiddleware {
 
 typedef struct {
-    int baudrate; // 波特率
-    int databit;    // 数据为
-    std::string stopbit;  // 停止位
-    char parity;    // 奇偶性
-    int vtime;      // 最小字节
-    int vmin;       // 最迟响应时间
+    int baudrate;           // 波特率
+    int databit;            // 数据为
+    std::string stopbit;    // 停止位
+    char parity;            // 奇偶性
+    int vtime;              // 最小字节
+    int vmin;               // 最迟响应时间
 } UartParamInfo;
 
 typedef struct {
