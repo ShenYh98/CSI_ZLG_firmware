@@ -8,7 +8,11 @@
 namespace NetWorkMiddleware {
     
 typedef enum {
-    GetPassWord
+    GetPassWord,
+    DevTableSave,
+    ChannelTableSave,
+    GetDevTable,
+    GetChannelTable
 } taskId;
 
 class NetWorkLayerImp : public NetWorkLayer {
@@ -22,8 +26,11 @@ private:
     void receive(std::string& data) override;
     void send(std::string& data) override;
 
-    int getPassWord(const std::string filename, const std::string recv_data);
     int getTaskId(const std::string recv_data);
+    int getPassWord(const std::string filename, const std::string recv_data);
+    int devTableSave(const std::string filename, const std::string recv_data);
+    int channelTableSave(const std::string filename, const std::string recv_data);
+    int tableLoad(const std::string filename, std::string& data);
 
 private:
     NetworkService* _networkSrv;

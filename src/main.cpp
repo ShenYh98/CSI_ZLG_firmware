@@ -39,14 +39,14 @@ int main() {
     std::string path = "192.168.1.136";
     int port = 9000;
     NetworkService* httpService = new HttpService(path, port);
-    NetWorkLayer* getPassWord = new NetWorkLayerImp(httpService);
+    NetWorkLayer* httpWork = new NetWorkLayerImp(httpService);
 
     while (true) {
-        getPassWord->operation();
+        httpWork->operation();
         std::this_thread::sleep_for(3s);
     }
 
-    delete getPassWord;
+    delete httpWork;
     delete httpService;
     //============================================uart==========================================
     // UartAbstract* uart_485_1 = new Uart_485("");
