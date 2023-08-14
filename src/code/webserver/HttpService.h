@@ -22,9 +22,11 @@ private:
 
 private:
     httplib::Server server;
-    std::string recv_data;
     std::string response_data;
     std::thread server_thread;
+
+    std::queue<std::string> recv_queue;
+    bool isHandle;
 };
 
 }

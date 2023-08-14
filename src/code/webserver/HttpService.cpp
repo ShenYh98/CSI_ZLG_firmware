@@ -5,6 +5,7 @@ using namespace NetWorkMiddleware;
 HttpService::HttpService(const std::string& httpPath, int port) {
     // 默认回复ok
     response_data = "ok";
+    isHandle = false;
 
     // 创建条件变量和互斥量
     std::condition_variable http_cv;
@@ -16,6 +17,7 @@ HttpService::HttpService(const std::string& httpPath, int port) {
         res.set_header("Access-Control-Allow-Origin", "*");
         res.set_header("Access-Control-Allow-Methods", "*");
         res.set_header("Access-Control-Allow-Headers", "*");
+        recv_queue.push(req.body);
         handle_request(req, res);
     });
 
@@ -41,8 +43,14 @@ HttpService::~HttpService() {
 }
 
 void HttpService::receive(std::string& data) {
-    data = recv_data;
-    recv_data.clear(); // 收到消息后清掉，准备接收新消息
+    // data = recv_data;
+    // recv_data.clear(); // 收到消息后清掉，准备接收新消息
+    if (!recv_queue.empty() && isHandle == false) {
+        data = recv_queue.front();
+        isHandle = true;
+    } else {
+        data = "";
+    }
 }
 
 void HttpService::send(std::string& data) {
@@ -51,6 +59,8 @@ void HttpService::send(std::string& data) {
 
 void HttpService::handle_request(const httplib::Request& req, httplib::Response& res) {
     LOG_DEBUG("[handle_request]req.body: {}\n", req.body.c_str());
+    std::string recv_data;
+    
     // 处理接收到的消息，并返回响应给 H5
     if (req.method == "POST") {
         // 处理 H5 发来的请求
@@ -64,6 +74,10 @@ void HttpService::handle_request(const httplib::Request& req, httplib::Response&
 
     LOG_DEBUG("[handle_request]======================http接受回复======================\n");
     LOG_DEBUG("[handle_request]response_data: {}\n", response_data.c_str());
+
+    while(recv_queue.front() != recv_data && !recv_queue.empty()) {
+    }
+
     if (!response_data.empty()) {
         int codeError = getCodeError(response_data);
 
@@ -80,6 +94,9 @@ void HttpService::handle_request(const httplib::Request& req, httplib::Response&
             res.set_content(response_data, "text/plain");
         }
     }
+
+    isHandle == false;
+    recv_queue.pop();
     
     response_data.clear();
 }
