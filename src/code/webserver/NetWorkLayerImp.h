@@ -6,14 +6,6 @@
 #include "nlohmann/json.hpp"
 
 namespace NetWorkMiddleware {
-    
-typedef enum {
-    GetPassWord,
-    DevTableSave,
-    ChannelTableSave,
-    GetDevTable,
-    GetChannelTable
-} taskId;
 
 class NetWorkLayerImp : public NetWorkLayer {
 public:
@@ -22,6 +14,7 @@ public:
     ~NetWorkLayerImp();
 
     void operation() override;
+    void operation(RTtaskId rttaskId) override;
 private:
     void receive(std::string& data) override;
     void send(std::string& data) override;

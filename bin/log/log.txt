@@ -1,10 +1,116 @@
-[2023-08-11 00:34:05] [info] hello world
+[2023-08-18 00:13:42] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
 
-[2023-08-11 00:34:05] [error] hello world
+[2023-08-18 00:13:42] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
 
-[2023-08-11 00:34:05] [warning] hello world
+[2023-08-18 00:13:42] [debug] 任务id: 4
 
-[2023-08-11 00:34:05] [debug] hello world
+[2023-08-18 00:13:42] [debug] Json解析: 
 
-[2023-08-11 00:34:05] [critical] hello world
+[2023-08-18 00:13:42] [error] Json解析错误
+
+[2023-08-18 00:13:42] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-18 00:13:42] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-18 00:13:42] [error] 错误码: 0
+
+[2023-08-18 00:13:42] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-18 00:13:42] [debug] [handle_request]response_data: 
+
+[2023-08-18 00:44:24] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-18 00:44:24] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-18 00:44:24] [debug] 任务id: 3
+
+[2023-08-18 00:44:24] [debug] Json解析: 
+
+[2023-08-18 00:44:24] [error] Json解析错误
+
+[2023-08-18 00:44:24] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-18 00:44:24] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-18 00:44:24] [error] 错误码: 0
+
+[2023-08-18 00:44:24] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-18 00:44:24] [debug] [handle_request]response_data: 
+
+[2023-08-18 00:54:08] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-18 00:54:08] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-18 00:54:09] [debug] 任务id: 3
+
+[2023-08-18 00:54:09] [debug] Json解析: 
+
+[2023-08-18 00:54:09] [error] Json解析错误
+
+[2023-08-18 00:54:09] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-18 00:54:09] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-18 00:54:09] [error] 错误码: 0
+
+[2023-08-18 00:54:09] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-18 00:54:09] [debug] [handle_request]response_data: 
+
+[2023-08-18 00:56:32] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-18 00:56:32] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-18 00:56:33] [debug] 任务id: 3
+
+[2023-08-18 00:56:33] [debug] Json解析: 
+
+[2023-08-18 00:56:33] [error] Json解析错误
+
+[2023-08-18 00:56:33] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-18 00:56:33] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-18 00:56:33] [error] 错误码: 0
+
+[2023-08-18 00:56:35] [debug] 任务id: 4
+
+[2023-08-18 00:56:35] [debug] Json解析: 
+
+[2023-08-18 00:56:35] [error] Json解析错误
+
+[2023-08-18 00:56:35] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-18 00:56:35] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-18 00:56:35] [error] 错误码: 0
+
+[2023-08-18 00:58:07] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-18 00:58:07] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-18 00:58:09] [debug] 任务id: 3
+
+[2023-08-18 00:58:09] [debug] Json解析: 
+
+[2023-08-18 00:58:09] [error] Json解析错误
+
+[2023-08-18 00:58:09] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-18 00:58:09] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-18 00:58:09] [error] 错误码: 0
+
+[2023-08-18 00:58:11] [debug] 任务id: 4
+
+[2023-08-18 00:58:11] [debug] Json解析: 
+
+[2023-08-18 00:58:11] [error] Json解析错误
+
+[2023-08-18 00:58:11] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-18 00:58:11] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-18 00:58:11] [error] 错误码: 0
 

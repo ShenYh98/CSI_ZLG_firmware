@@ -166,6 +166,16 @@ void  NetWorkLayerImp::operation() {
     }
 }
 
+void NetWorkLayerImp::operation(RTtaskId rttaskId) {
+    switch (rttaskId) {
+        case RTtaskId::Yc : {
+            break;
+        }
+        default:
+            break;
+    }
+}
+
 int NetWorkLayerImp::getTaskId(const std::string recv_data) {
     // 解析JSON数据
     json http_jsonData;

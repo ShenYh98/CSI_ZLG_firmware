@@ -9,33 +9,23 @@
 #include "code/webserver/WebSocketService.h"
 #include "code/webserver/NetWorkLayerImp.h"
 #include "code/webserver/HttpService.h"
-#include "code/common/CommonLog.h"
+
 #include "code/uart/Uart_485.h"
 
+#include "code/common/CommonLog.h"
 #include "code/common/ThreadPool.h"
-
 #include "code/common/MessageQueue.hpp"
+
+#include "DataStructure.h"
 
 using namespace CommonLib;
 using namespace NetWorkMiddleware;
 using namespace UartMiddleware;
 
-int main() {
-    COMMONLOG_INIT("config/csi_config.json");
-    // =================================websocket======================================
-    // NetworkService* websocketService = new WebSocketService();
-    // NetWorkLayer* sendCommonInfo = new NetWorkLayerImp(websocketService);
+#define  TASK_MAX     12
+#define  TASK_MIN     5
 
-    // while (true) {
-    //     sendCommonInfo->operation(taskId::common);
-
-    //     std::this_thread::sleep_for(3s);
-    // }
-    
-    // delete(websocketService);
-    // delete(sendCommonInfo);
-
-    // ===================================http====================================
+void TaskHttp () {
     std::string path = "192.168.1.136";
     int port = 9000;
     NetworkService* httpService = new HttpService(path, port);
@@ -43,11 +33,48 @@ int main() {
 
     while (true) {
         httpWork->operation();
-        std::this_thread::sleep_for(3s);
+        std::this_thread::sleep_for(2s);
     }
 
     delete httpWork;
     delete httpService;
+}
+
+void TaskWebSocket() {
+    NetworkService* websocketService = new WebSocketService();
+    NetWorkLayer* websocketWork = new NetWorkLayerImp(websocketService);
+
+    s_RTtask rttask;
+
+    // 订阅实时监控任务
+    MessageQueue<s_RTtask>::getInstance().subscribe("websocket/task", [&](const s_RTtask& task) {
+        std::cout << "Received id: " << task.id << std::endl;
+        std::cout << "Received dev_sn: " << task.dev_sn << std::endl;
+        std::cout << "Received isOn: " << task.isOn << std::endl;
+
+        rttask = task;
+    });
+
+    while (true) {
+        if (rttask.isOn) { // 需要http下发启动指令，再去遥测
+            websocketWork->operation(rttask.id);
+        }
+        
+        std::this_thread::sleep_for(3s);
+    }
+    
+    delete(websocketService);
+    delete(websocketWork);
+}
+
+int main() {
+    COMMONLOG_INIT("config/csi_config.json");
+
+    // ThreadPool taskThreadPool(TASK_MIN, TASK_MAX);
+    // taskThreadPool.Add(TaskWebSocket);
+    // taskThreadPool.Add(TaskHttp);
+    TaskHttp();
+
     //============================================uart==========================================
     // UartAbstract* uart_485_1 = new Uart_485("");
     // std::string str = "hello world";
@@ -69,6 +96,9 @@ int main() {
     // MessageQueue<int>::getInstance().publish("topic", 3);
     // MessageQueue<int>::getInstance().publish("topic", 4);
     // MessageQueue<int>::getInstance().publish("topic", 5);
+
+    // while (true) {
+    // }
 
     return 0;
 }

@@ -5,7 +5,7 @@ using namespace NetWorkMiddleware;
 HttpService::HttpService(const std::string& httpPath, int port) {
     // 默认回复ok
     response_data = "ok";
-    isHandle = false;
+    lastQueueSize = 0;
 
     // 创建条件变量和互斥量
     std::condition_variable http_cv;
@@ -17,7 +17,12 @@ HttpService::HttpService(const std::string& httpPath, int port) {
         res.set_header("Access-Control-Allow-Origin", "*");
         res.set_header("Access-Control-Allow-Methods", "*");
         res.set_header("Access-Control-Allow-Headers", "*");
-        recv_queue.push(req.body);
+
+        {
+            std::lock_guard<std::mutex> lock(queue_mutex);
+            recv_queue.push(req.body);
+        }
+        
         handle_request(req, res);
     });
 
@@ -43,11 +48,13 @@ HttpService::~HttpService() {
 }
 
 void HttpService::receive(std::string& data) {
-    // data = recv_data;
-    // recv_data.clear(); // 收到消息后清掉，准备接收新消息
-    if (!recv_queue.empty() && isHandle == false) {
+    if (recv_queue.empty()) {
+        lastQueueSize = recv_queue.size();
+    }
+    int curQueueSize = recv_queue.size();
+    if (!recv_queue.empty() && curQueueSize != lastQueueSize) {
         data = recv_queue.front();
-        isHandle = true;
+        lastQueueSize = curQueueSize;
     } else {
         data = "";
     }
@@ -55,6 +62,7 @@ void HttpService::receive(std::string& data) {
 
 void HttpService::send(std::string& data) {
     response_data = data;
+    handle_cv.notify_all();
 }
 
 void HttpService::handle_request(const httplib::Request& req, httplib::Response& res) {
@@ -67,16 +75,16 @@ void HttpService::handle_request(const httplib::Request& req, httplib::Response&
         recv_data = req.body;
     }
 
-    int time = getResponseTime(recv_data);
-
-    // 回复等待（不同的请求不同等待，后期加入超时重传机制）
-    std::this_thread::sleep_for(std::chrono::seconds(time));
+    while(true) {
+        std::unique_lock<std::mutex> lck(handle_cv_m);
+        handle_cv.wait(lck);
+        if (recv_queue.front() == recv_data && !recv_queue.empty()) {
+            break;
+        }
+    }
 
     LOG_DEBUG("[handle_request]======================http接受回复======================\n");
     LOG_DEBUG("[handle_request]response_data: {}\n", response_data.c_str());
-
-    while(recv_queue.front() != recv_data && !recv_queue.empty()) {
-    }
 
     if (!response_data.empty()) {
         int codeError = getCodeError(response_data);
@@ -95,10 +103,12 @@ void HttpService::handle_request(const httplib::Request& req, httplib::Response&
         }
     }
 
-    isHandle == false;
-    recv_queue.pop();
-    
     response_data.clear();
+
+    {
+        std::lock_guard<std::mutex> lock(queue_mutex);
+        recv_queue.pop();
+    }
 }
 
 int HttpService::getCodeError(const std::string response_data) {

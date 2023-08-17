@@ -9,6 +9,8 @@
 #include "nlohmann/json.hpp"
 #include "../common/CommonLog.h"
 
+#include "../../DataStructure.h"
+
 using json = nlohmann::json;
 using namespace CommonLib;
 
