@@ -10,7 +10,7 @@
 #include "code/webserver/NetWorkLayerImp.h"
 #include "code/webserver/HttpService.h"
 
-#include "code/uart/Uart_485.h"
+#include "code/serial/Serial_485.h"
 
 #include "code/common/CommonLog.h"
 #include "code/common/ThreadPool.h"
@@ -20,7 +20,7 @@
 
 using namespace CommonLib;
 using namespace NetWorkMiddleware;
-using namespace UartMiddleware;
+using namespace SerialMiddleware;
 
 #define  TASK_MAX     12
 #define  TASK_MIN     5
@@ -75,13 +75,13 @@ int main() {
     // taskThreadPool.Add(TaskHttp);
     TaskHttp();
 
-    //============================================uart==========================================
-    // UartAbstract* uart_485_1 = new Uart_485("");
+    //============================================Serial==========================================
+    // SerialAbstract* Serial_485_1 = new Serial_485("");
     // std::string str = "hello world";
 
     // while (1)
     // {
-    //     uart_485_1->send(str.c_str());
+    //     Serial_485_1->send(str.c_str());
     //     std::this_thread::sleep_for(std::chrono::seconds(1));
     // }
 

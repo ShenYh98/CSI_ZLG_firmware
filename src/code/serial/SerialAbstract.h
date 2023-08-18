@@ -14,7 +14,7 @@
 using json = nlohmann::json;
 using namespace CommonLib;
 
-class UartAbstract {
+class SerialAbstract {
 public:
     virtual void receive(char* buf) = 0;
     virtual void send(const char* buf) = 0;

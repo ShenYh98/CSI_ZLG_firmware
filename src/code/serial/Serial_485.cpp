@@ -1,44 +1,44 @@
-#include "Uart_485.h"
+#include "Serial_485.h"
 
-using namespace UartMiddleware;
+using namespace SerialMiddleware;
 
-Uart_485::Uart_485(const std::string& jsonData) {
+Serial_485::Serial_485(const std::string& jsonData) {
     if ( json_get_param(jsonData) ) {
-        uartIdInfo.UartId = openDriver(uartIdInfo.UartName);
-        uartIdInfo.statu = 0;
-        set_port_attr(uartIdInfo.UartId, 
-                      uartIdInfo.uartParamInfo.baudrate,
-                      uartIdInfo.uartParamInfo.databit,
-                      uartIdInfo.uartParamInfo.stopbit.c_str(),
-                      uartIdInfo.uartParamInfo.parity,
-                      uartIdInfo.uartParamInfo.vtime,
-                      uartIdInfo.uartParamInfo.vmin);
+        serialIdInfo.SerialId = openDriver(serialIdInfo.SerialName);
+        serialIdInfo.statu = 0;
+        set_port_attr(serialIdInfo.SerialId, 
+                      serialIdInfo.serialParamInfo.baudrate,
+                      serialIdInfo.serialParamInfo.databit,
+                      serialIdInfo.serialParamInfo.stopbit.c_str(),
+                      serialIdInfo.serialParamInfo.parity,
+                      serialIdInfo.serialParamInfo.vtime,
+                      serialIdInfo.serialParamInfo.vmin);
     }
 }
 
-Uart_485::~Uart_485() {
+Serial_485::~Serial_485() {
 }
 
-void Uart_485::receive(char* buf) {
+void Serial_485::receive(char* buf) {
     int len;
-    len = read(uartIdInfo.UartId, buf, sizeof(buf));                    /* 在串口读入字符串 */
+    len = read(serialIdInfo.SerialId, buf, sizeof(buf));                    /* 在串口读入字符串 */
     if (len < 0) {
         LOG_ERROR("read error \n");
     }
     LOG_DEBUG("recv buf: {}\n", buf);
 }
-void Uart_485::send(const char* buf) {
+void Serial_485::send(const char* buf) {
     int len;
-    len = write(uartIdInfo.UartId, buf, sizeof(buf));  // 串口写入字符串
+    len = write(serialIdInfo.SerialId, buf, sizeof(buf));  // 串口写入字符串
     if (len < 0) {
         LOG_ERROR("write data error \n");
     }
 }
-int Uart_485::openDriver(const std::string& data) {
+int Serial_485::openDriver(const std::string& data) {
     int fd;
     fd = open(data.c_str(), O_RDWR | O_NOCTTY);
     if (fd < 0) { // 判断接口是否打开成功
-        LOG_ERROR("open uart device error\n");
+        LOG_ERROR("open Serial device error\n");
 
         return -1;
     }
@@ -46,11 +46,11 @@ int Uart_485::openDriver(const std::string& data) {
     return fd;
 }
 
-int Uart_485::json_get_param(const std::string& jsonData) {
+int Serial_485::json_get_param(const std::string& jsonData) {
     // 来自http的JSON数据
     /*---------------------
     {
-        "uartname" : "/dev/ttyRS485-1",
+        "Serialname" : "/dev/ttyRS485-1",
         "param" : {
             "baudrate" : B9600,
             "databit" : 8,
@@ -71,13 +71,13 @@ int Uart_485::json_get_param(const std::string& jsonData) {
         }
 
         // 获取字段的值
-        uartIdInfo.UartName = http_jsonData["uartname"].get<std::string>();
-        uartIdInfo.uartParamInfo.baudrate = http_jsonData["param"]["baudrate"].get<int>();
-        uartIdInfo.uartParamInfo.databit = http_jsonData["param"]["databit"].get<int>();
-        uartIdInfo.uartParamInfo.parity = http_jsonData["param"]["stopbit"].get<int>();
-        uartIdInfo.uartParamInfo.stopbit = http_jsonData["param"]["parity"].get<std::string>();
-        uartIdInfo.uartParamInfo.vmin = http_jsonData["param"]["vtime"].get<int>();
-        uartIdInfo.uartParamInfo.vtime = http_jsonData["param"]["vmin"].get<int>();
+        serialIdInfo.SerialName = http_jsonData["Serialname"].get<std::string>();
+        serialIdInfo.serialParamInfo.baudrate = http_jsonData["param"]["baudrate"].get<int>();
+        serialIdInfo.serialParamInfo.databit = http_jsonData["param"]["databit"].get<int>();
+        serialIdInfo.serialParamInfo.parity = http_jsonData["param"]["stopbit"].get<int>();
+        serialIdInfo.serialParamInfo.stopbit = http_jsonData["param"]["parity"].get<std::string>();
+        serialIdInfo.serialParamInfo.vmin = http_jsonData["param"]["vtime"].get<int>();
+        serialIdInfo.serialParamInfo.vtime = http_jsonData["param"]["vmin"].get<int>();
     } catch(const std::exception& e) {
         // Json解析错误
         LOG_ERROR("Json解析错误\n");
@@ -86,11 +86,11 @@ int Uart_485::json_get_param(const std::string& jsonData) {
     return 1;
 }
 
-void Uart_485::set_baudrate (struct termios *opt, unsigned int baudrate) {
+void Serial_485::set_baudrate (struct termios *opt, unsigned int baudrate) {
     cfsetispeed(opt, baudrate);
     cfsetospeed(opt, baudrate);
 }
-void Uart_485::set_data_bit (struct termios *opt, unsigned int databit) {
+void Serial_485::set_data_bit (struct termios *opt, unsigned int databit) {
     opt->c_cflag &= ~CSIZE;
     switch (databit) {
     case 8:
@@ -110,7 +110,7 @@ void Uart_485::set_data_bit (struct termios *opt, unsigned int databit) {
 break;
     }
 }
-void Uart_485::set_parity (struct termios *opt, char parity) {
+void Serial_485::set_parity (struct termios *opt, char parity) {
     switch (parity) {
     case 'N':                                              /* 无校验        */
 case 'n':
@@ -131,7 +131,7 @@ case 'o':
     break;
     }
 }
-void Uart_485::set_stopbit (struct termios *opt, const char *stopbit) {
+void Serial_485::set_stopbit (struct termios *opt, const char *stopbit) {
     if (0 == strcmp (stopbit, "1")) {
         opt->c_cflag &= ~CSTOPB;                            /* 1位停止位t         */
     }  else if (0 == strcmp (stopbit, "1.5")) {
@@ -142,7 +142,7 @@ void Uart_485::set_stopbit (struct termios *opt, const char *stopbit) {
         opt->c_cflag &= ~CSTOPB;                             /* 1 位停止位        */
     }
 }
-int  Uart_485::set_port_attr (int fd,int  baudrate, int  databit, const char *stopbit, char parity, int vtime,int vmin )
+int  Serial_485::set_port_attr (int fd,int  baudrate, int  databit, const char *stopbit, char parity, int vtime,int vmin )
 {
     struct termios opt;
     tcgetattr(fd, &opt);

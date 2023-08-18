@@ -1,12 +1,12 @@
 #pragma once
-#include "UartAbstract.h"
+#include "SerialAbstract.h"
 
-namespace UartMiddleware {
+namespace SerialMiddleware {
 
-class Uart_485 : public UartAbstract {
+class Serial_485 : public SerialAbstract {
 public:
-    Uart_485(const std::string& jsonData);
-    ~Uart_485();
+    Serial_485(const std::string& jsonData);
+    ~Serial_485();
 
     void receive(char* buf) override;
     void send(const char* buf) override;
@@ -22,7 +22,7 @@ private:
     void set_stopbit (struct termios *opt, const char *stopbit);
     int  set_port_attr (int fd,int  baudrate, int  databit, const char *stopbit, char parity, int vtime,int vmin );
 private:
-    UartIdInfo uartIdInfo;
+    SerialIdInfo serialIdInfo;
 };
 
 
