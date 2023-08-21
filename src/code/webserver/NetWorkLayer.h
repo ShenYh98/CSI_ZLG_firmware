@@ -4,6 +4,8 @@
 #include <string>
 #include <fstream>
 
+#include "nlohmann/json.hpp"
+
 #include "../common/CommonLog.h"
 #include "../common/MessageQueue.hpp"
 

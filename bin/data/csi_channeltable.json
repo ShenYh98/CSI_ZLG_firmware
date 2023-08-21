@@ -1,0 +1,17 @@
+{
+    "data": {
+        "table": [
+            {
+                "baudRate": "9600",
+                "dataBits": "6",
+                "parity": "none",
+                "port": "com1",
+                "portName": "1231",
+                "stopBits": "1"
+            }
+        ]
+    },
+    "responseTime": 1,
+    "taskID": 2,
+    "taskName": "ChannelTableSave"
+}

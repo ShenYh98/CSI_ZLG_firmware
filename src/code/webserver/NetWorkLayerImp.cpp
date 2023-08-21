@@ -161,6 +161,38 @@ void  NetWorkLayerImp::operation() {
             break;
         }
         
+        case taskId::AddDev: {
+            int result = addDev(recv_data);
+            if ( 200 ==  result ) {
+                // 创建 JSON 对象
+                nlohmann::json jsonObject;
+                jsonObject["response"] = "ok";
+                jsonObject["errorCode"] = result;
+
+                // 将 JSON 对象序列化为字符串
+                std::string jsonString = jsonObject.dump();
+
+                this->send(jsonString);
+            } else {
+                // 创建 JSON 对象
+                nlohmann::json jsonObject;
+                jsonObject["response"] = "ok";
+                jsonObject["errorCode"] = result;
+
+                // 将 JSON 对象序列化为字符串
+                std::string jsonString = jsonObject.dump();
+
+                this->send(jsonString);
+            }
+            break;
+        }
+        case taskId::EditDev: {
+            break;
+        }
+        case taskId::DelDev: {
+            break;
+        }
+        
         default:
             break;
     }
@@ -357,4 +389,61 @@ int NetWorkLayerImp::tableLoad(const std::string filename, std::string& data) {
     }
 
     return 200;
+}
+
+int NetWorkLayerImp::addDev(const std::string recv_data) {
+    // 解析JSON数据
+    json http_jsonData;
+    srv_DevInfo srv_devInfo;
+    try {
+        http_jsonData = json::parse(recv_data);
+
+        // 验证JSON数据的有效性
+        if (!http_jsonData.is_object()) {
+            throw std::runtime_error("Invalid JSON data: not an object");
+        }
+
+        // 获取字段的值
+        srv_devInfo.act = Action::Add;
+        srv_devInfo.devInfo.addr = std::stoi(http_jsonData["data"]["communicationAddress"].get<std::string>());
+        srv_devInfo.devInfo.category = http_jsonData["data"]["category"].get<std::string>();
+        srv_devInfo.devInfo.deviceStatus = std::stoi(http_jsonData["data"]["deviceStatus"].get<std::string>());
+        srv_devInfo.devInfo.devName = http_jsonData["data"]["name"].get<std::string>();
+        srv_devInfo.devInfo.model = http_jsonData["data"]["model"].get<std::string>();
+        srv_devInfo.devInfo.protocol = http_jsonData["data"]["protocol"].get<std::string>();
+        srv_devInfo.devInfo.serialInfo.name = http_jsonData["data"]["port"].get<std::string>();
+        srv_devInfo.devInfo.sn = http_jsonData["data"]["sn"].get<std::string>();
+
+        LOG_DEBUG("dev action: {}\n", srv_devInfo.act);
+        LOG_DEBUG("dev addr: {}\n", srv_devInfo.devInfo.addr);
+        LOG_DEBUG("dev category: {}\n", srv_devInfo.devInfo.category);
+        LOG_DEBUG("dev deviceStatus: {}\n", srv_devInfo.devInfo.deviceStatus);
+        LOG_DEBUG("dev devName: {}\n", srv_devInfo.devInfo.devName);
+        LOG_DEBUG("dev model: {}\n", srv_devInfo.devInfo.model);
+        LOG_DEBUG("dev protocol: {}\n", srv_devInfo.devInfo.protocol);
+        LOG_DEBUG("dev serialInfo: {}\n", srv_devInfo.devInfo.serialInfo.name);
+        LOG_DEBUG("dev sn: {}\n", srv_devInfo.devInfo.sn);
+    } catch(const std::exception& e) {
+        // Json解析错误
+        LOG_ERROR("Json解析错误\n");
+        return 0;
+    }
+
+    auto publish = ServiceQueue<srv_DevInfo, std::string>::getInstance().service_publish("devTable/addDev", srv_devInfo);
+    auto res = publish.get();
+    if (res == "ok") {
+        return 200;
+    } else {
+        return 0;
+    }
+
+    return 200;
+}
+
+int NetWorkLayerImp::editDev(const std::string recv_data) {
+
+}
+
+int NetWorkLayerImp::delDev(const std::string recv_data) {
+
 }

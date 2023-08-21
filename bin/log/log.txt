@@ -114,3 +114,1531 @@
 
 [2023-08-18 00:58:11] [error] 错误码: 0
 
+[2023-08-21 16:06:45] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-21 16:06:45] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-21 16:06:45] [debug] 任务id: 4
+
+[2023-08-21 16:06:45] [debug] Json解析: 
+
+[2023-08-21 16:06:45] [error] Json解析错误
+
+[2023-08-21 16:06:45] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:06:45] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-21 16:06:45] [error] 错误码: 0
+
+[2023-08-21 16:06:47] [debug] 任务id: 3
+
+[2023-08-21 16:06:47] [debug] Json解析: 
+
+[2023-08-21 16:06:47] [error] Json解析错误
+
+[2023-08-21 16:06:47] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:06:47] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-21 16:06:47] [error] 错误码: 0
+
+[2023-08-21 16:07:14] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-21 16:07:14] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-21 16:07:15] [debug] 任务id: 3
+
+[2023-08-21 16:07:15] [debug] Json解析: 
+
+[2023-08-21 16:07:15] [error] Json解析错误
+
+[2023-08-21 16:07:15] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:07:15] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-21 16:07:15] [error] 错误码: 0
+
+[2023-08-21 16:07:17] [debug] 任务id: 4
+
+[2023-08-21 16:07:17] [debug] Json解析: 
+
+[2023-08-21 16:07:17] [error] Json解析错误
+
+[2023-08-21 16:07:17] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:07:17] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-21 16:07:17] [error] 错误码: 0
+
+[2023-08-21 16:09:10] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-21 16:09:10] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-21 16:09:11] [debug] 任务id: 3
+
+[2023-08-21 16:09:11] [debug] Json解析: 
+
+[2023-08-21 16:09:11] [error] Json解析错误
+
+[2023-08-21 16:09:11] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:09:11] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-21 16:09:11] [error] 错误码: 0
+
+[2023-08-21 16:09:11] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:09:11] [debug] [handle_request]response_data: 
+
+[2023-08-21 16:10:38] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-21 16:10:38] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-21 16:10:40] [debug] 任务id: 4
+
+[2023-08-21 16:10:40] [debug] Json解析: 
+
+[2023-08-21 16:10:40] [error] Json解析错误
+
+[2023-08-21 16:10:40] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:10:40] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-21 16:10:40] [error] 错误码: 0
+
+[2023-08-21 16:10:42] [debug] 任务id: 3
+
+[2023-08-21 16:10:42] [debug] Json解析: 
+
+[2023-08-21 16:10:42] [error] Json解析错误
+
+[2023-08-21 16:10:42] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:10:42] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-21 16:10:42] [error] 错误码: 0
+
+[2023-08-21 16:11:06] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-21 16:11:06] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-21 16:11:06] [debug] 任务id: 3
+
+[2023-08-21 16:11:06] [debug] Json解析: 
+
+[2023-08-21 16:11:06] [error] Json解析错误
+
+[2023-08-21 16:11:06] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:11:06] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-21 16:11:06] [error] 错误码: 0
+
+[2023-08-21 16:11:06] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:11:06] [debug] [handle_request]response_data: 
+
+[2023-08-21 16:11:09] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-21 16:11:09] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-21 16:11:10] [debug] 任务id: 4
+
+[2023-08-21 16:11:10] [debug] Json解析: 
+
+[2023-08-21 16:11:10] [error] Json解析错误
+
+[2023-08-21 16:11:10] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:11:10] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-21 16:11:10] [error] 错误码: 0
+
+[2023-08-21 16:11:10] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:11:10] [debug] [handle_request]response_data: 
+
+[2023-08-21 16:11:11] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-21 16:11:11] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-21 16:11:18] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-21 16:11:18] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-21 16:11:19] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-21 16:11:19] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-21 16:11:20] [debug] 任务id: 3
+
+[2023-08-21 16:11:20] [debug] Json解析: 
+
+[2023-08-21 16:11:20] [error] Json解析错误
+
+[2023-08-21 16:11:20] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:11:20] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-21 16:11:20] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:11:20] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-21 16:11:20] [error] 错误码: 0
+
+[2023-08-21 16:11:20] [error] 错误码: 0
+
+[2023-08-21 16:11:21] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-21 16:11:21] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-21 16:11:23] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-21 16:11:23] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-21 16:11:24] [debug] 任务id: 4
+
+[2023-08-21 16:11:24] [debug] Json解析: 
+
+[2023-08-21 16:11:24] [error] Json解析错误
+
+[2023-08-21 16:11:24] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:11:24] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-21 16:11:24] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:11:24] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-21 16:11:24] [error] 错误码: 0
+
+[2023-08-21 16:11:24] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:11:24] [debug] [handle_request]response_data: 
+
+[2023-08-21 16:11:24] [error] 错误码: 0
+
+[2023-08-21 16:11:24] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-21 16:11:24] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-21 16:11:24] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:11:24] [debug] [handle_request]response_data: 
+
+[2023-08-21 16:11:26] [debug] 任务id: 3
+
+[2023-08-21 16:11:26] [debug] Json解析: 
+
+[2023-08-21 16:11:26] [error] Json解析错误
+
+[2023-08-21 16:11:26] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:11:26] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-21 16:11:26] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:11:26] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-21 16:11:26] [error] 错误码: 0
+
+[2023-08-21 16:11:26] [error] 错误码: 0
+
+[2023-08-21 16:11:28] [debug] 任务id: 3
+
+[2023-08-21 16:11:28] [debug] Json解析: 
+
+[2023-08-21 16:11:28] [error] Json解析错误
+
+[2023-08-21 16:12:35] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-21 16:12:35] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-21 16:12:35] [debug] 任务id: 4
+
+[2023-08-21 16:12:35] [debug] Json解析: 
+
+[2023-08-21 16:12:35] [error] Json解析错误
+
+[2023-08-21 16:12:35] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:12:35] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-21 16:12:35] [error] 错误码: 0
+
+[2023-08-21 16:12:37] [debug] 任务id: 3
+
+[2023-08-21 16:12:37] [debug] Json解析: 
+
+[2023-08-21 16:12:37] [error] Json解析错误
+
+[2023-08-21 16:12:37] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:12:37] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-21 16:12:37] [error] 错误码: 0
+
+[2023-08-21 16:12:38] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-21 16:12:38] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-21 16:12:39] [debug] 任务id: 3
+
+[2023-08-21 16:12:39] [debug] Json解析: 
+
+[2023-08-21 16:12:39] [error] Json解析错误
+
+[2023-08-21 16:12:39] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:12:39] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-21 16:12:39] [error] 错误码: 0
+
+[2023-08-21 16:12:41] [debug] 任务id: 4
+
+[2023-08-21 16:12:41] [debug] Json解析: 
+
+[2023-08-21 16:12:41] [error] Json解析错误
+
+[2023-08-21 16:12:41] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:12:41] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-21 16:12:41] [error] 错误码: 0
+
+[2023-08-21 16:12:41] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-21 16:12:41] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-21 16:12:43] [debug] 任务id: 3
+
+[2023-08-21 16:12:43] [debug] Json解析: 
+
+[2023-08-21 16:12:43] [error] Json解析错误
+
+[2023-08-21 16:12:43] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:12:43] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-21 16:12:43] [error] 错误码: 0
+
+[2023-08-21 16:12:45] [debug] 任务id: 4
+
+[2023-08-21 16:12:45] [debug] Json解析: 
+
+[2023-08-21 16:12:45] [error] Json解析错误
+
+[2023-08-21 16:12:45] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:12:45] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-21 16:12:45] [error] 错误码: 0
+
+[2023-08-21 16:13:45] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-21 16:13:45] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-21 16:13:46] [debug] 任务id: 3
+
+[2023-08-21 16:13:46] [debug] Json解析: 
+
+[2023-08-21 16:13:46] [error] Json解析错误
+
+[2023-08-21 16:13:46] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:13:46] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-21 16:13:46] [error] 错误码: 0
+
+[2023-08-21 16:13:46] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:13:46] [debug] [handle_request]response_data: 
+
+[2023-08-21 16:14:01] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-21 16:14:01] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-21 16:14:02] [debug] 任务id: 3
+
+[2023-08-21 16:14:02] [debug] Json解析: 
+
+[2023-08-21 16:14:02] [error] Json解析错误
+
+[2023-08-21 16:14:02] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:14:02] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-21 16:14:02] [error] 错误码: 0
+
+[2023-08-21 16:14:02] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:14:02] [debug] [handle_request]response_data: 
+
+[2023-08-21 16:15:02] [debug] [handle_request]req.body: {"taskID":2,"taskName":"ChannelTableSave","responseTime":1,"data":{"table":[{"portName":"1231","port":"com1","baudRate":"9600","dataBits":"6","stopBits":"1","parity":"none"}]}}
+
+[2023-08-21 16:15:02] [debug] 任务id: 2
+
+[2023-08-21 16:15:02] [debug] Json解析正确！
+
+[2023-08-21 16:15:02] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:15:02] [debug] [handle_request]response_data: {"errorCode":200,"response":"ok"}
+
+[2023-08-21 16:15:02] [error] 错误码: 200
+
+[2023-08-21 16:15:15] [debug] [handle_request]req.body: {"taskID":5,"taskName":"DevSave","responseTime":1,"data":{"name":"234234","port":"1231","protocol":"modbus","communicationAddress":"123","category":"pcs","model":"23423","sn":"123412","deviceStatus":"23423"}}
+
+[2023-08-21 16:15:16] [debug] 任务id: 5
+
+[2023-08-21 16:15:16] [debug] dev action: 0
+
+[2023-08-21 16:15:16] [debug] dev addr: 123
+
+[2023-08-21 16:15:16] [debug] dev category: pcs
+
+[2023-08-21 16:15:16] [debug] dev deviceStatus: 23423
+
+[2023-08-21 16:15:16] [debug] dev devName: 234234
+
+[2023-08-21 16:15:16] [debug] dev model: 23423
+
+[2023-08-21 16:15:16] [debug] dev protocol: modbus
+
+[2023-08-21 16:15:16] [debug] dev serialInfo: �
+
+[2023-08-21 16:15:16] [debug] dev sn: 1231
+
+[2023-08-21 16:17:07] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-21 16:17:07] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-21 16:17:08] [debug] 任务id: 3
+
+[2023-08-21 16:17:08] [debug] Json解析: 
+
+[2023-08-21 16:17:08] [error] Json解析错误
+
+[2023-08-21 16:17:08] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:17:08] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-21 16:17:08] [error] 错误码: 0
+
+[2023-08-21 16:17:10] [debug] 任务id: 4
+
+[2023-08-21 16:17:10] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "baudRate": "9600",
+                "dataBits": "6",
+                "parity": "none",
+                "port": "com1",
+                "portName": "1231",
+                "stopBits": "1"
+            }
+        ]
+    },
+    "responseTime": 1,
+    "taskID": 2,
+    "taskName": "ChannelTableSave"
+}
+
+
+[2023-08-21 16:17:10] [debug] Json解析正确！
+
+[2023-08-21 16:17:10] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:17:10] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"baudRate\": \"9600\",\n                \"dataBits\": \"6\",\n                \"parity\": \"none\",\n                \"port\": \"com1\",\n                \"portName\": \"1231\",\n                \"stopBits\": \"1\"\n            }\n        ]\n    },\n    \"responseTime\": 1,\n    \"taskID\": 2,\n    \"taskName\": \"ChannelTableSave\"\n}\n","errorCode":200,"response":"ok"}
+
+[2023-08-21 16:17:10] [error] 错误码: 200
+
+[2023-08-21 16:17:44] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-21 16:17:44] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-21 16:17:45] [debug] 任务id: 3
+
+[2023-08-21 16:17:45] [debug] Json解析: 
+
+[2023-08-21 16:17:45] [error] Json解析错误
+
+[2023-08-21 16:17:45] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:17:45] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-21 16:17:45] [error] 错误码: 0
+
+[2023-08-21 16:17:47] [debug] 任务id: 4
+
+[2023-08-21 16:17:47] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "baudRate": "9600",
+                "dataBits": "6",
+                "parity": "none",
+                "port": "com1",
+                "portName": "1231",
+                "stopBits": "1"
+            }
+        ]
+    },
+    "responseTime": 1,
+    "taskID": 2,
+    "taskName": "ChannelTableSave"
+}
+
+
+[2023-08-21 16:17:47] [debug] Json解析正确！
+
+[2023-08-21 16:17:47] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:17:47] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"baudRate\": \"9600\",\n                \"dataBits\": \"6\",\n                \"parity\": \"none\",\n                \"port\": \"com1\",\n                \"portName\": \"1231\",\n                \"stopBits\": \"1\"\n            }\n        ]\n    },\n    \"responseTime\": 1,\n    \"taskID\": 2,\n    \"taskName\": \"ChannelTableSave\"\n}\n","errorCode":200,"response":"ok"}
+
+[2023-08-21 16:17:47] [error] 错误码: 200
+
+[2023-08-21 16:18:14] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-21 16:18:14] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-21 16:18:15] [debug] 任务id: 3
+
+[2023-08-21 16:18:15] [debug] Json解析: 
+
+[2023-08-21 16:18:15] [error] Json解析错误
+
+[2023-08-21 16:18:15] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:18:15] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-21 16:18:15] [error] 错误码: 0
+
+[2023-08-21 16:18:17] [debug] 任务id: 4
+
+[2023-08-21 16:18:17] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "baudRate": "9600",
+                "dataBits": "6",
+                "parity": "none",
+                "port": "com1",
+                "portName": "1231",
+                "stopBits": "1"
+            }
+        ]
+    },
+    "responseTime": 1,
+    "taskID": 2,
+    "taskName": "ChannelTableSave"
+}
+
+
+[2023-08-21 16:18:17] [debug] Json解析正确！
+
+[2023-08-21 16:18:17] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:18:17] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"baudRate\": \"9600\",\n                \"dataBits\": \"6\",\n                \"parity\": \"none\",\n                \"port\": \"com1\",\n                \"portName\": \"1231\",\n                \"stopBits\": \"1\"\n            }\n        ]\n    },\n    \"responseTime\": 1,\n    \"taskID\": 2,\n    \"taskName\": \"ChannelTableSave\"\n}\n","errorCode":200,"response":"ok"}
+
+[2023-08-21 16:18:17] [error] 错误码: 200
+
+[2023-08-21 16:18:56] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-21 16:18:56] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-21 16:18:57] [debug] 任务id: 3
+
+[2023-08-21 16:18:57] [debug] Json解析: 
+
+[2023-08-21 16:18:57] [error] Json解析错误
+
+[2023-08-21 16:18:57] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:18:57] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-21 16:18:57] [error] 错误码: 0
+
+[2023-08-21 16:18:59] [debug] 任务id: 4
+
+[2023-08-21 16:18:59] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "baudRate": "9600",
+                "dataBits": "6",
+                "parity": "none",
+                "port": "com1",
+                "portName": "1231",
+                "stopBits": "1"
+            }
+        ]
+    },
+    "responseTime": 1,
+    "taskID": 2,
+    "taskName": "ChannelTableSave"
+}
+
+
+[2023-08-21 16:18:59] [debug] Json解析正确！
+
+[2023-08-21 16:18:59] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:18:59] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"baudRate\": \"9600\",\n                \"dataBits\": \"6\",\n                \"parity\": \"none\",\n                \"port\": \"com1\",\n                \"portName\": \"1231\",\n                \"stopBits\": \"1\"\n            }\n        ]\n    },\n    \"responseTime\": 1,\n    \"taskID\": 2,\n    \"taskName\": \"ChannelTableSave\"\n}\n","errorCode":200,"response":"ok"}
+
+[2023-08-21 16:18:59] [error] 错误码: 200
+
+[2023-08-21 16:21:46] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-21 16:21:46] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-21 16:21:47] [debug] 任务id: 3
+
+[2023-08-21 16:21:47] [debug] Json解析: 
+
+[2023-08-21 16:21:47] [error] Json解析错误
+
+[2023-08-21 16:21:47] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:21:47] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-21 16:21:47] [error] 错误码: 0
+
+[2023-08-21 16:21:49] [debug] 任务id: 4
+
+[2023-08-21 16:21:49] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "baudRate": "9600",
+                "dataBits": "6",
+                "parity": "none",
+                "port": "com1",
+                "portName": "1231",
+                "stopBits": "1"
+            }
+        ]
+    },
+    "responseTime": 1,
+    "taskID": 2,
+    "taskName": "ChannelTableSave"
+}
+
+
+[2023-08-21 16:21:49] [debug] Json解析正确！
+
+[2023-08-21 16:21:49] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:21:49] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"baudRate\": \"9600\",\n                \"dataBits\": \"6\",\n                \"parity\": \"none\",\n                \"port\": \"com1\",\n                \"portName\": \"1231\",\n                \"stopBits\": \"1\"\n            }\n        ]\n    },\n    \"responseTime\": 1,\n    \"taskID\": 2,\n    \"taskName\": \"ChannelTableSave\"\n}\n","errorCode":200,"response":"ok"}
+
+[2023-08-21 16:21:49] [error] 错误码: 200
+
+[2023-08-21 16:21:50] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-21 16:21:50] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-21 16:21:51] [debug] 任务id: 3
+
+[2023-08-21 16:21:51] [debug] Json解析: 
+
+[2023-08-21 16:21:51] [error] Json解析错误
+
+[2023-08-21 16:21:51] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:21:51] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-21 16:21:51] [error] 错误码: 0
+
+[2023-08-21 16:21:53] [debug] 任务id: 4
+
+[2023-08-21 16:21:53] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "baudRate": "9600",
+                "dataBits": "6",
+                "parity": "none",
+                "port": "com1",
+                "portName": "1231",
+                "stopBits": "1"
+            }
+        ]
+    },
+    "responseTime": 1,
+    "taskID": 2,
+    "taskName": "ChannelTableSave"
+}
+
+
+[2023-08-21 16:21:53] [debug] Json解析正确！
+
+[2023-08-21 16:21:53] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:21:53] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"baudRate\": \"9600\",\n                \"dataBits\": \"6\",\n                \"parity\": \"none\",\n                \"port\": \"com1\",\n                \"portName\": \"1231\",\n                \"stopBits\": \"1\"\n            }\n        ]\n    },\n    \"responseTime\": 1,\n    \"taskID\": 2,\n    \"taskName\": \"ChannelTableSave\"\n}\n","errorCode":200,"response":"ok"}
+
+[2023-08-21 16:21:53] [error] 错误码: 200
+
+[2023-08-21 16:22:25] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-21 16:22:25] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-21 16:22:27] [debug] 任务id: 3
+
+[2023-08-21 16:22:27] [debug] Json解析: 
+
+[2023-08-21 16:22:27] [error] Json解析错误
+
+[2023-08-21 16:22:27] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:22:27] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-21 16:22:27] [error] 错误码: 0
+
+[2023-08-21 16:22:29] [debug] 任务id: 4
+
+[2023-08-21 16:22:29] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "baudRate": "9600",
+                "dataBits": "6",
+                "parity": "none",
+                "port": "com1",
+                "portName": "1231",
+                "stopBits": "1"
+            }
+        ]
+    },
+    "responseTime": 1,
+    "taskID": 2,
+    "taskName": "ChannelTableSave"
+}
+
+
+[2023-08-21 16:22:29] [debug] Json解析正确！
+
+[2023-08-21 16:22:29] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:22:29] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"baudRate\": \"9600\",\n                \"dataBits\": \"6\",\n                \"parity\": \"none\",\n                \"port\": \"com1\",\n                \"portName\": \"1231\",\n                \"stopBits\": \"1\"\n            }\n        ]\n    },\n    \"responseTime\": 1,\n    \"taskID\": 2,\n    \"taskName\": \"ChannelTableSave\"\n}\n","errorCode":200,"response":"ok"}
+
+[2023-08-21 16:22:29] [error] 错误码: 200
+
+[2023-08-21 16:23:23] [debug] [handle_request]req.body: {"taskID":5,"taskName":"DevSave","responseTime":1,"data":{"name":"123232","port":"1231","protocol":"modbus","communicationAddress":"231","category":"pcs","model":"234234","sn":"123412","deviceStatus":"23423"}}
+
+[2023-08-21 16:23:25] [debug] 任务id: 5
+
+[2023-08-21 16:23:25] [debug] dev action: 0
+
+[2023-08-21 16:23:25] [debug] dev addr: 231
+
+[2023-08-21 16:23:25] [debug] dev category: pcs
+
+[2023-08-21 16:23:25] [debug] dev deviceStatus: 23423
+
+[2023-08-21 16:23:25] [debug] dev devName: 123232
+
+[2023-08-21 16:23:25] [debug] dev model: 234234
+
+[2023-08-21 16:23:25] [debug] dev protocol: modbus
+
+[2023-08-21 16:23:25] [debug] dev serialInfo: �
+
+[2023-08-21 16:23:25] [debug] dev sn: 1231
+
+[2023-08-21 16:23:54] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-21 16:23:54] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-21 16:23:55] [debug] 任务id: 3
+
+[2023-08-21 16:23:55] [debug] Json解析: 
+
+[2023-08-21 16:23:55] [error] Json解析错误
+
+[2023-08-21 16:23:55] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:23:55] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-21 16:23:55] [error] 错误码: 0
+
+[2023-08-21 16:23:57] [debug] 任务id: 4
+
+[2023-08-21 16:23:57] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "baudRate": "9600",
+                "dataBits": "6",
+                "parity": "none",
+                "port": "com1",
+                "portName": "1231",
+                "stopBits": "1"
+            }
+        ]
+    },
+    "responseTime": 1,
+    "taskID": 2,
+    "taskName": "ChannelTableSave"
+}
+
+
+[2023-08-21 16:23:57] [debug] Json解析正确！
+
+[2023-08-21 16:23:57] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:23:57] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"baudRate\": \"9600\",\n                \"dataBits\": \"6\",\n                \"parity\": \"none\",\n                \"port\": \"com1\",\n                \"portName\": \"1231\",\n                \"stopBits\": \"1\"\n            }\n        ]\n    },\n    \"responseTime\": 1,\n    \"taskID\": 2,\n    \"taskName\": \"ChannelTableSave\"\n}\n","errorCode":200,"response":"ok"}
+
+[2023-08-21 16:23:57] [error] 错误码: 200
+
+[2023-08-21 16:24:08] [debug] [handle_request]req.body: {"taskID":5,"taskName":"DevSave","responseTime":1,"data":{"name":"21232","port":"1231","protocol":"modbus","communicationAddress":"2342","category":"pcs","model":"12342","sn":"3423","deviceStatus":"1234"}}
+
+[2023-08-21 16:24:09] [debug] 任务id: 5
+
+[2023-08-21 16:24:09] [debug] dev action: 0
+
+[2023-08-21 16:24:09] [debug] dev addr: 2342
+
+[2023-08-21 16:24:09] [debug] dev category: pcs
+
+[2023-08-21 16:24:09] [debug] dev deviceStatus: 1234
+
+[2023-08-21 16:24:09] [debug] dev devName: 21232
+
+[2023-08-21 16:24:09] [debug] dev model: 12342
+
+[2023-08-21 16:24:09] [debug] dev protocol: modbus
+
+[2023-08-21 16:24:09] [debug] dev serialInfo: �
+
+[2023-08-21 16:24:09] [debug] dev sn: 1231
+
+[2023-08-21 16:30:37] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-21 16:30:37] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-21 16:30:37] [debug] 任务id: 3
+
+[2023-08-21 16:30:37] [debug] Json解析: 
+
+[2023-08-21 16:30:37] [error] Json解析错误
+
+[2023-08-21 16:30:37] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:30:37] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-21 16:30:37] [error] 错误码: 0
+
+[2023-08-21 16:30:37] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:30:37] [debug] [handle_request]response_data: 
+
+[2023-08-21 16:30:41] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-21 16:30:41] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-21 16:30:43] [debug] 任务id: 3
+
+[2023-08-21 16:30:43] [debug] Json解析: 
+
+[2023-08-21 16:30:43] [error] Json解析错误
+
+[2023-08-21 16:30:43] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:30:43] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-21 16:30:43] [error] 错误码: 0
+
+[2023-08-21 16:30:45] [debug] 任务id: 4
+
+[2023-08-21 16:30:45] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "baudRate": "9600",
+                "dataBits": "6",
+                "parity": "none",
+                "port": "com1",
+                "portName": "1231",
+                "stopBits": "1"
+            }
+        ]
+    },
+    "responseTime": 1,
+    "taskID": 2,
+    "taskName": "ChannelTableSave"
+}
+
+
+[2023-08-21 16:30:45] [debug] Json解析正确！
+
+[2023-08-21 16:30:45] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:30:45] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"baudRate\": \"9600\",\n                \"dataBits\": \"6\",\n                \"parity\": \"none\",\n                \"port\": \"com1\",\n                \"portName\": \"1231\",\n                \"stopBits\": \"1\"\n            }\n        ]\n    },\n    \"responseTime\": 1,\n    \"taskID\": 2,\n    \"taskName\": \"ChannelTableSave\"\n}\n","errorCode":200,"response":"ok"}
+
+[2023-08-21 16:30:45] [error] 错误码: 200
+
+[2023-08-21 16:31:01] [debug] [handle_request]req.body: {"taskID":5,"taskName":"DevSave","responseTime":1,"data":{"name":"12123","port":"1231","protocol":"modbus","communicationAddress":"231","category":"pcs","model":"123","sn":"23423","deviceStatus":"2121"}}
+
+[2023-08-21 16:31:01] [debug] 任务id: 5
+
+[2023-08-21 16:31:01] [debug] dev action: 0
+
+[2023-08-21 16:31:01] [debug] dev addr: 231
+
+[2023-08-21 16:31:01] [debug] dev category: pcs
+
+[2023-08-21 16:31:01] [debug] dev deviceStatus: 2121
+
+[2023-08-21 16:31:01] [debug] dev devName: 12123
+
+[2023-08-21 16:31:01] [debug] dev model: 123
+
+[2023-08-21 16:31:01] [debug] dev protocol: modbus
+
+[2023-08-21 16:31:01] [debug] dev serialInfo: �
+
+[2023-08-21 16:31:01] [debug] dev sn: 1231
+
+[2023-08-21 16:31:02] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 16:31:02] [debug] [handle_request]response_data: {"errorCode":200,"response":"ok"}
+
+[2023-08-21 16:31:02] [error] 错误码: 200
+
+[2023-08-21 17:14:21] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-21 17:14:21] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-21 17:14:21] [debug] 任务id: 3
+
+[2023-08-21 17:14:21] [debug] Json解析: 
+
+[2023-08-21 17:14:21] [error] Json解析错误
+
+[2023-08-21 17:14:21] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 17:14:21] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-21 17:14:21] [error] 错误码: 0
+
+[2023-08-21 17:14:23] [debug] 任务id: 4
+
+[2023-08-21 17:14:23] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "baudRate": "9600",
+                "dataBits": "6",
+                "parity": "none",
+                "port": "com1",
+                "portName": "1231",
+                "stopBits": "1"
+            }
+        ]
+    },
+    "responseTime": 1,
+    "taskID": 2,
+    "taskName": "ChannelTableSave"
+}
+
+
+[2023-08-21 17:14:23] [debug] Json解析正确！
+
+[2023-08-21 17:14:23] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 17:14:23] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"baudRate\": \"9600\",\n                \"dataBits\": \"6\",\n                \"parity\": \"none\",\n                \"port\": \"com1\",\n                \"portName\": \"1231\",\n                \"stopBits\": \"1\"\n            }\n        ]\n    },\n    \"responseTime\": 1,\n    \"taskID\": 2,\n    \"taskName\": \"ChannelTableSave\"\n}\n","errorCode":200,"response":"ok"}
+
+[2023-08-21 17:14:23] [error] 错误码: 200
+
+[2023-08-21 17:14:42] [debug] [handle_request]req.body: {"taskID":5,"taskName":"DevSave","responseTime":1,"data":{"name":"1","port":"1231","protocol":"modbus","communicationAddress":"2324","category":"pcs","model":"1241","sn":"234","deviceStatus":"12341"}}
+
+[2023-08-21 17:14:43] [debug] 任务id: 5
+
+[2023-08-21 17:14:43] [debug] dev action: 0
+
+[2023-08-21 17:14:43] [debug] dev addr: 2324
+
+[2023-08-21 17:14:43] [debug] dev category: pcs
+
+[2023-08-21 17:14:43] [debug] dev deviceStatus: 12341
+
+[2023-08-21 17:14:43] [debug] dev devName: 1
+
+[2023-08-21 17:14:43] [debug] dev model: 1241
+
+[2023-08-21 17:14:43] [debug] dev protocol: modbus
+
+[2023-08-21 17:14:43] [debug] dev serialInfo: �
+
+[2023-08-21 17:14:43] [debug] dev sn: 1231
+
+[2023-08-21 17:14:43] [debug] msg action: 0
+
+[2023-08-21 17:14:43] [debug] msg addr: 2324
+
+[2023-08-21 17:14:43] [debug] msg category: pcs
+
+[2023-08-21 17:14:43] [debug] msg deviceStatus: 12341
+
+[2023-08-21 17:14:43] [debug] msg devName: 1
+
+[2023-08-21 17:14:43] [debug] msg model: 1241
+
+[2023-08-21 17:14:43] [debug] msg protocol: modbus
+
+[2023-08-21 17:14:43] [debug] msg serialInfo: �
+
+[2023-08-21 17:14:43] [debug] msg sn: 1231
+
+[2023-08-21 17:14:43] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 17:14:43] [debug] [handle_request]response_data: {"errorCode":200,"response":"ok"}
+
+[2023-08-21 17:14:43] [error] 错误码: 200
+
+[2023-08-21 17:21:24] [debug] [handle_request]req.body: {"taskID":5,"taskName":"DevSave","responseTime":1,"data":{"name":"2","port":"1231","protocol":"modbus","communicationAddress":"23424","category":"pcs","model":"1234","sn":"2342","deviceStatus":"123"}}
+
+[2023-08-21 17:21:26] [debug] 任务id: 5
+
+[2023-08-21 17:21:26] [debug] dev action: 0
+
+[2023-08-21 17:21:26] [debug] dev addr: 23424
+
+[2023-08-21 17:21:26] [debug] dev category: pcs
+
+[2023-08-21 17:21:26] [debug] dev deviceStatus: 123
+
+[2023-08-21 17:21:26] [debug] dev devName: 2
+
+[2023-08-21 17:21:26] [debug] dev model: 1234
+
+[2023-08-21 17:21:26] [debug] dev protocol: modbus
+
+[2023-08-21 17:21:26] [debug] dev serialInfo: �
+
+[2023-08-21 17:21:26] [debug] dev sn: 1231
+
+[2023-08-21 17:21:26] [debug] msg action: 0
+
+[2023-08-21 17:21:26] [debug] msg addr: 23424
+
+[2023-08-21 17:21:26] [debug] msg category: pcs
+
+[2023-08-21 17:21:26] [debug] msg deviceStatus: 123
+
+[2023-08-21 17:21:26] [debug] msg devName: 2
+
+[2023-08-21 17:21:26] [debug] msg model: 1234
+
+[2023-08-21 17:21:26] [debug] msg protocol: modbus
+
+[2023-08-21 17:21:26] [debug] msg serialInfo: �
+
+[2023-08-21 17:21:26] [debug] msg sn: 1231
+
+[2023-08-21 17:21:26] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 17:21:26] [debug] [handle_request]response_data: {"errorCode":200,"response":"ok"}
+
+[2023-08-21 17:21:26] [error] 错误码: 200
+
+[2023-08-21 19:03:54] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-21 19:03:54] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-21 19:03:55] [debug] 任务id: 3
+
+[2023-08-21 19:03:55] [debug] Json解析: 
+
+[2023-08-21 19:03:55] [error] Json解析错误
+
+[2023-08-21 19:03:55] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 19:03:55] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-21 19:03:55] [error] 错误码: 0
+
+[2023-08-21 19:03:55] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 19:03:55] [debug] [handle_request]response_data: 
+
+[2023-08-21 19:04:02] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-21 19:04:02] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-21 19:04:03] [debug] 任务id: 3
+
+[2023-08-21 19:04:03] [debug] Json解析: 
+
+[2023-08-21 19:04:03] [error] Json解析错误
+
+[2023-08-21 19:04:03] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 19:04:03] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-21 19:04:03] [error] 错误码: 0
+
+[2023-08-21 19:04:03] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 19:04:03] [debug] [handle_request]response_data: 
+
+[2023-08-21 19:04:21] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-21 19:04:21] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-21 19:04:23] [debug] 任务id: 3
+
+[2023-08-21 19:04:23] [debug] Json解析: 
+
+[2023-08-21 19:04:23] [error] Json解析错误
+
+[2023-08-21 19:04:23] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 19:04:23] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-21 19:04:23] [error] 错误码: 0
+
+[2023-08-21 19:04:23] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 19:04:23] [debug] [handle_request]response_data: 
+
+[2023-08-21 19:04:36] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-21 19:04:36] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-21 19:04:37] [debug] 任务id: 3
+
+[2023-08-21 19:04:37] [debug] Json解析: 
+
+[2023-08-21 19:04:37] [error] Json解析错误
+
+[2023-08-21 19:04:37] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 19:04:37] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-21 19:04:37] [error] 错误码: 0
+
+[2023-08-21 19:04:37] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 19:04:37] [debug] [handle_request]response_data: 
+
+[2023-08-21 19:04:41] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-21 19:04:41] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-21 19:04:43] [debug] 任务id: 3
+
+[2023-08-21 19:04:43] [debug] Json解析: 
+
+[2023-08-21 19:04:43] [error] Json解析错误
+
+[2023-08-21 19:04:43] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 19:04:43] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-21 19:04:43] [error] 错误码: 0
+
+[2023-08-21 19:04:43] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 19:04:43] [debug] [handle_request]response_data: 
+
+[2023-08-21 19:05:30] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-21 19:05:30] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-21 19:05:31] [debug] 任务id: 3
+
+[2023-08-21 19:05:31] [debug] Json解析: 
+
+[2023-08-21 19:05:31] [error] Json解析错误
+
+[2023-08-21 19:05:31] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 19:05:31] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-21 19:05:31] [error] 错误码: 0
+
+[2023-08-21 19:05:33] [debug] 任务id: 4
+
+[2023-08-21 19:05:33] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "baudRate": "9600",
+                "dataBits": "6",
+                "parity": "none",
+                "port": "com1",
+                "portName": "1231",
+                "stopBits": "1"
+            }
+        ]
+    },
+    "responseTime": 1,
+    "taskID": 2,
+    "taskName": "ChannelTableSave"
+}
+
+
+[2023-08-21 19:05:33] [debug] Json解析正确！
+
+[2023-08-21 19:05:33] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 19:05:33] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"baudRate\": \"9600\",\n                \"dataBits\": \"6\",\n                \"parity\": \"none\",\n                \"port\": \"com1\",\n                \"portName\": \"1231\",\n                \"stopBits\": \"1\"\n            }\n        ]\n    },\n    \"responseTime\": 1,\n    \"taskID\": 2,\n    \"taskName\": \"ChannelTableSave\"\n}\n","errorCode":200,"response":"ok"}
+
+[2023-08-21 19:05:33] [error] 错误码: 200
+
+[2023-08-21 19:06:03] [debug] [handle_request]req.body: {"taskID":5,"taskName":"DevSave","responseTime":1,"data":{"name":"1","port":"1231","protocol":"modbus","communicationAddress":"23","category":"pcs","model":"234","sn":"434","deviceStatus":"1"}}
+
+[2023-08-21 19:06:04] [debug] 任务id: 5
+
+[2023-08-21 19:06:04] [debug] dev action: 0
+
+[2023-08-21 19:06:04] [debug] dev addr: 23
+
+[2023-08-21 19:06:04] [debug] dev category: pcs
+
+[2023-08-21 19:06:04] [debug] dev deviceStatus: 1
+
+[2023-08-21 19:06:04] [debug] dev devName: 1
+
+[2023-08-21 19:06:04] [debug] dev model: 234
+
+[2023-08-21 19:06:04] [debug] dev protocol: modbus
+
+[2023-08-21 19:06:04] [debug] dev serialInfo: �
+
+[2023-08-21 19:06:04] [debug] dev sn: 434
+
+[2023-08-21 19:06:04] [debug] msg action: 0
+
+[2023-08-21 19:06:04] [debug] msg addr: 23
+
+[2023-08-21 19:06:04] [debug] msg category: pcs
+
+[2023-08-21 19:06:04] [debug] msg deviceStatus: 1
+
+[2023-08-21 19:06:04] [debug] msg devName: 1
+
+[2023-08-21 19:06:04] [debug] msg model: 234
+
+[2023-08-21 19:06:04] [debug] msg protocol: modbus
+
+[2023-08-21 19:06:04] [debug] msg serialInfo: �
+
+[2023-08-21 19:06:04] [debug] msg sn: 434
+
+[2023-08-21 19:08:54] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-21 19:08:54] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-21 19:08:55] [debug] 任务id: 3
+
+[2023-08-21 19:08:55] [debug] Json解析: 
+
+[2023-08-21 19:08:55] [error] Json解析错误
+
+[2023-08-21 19:08:55] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 19:08:55] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-21 19:08:55] [error] 错误码: 0
+
+[2023-08-21 19:08:57] [debug] 任务id: 4
+
+[2023-08-21 19:08:57] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "baudRate": "9600",
+                "dataBits": "6",
+                "parity": "none",
+                "port": "com1",
+                "portName": "1231",
+                "stopBits": "1"
+            }
+        ]
+    },
+    "responseTime": 1,
+    "taskID": 2,
+    "taskName": "ChannelTableSave"
+}
+
+
+[2023-08-21 19:08:57] [debug] Json解析正确！
+
+[2023-08-21 19:08:57] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 19:08:57] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"baudRate\": \"9600\",\n                \"dataBits\": \"6\",\n                \"parity\": \"none\",\n                \"port\": \"com1\",\n                \"portName\": \"1231\",\n                \"stopBits\": \"1\"\n            }\n        ]\n    },\n    \"responseTime\": 1,\n    \"taskID\": 2,\n    \"taskName\": \"ChannelTableSave\"\n}\n","errorCode":200,"response":"ok"}
+
+[2023-08-21 19:08:57] [error] 错误码: 200
+
+[2023-08-21 19:10:59] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-21 19:10:59] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-21 19:11:01] [debug] 任务id: 3
+
+[2023-08-21 19:11:01] [debug] Json解析: 
+
+[2023-08-21 19:11:01] [error] Json解析错误
+
+[2023-08-21 19:11:01] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 19:11:01] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-21 19:11:01] [error] 错误码: 0
+
+[2023-08-21 19:11:01] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 19:11:01] [debug] [handle_request]response_data: 
+
+[2023-08-21 19:11:04] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-21 19:11:04] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-21 19:11:05] [debug] 任务id: 3
+
+[2023-08-21 19:11:05] [debug] Json解析: 
+
+[2023-08-21 19:11:05] [error] Json解析错误
+
+[2023-08-21 19:11:05] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 19:11:05] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-21 19:11:05] [error] 错误码: 0
+
+[2023-08-21 19:11:05] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 19:11:05] [debug] [handle_request]response_data: 
+
+[2023-08-21 19:11:07] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-21 19:11:07] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-21 19:11:12] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-21 19:11:12] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-21 19:11:13] [debug] 任务id: 3
+
+[2023-08-21 19:11:13] [debug] Json解析: 
+
+[2023-08-21 19:11:13] [error] Json解析错误
+
+[2023-08-21 19:11:13] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 19:11:13] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-21 19:11:13] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 19:11:13] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-21 19:11:13] [error] 错误码: 0
+
+[2023-08-21 19:11:13] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 19:11:13] [debug] [handle_request]response_data: 
+
+[2023-08-21 19:11:15] [debug] 任务id: 3
+
+[2023-08-21 19:11:15] [debug] Json解析: 
+
+[2023-08-21 19:11:15] [error] Json解析错误
+
+[2023-08-21 19:11:16] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-21 19:11:16] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-21 19:11:17] [debug] 任务id: 3
+
+[2023-08-21 19:11:17] [debug] Json解析: 
+
+[2023-08-21 19:11:17] [error] Json解析错误
+
+[2023-08-21 19:11:17] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 19:11:17] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-21 19:11:17] [error] 错误码: 0
+
+[2023-08-21 19:11:19] [debug] 任务id: 3
+
+[2023-08-21 19:11:19] [debug] Json解析: 
+
+[2023-08-21 19:11:19] [error] Json解析错误
+
+[2023-08-21 19:11:36] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-21 19:11:36] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-21 19:11:37] [debug] 任务id: 3
+
+[2023-08-21 19:11:37] [debug] Json解析: 
+
+[2023-08-21 19:11:37] [error] Json解析错误
+
+[2023-08-21 19:11:37] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 19:11:37] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-21 19:11:37] [error] 错误码: 0
+
+[2023-08-21 19:11:39] [debug] 任务id: 4
+
+[2023-08-21 19:11:39] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "baudRate": "9600",
+                "dataBits": "6",
+                "parity": "none",
+                "port": "com1",
+                "portName": "1231",
+                "stopBits": "1"
+            }
+        ]
+    },
+    "responseTime": 1,
+    "taskID": 2,
+    "taskName": "ChannelTableSave"
+}
+
+
+[2023-08-21 19:11:39] [debug] Json解析正确！
+
+[2023-08-21 19:11:39] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 19:11:39] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"baudRate\": \"9600\",\n                \"dataBits\": \"6\",\n                \"parity\": \"none\",\n                \"port\": \"com1\",\n                \"portName\": \"1231\",\n                \"stopBits\": \"1\"\n            }\n        ]\n    },\n    \"responseTime\": 1,\n    \"taskID\": 2,\n    \"taskName\": \"ChannelTableSave\"\n}\n","errorCode":200,"response":"ok"}
+
+[2023-08-21 19:11:39] [error] 错误码: 200
+
+[2023-08-21 19:11:41] [debug] 任务id: 3
+
+[2023-08-21 19:11:41] [debug] Json解析: 
+
+[2023-08-21 19:11:41] [error] Json解析错误
+
+[2023-08-21 19:11:50] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-21 19:11:50] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-21 19:11:51] [debug] 任务id: 3
+
+[2023-08-21 19:11:51] [debug] Json解析: 
+
+[2023-08-21 19:11:51] [error] Json解析错误
+
+[2023-08-21 19:11:51] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 19:11:51] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-21 19:11:51] [error] 错误码: 0
+
+[2023-08-21 19:11:51] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 19:11:51] [debug] [handle_request]response_data: 
+
+[2023-08-21 19:12:07] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-21 19:12:07] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-21 19:12:07] [debug] 任务id: 3
+
+[2023-08-21 19:12:07] [debug] Json解析: 
+
+[2023-08-21 19:12:07] [error] Json解析错误
+
+[2023-08-21 19:12:07] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 19:12:07] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-21 19:12:07] [error] 错误码: 0
+
+[2023-08-21 19:12:07] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 19:12:07] [debug] [handle_request]response_data: 
+
+[2023-08-21 19:12:12] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-21 19:12:12] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-21 19:12:13] [debug] 任务id: 4
+
+[2023-08-21 19:12:13] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "baudRate": "9600",
+                "dataBits": "6",
+                "parity": "none",
+                "port": "com1",
+                "portName": "1231",
+                "stopBits": "1"
+            }
+        ]
+    },
+    "responseTime": 1,
+    "taskID": 2,
+    "taskName": "ChannelTableSave"
+}
+
+
+[2023-08-21 19:12:13] [debug] Json解析正确！
+
+[2023-08-21 19:12:13] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 19:12:13] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"baudRate\": \"9600\",\n                \"dataBits\": \"6\",\n                \"parity\": \"none\",\n                \"port\": \"com1\",\n                \"portName\": \"1231\",\n                \"stopBits\": \"1\"\n            }\n        ]\n    },\n    \"responseTime\": 1,\n    \"taskID\": 2,\n    \"taskName\": \"ChannelTableSave\"\n}\n","errorCode":200,"response":"ok"}
+
+[2023-08-21 19:12:13] [error] 错误码: 200
+
+[2023-08-21 19:12:13] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 19:12:13] [debug] [handle_request]response_data: 
+
+[2023-08-21 19:12:40] [debug] [handle_request]req.body: {"taskID":5,"taskName":"DevSave","responseTime":1,"data":{"name":"qw","port":"1231","protocol":"modbus","communicationAddress":"123","category":"pcs","model":"234","sn":"231","deviceStatus":"23"}}
+
+[2023-08-21 19:12:41] [debug] 任务id: 5
+
+[2023-08-21 19:12:41] [debug] dev action: 0
+
+[2023-08-21 19:12:41] [debug] dev addr: 123
+
+[2023-08-21 19:12:41] [debug] dev category: pcs
+
+[2023-08-21 19:12:41] [debug] dev deviceStatus: 23
+
+[2023-08-21 19:12:41] [debug] dev devName: qw
+
+[2023-08-21 19:12:41] [debug] dev model: 234
+
+[2023-08-21 19:12:41] [debug] dev protocol: modbus
+
+[2023-08-21 19:12:41] [debug] dev serialInfo: 1231
+
+[2023-08-21 19:12:41] [debug] dev sn: 231
+
+[2023-08-21 19:12:41] [debug] msg action: 0
+
+[2023-08-21 19:12:41] [debug] msg addr: 123
+
+[2023-08-21 19:12:41] [debug] msg category: pcs
+
+[2023-08-21 19:12:41] [debug] msg deviceStatus: 23
+
+[2023-08-21 19:12:41] [debug] msg devName: qw
+
+[2023-08-21 19:12:41] [debug] msg model: 234
+
+[2023-08-21 19:12:41] [debug] msg protocol: modbus
+
+[2023-08-21 19:12:41] [debug] msg serialInfo: 1231
+
+[2023-08-21 19:12:41] [debug] msg sn: 231
+
+[2023-08-21 19:12:41] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-21 19:12:41] [debug] [handle_request]response_data: {"errorCode":200,"response":"ok"}
+
+[2023-08-21 19:12:41] [error] 错误码: 200
+

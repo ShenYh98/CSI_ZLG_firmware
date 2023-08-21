@@ -3,8 +3,6 @@
 #include "NetWorkLayer.h"
 #include "NetworkService.h"
 
-#include "nlohmann/json.hpp"
-
 namespace NetWorkMiddleware {
 
 class NetWorkLayerImp : public NetWorkLayer {
@@ -24,6 +22,10 @@ private:
     int devTableSave(const std::string filename, const std::string recv_data);
     int channelTableSave(const std::string filename, const std::string recv_data);
     int tableLoad(const std::string filename, std::string& data);
+
+    int addDev(const std::string recv_data);
+    int editDev(const std::string recv_data);
+    int delDev(const std::string recv_data);
 
 private:
     NetworkService* _networkSrv;

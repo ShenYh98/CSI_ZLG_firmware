@@ -16,17 +16,20 @@
 #include "code/common/ThreadPool.h"
 #include "code/common/MessageQueue.hpp"
 
+#include "code/setting/Setting.h"
+
 #include "DataStructure.h"
 
 using namespace CommonLib;
 using namespace NetWorkMiddleware;
 using namespace SerialMiddleware;
+using namespace SettingMiddleware;
 
 #define  TASK_MAX     12
 #define  TASK_MIN     5
 
 void TaskHttp () {
-    std::string path = "192.168.1.136";
+    std::string path = "192.168.8.113";
     int port = 9000;
     NetworkService* httpService = new HttpService(path, port);
     NetWorkLayer* httpWork = new NetWorkLayerImp(httpService);
@@ -67,13 +70,20 @@ void TaskWebSocket() {
     delete(websocketWork);
 }
 
+void TaskSetting() {
+    Setting* setting = new Setting();
+
+    while(true) {
+    }
+}
+
 int main() {
     COMMONLOG_INIT("config/csi_config.json");
 
-    // ThreadPool taskThreadPool(TASK_MIN, TASK_MAX);
-    // taskThreadPool.Add(TaskWebSocket);
-    // taskThreadPool.Add(TaskHttp);
-    TaskHttp();
+    ThreadPool taskThreadPool(TASK_MIN, TASK_MAX);
+    taskThreadPool.Add(TaskHttp);
+    taskThreadPool.Add(TaskWebSocket);
+    taskThreadPool.Add(TaskSetting);
 
     //============================================Serial==========================================
     // SerialAbstract* Serial_485_1 = new Serial_485("");
@@ -85,7 +95,7 @@ int main() {
     //     std::this_thread::sleep_for(std::chrono::seconds(1));
     // }
 
-    //=============================================md=============================================
+    //=============================================mq=============================================
     // MessageQueue<int>::getInstance().subscribe("topic", [](const int& message) {
     //     // 处理订阅到的消息
     //     std::cout << "Received message: " << message << std::endl;
@@ -97,8 +107,24 @@ int main() {
     // MessageQueue<int>::getInstance().publish("topic", 4);
     // MessageQueue<int>::getInstance().publish("topic", 5);
 
-    // while (true) {
-    // }
+    //=============================================sq=============================================
+    // using Message = std::string;  // 定义消息类型为std::string
+    // using Response = std::string; // 定义响应类型为std::string
+
+    // ServiceQueue<Message, Response>& queue = ServiceQueue<Message, Response>::getInstance();
+
+    // // 订阅一个名为"hello"的主题，并为其定义一个回调函数
+    // queue.service_subscribe("test", [](const Message& msg, std::function<void(const Response&)> responder) {
+    //     std::cout << "Received: " << msg << std::endl;
+    //     std::this_thread::sleep_for(std::chrono::seconds(1));
+    //     responder("ok");
+    // });
+
+    
+
+    while (true) {
+
+    }
 
     return 0;
 }

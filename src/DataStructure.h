@@ -10,7 +10,10 @@ typedef enum {
     DevTableSave,
     ChannelTableSave,
     GetDevTable,
-    GetChannelTable
+    GetChannelTable,
+    AddDev,
+    EditDev,
+    DelDev
 } taskId;
 
 typedef enum {
@@ -58,3 +61,18 @@ typedef struct {
     int deviceStatus;           // 设备状态
 } DevInfo;
 
+/*
+ *   Setting数据结构
+ */
+
+typedef enum {
+    Add,
+    Edit,
+    Del
+} Action;
+
+typedef struct {
+    Action act;
+    DevInfo devInfo;
+    DevInfo oldDevInfo;
+} srv_DevInfo;
