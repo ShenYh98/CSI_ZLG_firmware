@@ -1,12 +1,16 @@
-[
-    {
-        "category": "pcs",
-        "communicationAddress": 123,
-        "deviceStatus": 23,
-        "model": "234",
-        "name": "qw",
-        "port": "1231",
-        "protocol": "modbus",
-        "sn": "231"
+{
+    "data": {
+        "table": [
+            {
+                "category": "pcs",
+                "communicationAddress": 232,
+                "deviceStatus": 43,
+                "model": "123",
+                "name": "1",
+                "port": "1231",
+                "protocol": "modbus",
+                "sn": "23"
+            }
+        ]
     }
-]
+}

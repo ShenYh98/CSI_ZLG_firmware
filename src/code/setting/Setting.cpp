@@ -88,6 +88,6 @@ void Setting::saveDevJson(const std::string& fileName) {
         std::cerr << "Failed to open file: " << fileName << std::endl;
         return;
     }
-    file << devArray.dump(4);  // 使用4个空格进行格式化
+    file << j.dump(4);  // 使用4个空格进行格式化
     file.close();
 }
