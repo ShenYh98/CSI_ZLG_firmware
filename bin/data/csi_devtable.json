@@ -3,13 +3,13 @@
         "table": [
             {
                 "category": "pcs",
-                "communicationAddress": 232,
-                "deviceStatus": 43,
-                "model": "123",
-                "name": "1",
+                "communicationAddress": "234",
+                "deviceStatus": "1243",
+                "model": "1243",
+                "name": "1213",
                 "port": "1231",
                 "protocol": "modbus",
-                "sn": "23"
+                "sn": "342"
             }
         ]
     }

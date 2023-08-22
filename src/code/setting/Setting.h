@@ -21,7 +21,7 @@ public:
     ~Setting();
 
 private:
-    void srvDevActionTask(const srv_DevInfo& msg, std::function<void(const std::string&)> responder);
+    void srvDevActionTask(const std::vector<srv_DevInfo>& msg, std::function<void(const std::string&)> responder);
 
     void saveDevJson(const std::string& fileName);
 

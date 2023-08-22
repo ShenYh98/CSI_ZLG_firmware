@@ -20,10 +20,16 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)  # 可执行文件�
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/plug)  # 生成的库文件输出到 lib 目录
 
 # 添加头文件搜索路径
-include_directories(${CMAKE_SOURCE_DIR}/src/inc_base)
+include_directories(
+	${CMAKE_SOURCE_DIR}/src/inc_base
+	/opt/libmodbus/include
+)
 
 # 添加链接库搜索路径
-link_directories(${CMAKE_SOURCE_DIR}/src/lib_base)
+link_directories(
+	${CMAKE_SOURCE_DIR}/src/lib_base
+	/opt/libmodbus/lib
+)
 
 # 添加源文件
 file(GLOB_RECURSE SOURCES 
@@ -51,5 +57,5 @@ else()
 	)
 	# 链接库文件
 	target_link_libraries(csiexec ${LIBRARIES})
-	target_link_libraries(csiexec PRIVATE pthread)
+	target_link_libraries(csiexec PRIVATE pthread modbus)
 endif()

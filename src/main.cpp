@@ -29,7 +29,7 @@ using namespace SettingMiddleware;
 #define  TASK_MIN     5
 
 void TaskHttp () {
-    std::string path = "192.168.8.113";
+    std::string path = "172.16.138.129";
     int port = 9000;
     NetworkService* httpService = new HttpService(path, port);
     NetWorkLayer* httpWork = new NetWorkLayerImp(httpService);
@@ -75,6 +75,8 @@ void TaskSetting() {
 
     while(true) {
     }
+
+    delete(setting);
 }
 
 int main() {
@@ -84,6 +86,9 @@ int main() {
     taskThreadPool.Add(TaskHttp);
     taskThreadPool.Add(TaskWebSocket);
     taskThreadPool.Add(TaskSetting);
+
+    while (true) {
+    }
 
     //============================================Serial==========================================
     // SerialAbstract* Serial_485_1 = new Serial_485("");
@@ -119,12 +124,6 @@ int main() {
     //     std::this_thread::sleep_for(std::chrono::seconds(1));
     //     responder("ok");
     // });
-
-    
-
-    while (true) {
-
-    }
 
     return 0;
 }

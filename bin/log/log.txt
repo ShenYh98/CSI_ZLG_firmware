@@ -1828,3 +1828,2220 @@
 
 [2023-08-22 08:42:12] [error] 错误码: 200
 
+[2023-08-22 15:11:08] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-22 15:11:08] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-22 15:11:09] [debug] 任务id: 4
+
+[2023-08-22 15:11:09] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "baudRate": "9600",
+                "dataBits": "6",
+                "parity": "none",
+                "port": "com1",
+                "portName": "1231",
+                "stopBits": "1"
+            }
+        ]
+    },
+    "responseTime": 1,
+    "taskID": 2,
+    "taskName": "ChannelTableSave"
+}
+
+
+[2023-08-22 15:11:09] [debug] Json解析正确！
+
+[2023-08-22 15:11:09] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 15:11:09] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"baudRate\": \"9600\",\n                \"dataBits\": \"6\",\n                \"parity\": \"none\",\n                \"port\": \"com1\",\n                \"portName\": \"1231\",\n                \"stopBits\": \"1\"\n            }\n        ]\n    },\n    \"responseTime\": 1,\n    \"taskID\": 2,\n    \"taskName\": \"ChannelTableSave\"\n}\n","errorCode":200,"response":"ok"}
+
+[2023-08-22 15:11:09] [error] 错误码: 200
+
+[2023-08-22 15:11:11] [debug] 任务id: 3
+
+[2023-08-22 15:11:11] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "category": "pcs",
+                "communicationAddress": 232,
+                "deviceStatus": 43,
+                "model": "123",
+                "name": "1",
+                "port": "1231",
+                "protocol": "modbus",
+                "sn": "23"
+            }
+        ]
+    }
+}
+
+[2023-08-22 15:11:11] [debug] Json解析正确！
+
+[2023-08-22 15:11:11] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 15:11:11] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"category\": \"pcs\",\n                \"communicationAddress\": 232,\n                \"deviceStatus\": 43,\n                \"model\": \"123\",\n                \"name\": \"1\",\n                \"port\": \"1231\",\n                \"protocol\": \"modbus\",\n                \"sn\": \"23\"\n            }\n        ]\n    }\n}","errorCode":200,"response":"ok"}
+
+[2023-08-22 15:11:11] [error] 错误码: 200
+
+[2023-08-22 15:11:20] [debug] [handle_request]req.body: {"taskID":5,"taskName":"DevSave","responseTime":1,"data":{"name":"12123","port":"1231","protocol":"modbus","communicationAddress":"12341","category":"pcs","model":"234","sn":"12341","deviceStatus":"3423"}}
+
+[2023-08-22 15:11:21] [debug] 任务id: 5
+
+[2023-08-22 15:11:21] [debug] dev action: 0
+
+[2023-08-22 15:11:21] [debug] dev addr: 12341
+
+[2023-08-22 15:11:21] [debug] dev category: pcs
+
+[2023-08-22 15:11:21] [debug] dev deviceStatus: 3423
+
+[2023-08-22 15:11:21] [debug] dev devName: 12123
+
+[2023-08-22 15:11:21] [debug] dev model: 234
+
+[2023-08-22 15:11:21] [debug] dev protocol: modbus
+
+[2023-08-22 15:11:21] [debug] dev serialInfo: 1231
+
+[2023-08-22 15:11:21] [debug] dev sn: 12341
+
+[2023-08-22 15:11:21] [debug] msg action: 0
+
+[2023-08-22 15:11:21] [debug] msg add addr: 12341
+
+[2023-08-22 15:11:21] [debug] msg add category: pcs
+
+[2023-08-22 15:11:21] [debug] msg add deviceStatus: 3423
+
+[2023-08-22 15:11:21] [debug] msg add devName: 12123
+
+[2023-08-22 15:11:21] [debug] msg add model: 234
+
+[2023-08-22 15:11:21] [debug] msg add protocol: modbus
+
+[2023-08-22 15:11:21] [debug] msg add serialInfo: 1231
+
+[2023-08-22 15:11:21] [debug] msg add sn: 12341
+
+[2023-08-22 15:11:21] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 15:11:21] [debug] [handle_request]response_data: {"errorCode":200,"response":"ok"}
+
+[2023-08-22 15:11:21] [error] 错误码: 200
+
+[2023-08-22 15:11:28] [debug] [handle_request]req.body: {"taskID":5,"taskName":"DevSave","responseTime":1,"data":{"name":"23234","port":"1231","protocol":"modbus","communicationAddress":"123423","category":"pcs","model":"34243","sn":"12312","deviceStatus":"3423"}}
+
+[2023-08-22 15:11:29] [debug] 任务id: 5
+
+[2023-08-22 15:11:29] [debug] dev action: 0
+
+[2023-08-22 15:11:29] [debug] dev addr: 123423
+
+[2023-08-22 15:11:29] [debug] dev category: pcs
+
+[2023-08-22 15:11:29] [debug] dev deviceStatus: 3423
+
+[2023-08-22 15:11:29] [debug] dev devName: 23234
+
+[2023-08-22 15:11:29] [debug] dev model: 34243
+
+[2023-08-22 15:11:29] [debug] dev protocol: modbus
+
+[2023-08-22 15:11:29] [debug] dev serialInfo: 1231
+
+[2023-08-22 15:11:29] [debug] dev sn: 12312
+
+[2023-08-22 15:11:29] [debug] msg action: 0
+
+[2023-08-22 15:11:29] [debug] msg add addr: 123423
+
+[2023-08-22 15:11:29] [debug] msg add category: pcs
+
+[2023-08-22 15:11:29] [debug] msg add deviceStatus: 3423
+
+[2023-08-22 15:11:29] [debug] msg add devName: 23234
+
+[2023-08-22 15:11:29] [debug] msg add model: 34243
+
+[2023-08-22 15:11:29] [debug] msg add protocol: modbus
+
+[2023-08-22 15:11:29] [debug] msg add serialInfo: 1231
+
+[2023-08-22 15:11:29] [debug] msg add sn: 12312
+
+[2023-08-22 15:11:29] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 15:11:29] [debug] [handle_request]response_data: {"errorCode":200,"response":"ok"}
+
+[2023-08-22 15:11:29] [error] 错误码: 200
+
+[2023-08-22 15:11:31] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-22 15:11:31] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-22 15:11:33] [debug] 任务id: 3
+
+[2023-08-22 15:11:33] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "category": "pcs",
+                "communicationAddress": "12341",
+                "deviceStatus": "3423",
+                "model": "234",
+                "name": "12123",
+                "port": "1231",
+                "protocol": "modbus",
+                "sn": "12341"
+            },
+            {
+                "category": "pcs",
+                "communicationAddress": "123423",
+                "deviceStatus": "3423",
+                "model": "34243",
+                "name": "23234",
+                "port": "1231",
+                "protocol": "modbus",
+                "sn": "12312"
+            }
+        ]
+    }
+}
+
+[2023-08-22 15:11:33] [debug] Json解析正确！
+
+[2023-08-22 15:11:33] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 15:11:33] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"category\": \"pcs\",\n                \"communicationAddress\": \"12341\",\n                \"deviceStatus\": \"3423\",\n                \"model\": \"234\",\n                \"name\": \"12123\",\n                \"port\": \"1231\",\n                \"protocol\": \"modbus\",\n                \"sn\": \"12341\"\n            },\n            {\n                \"category\": \"pcs\",\n                \"communicationAddress\": \"123423\",\n                \"deviceStatus\": \"3423\",\n                \"model\": \"34243\",\n                \"name\": \"23234\",\n                \"port\": \"1231\",\n                \"protocol\": \"modbus\",\n                \"sn\": \"12312\"\n            }\n        ]\n    }\n}","errorCode":200,"response":"ok"}
+
+[2023-08-22 15:11:33] [error] 错误码: 200
+
+[2023-08-22 15:11:33] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 15:11:33] [debug] [handle_request]response_data: 
+
+[2023-08-22 15:11:36] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-22 15:11:36] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-22 15:11:37] [debug] 任务id: 3
+
+[2023-08-22 15:11:37] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "category": "pcs",
+                "communicationAddress": "12341",
+                "deviceStatus": "3423",
+                "model": "234",
+                "name": "12123",
+                "port": "1231",
+                "protocol": "modbus",
+                "sn": "12341"
+            },
+            {
+                "category": "pcs",
+                "communicationAddress": "123423",
+                "deviceStatus": "3423",
+                "model": "34243",
+                "name": "23234",
+                "port": "1231",
+                "protocol": "modbus",
+                "sn": "12312"
+            }
+        ]
+    }
+}
+
+[2023-08-22 15:11:37] [debug] Json解析正确！
+
+[2023-08-22 15:11:37] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 15:11:37] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"category\": \"pcs\",\n                \"communicationAddress\": \"12341\",\n                \"deviceStatus\": \"3423\",\n                \"model\": \"234\",\n                \"name\": \"12123\",\n                \"port\": \"1231\",\n                \"protocol\": \"modbus\",\n                \"sn\": \"12341\"\n            },\n            {\n                \"category\": \"pcs\",\n                \"communicationAddress\": \"123423\",\n                \"deviceStatus\": \"3423\",\n                \"model\": \"34243\",\n                \"name\": \"23234\",\n                \"port\": \"1231\",\n                \"protocol\": \"modbus\",\n                \"sn\": \"12312\"\n            }\n        ]\n    }\n}","errorCode":200,"response":"ok"}
+
+[2023-08-22 15:11:37] [error] 错误码: 200
+
+[2023-08-22 15:11:39] [debug] 任务id: 4
+
+[2023-08-22 15:11:39] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "baudRate": "9600",
+                "dataBits": "6",
+                "parity": "none",
+                "port": "com1",
+                "portName": "1231",
+                "stopBits": "1"
+            }
+        ]
+    },
+    "responseTime": 1,
+    "taskID": 2,
+    "taskName": "ChannelTableSave"
+}
+
+
+[2023-08-22 15:11:39] [debug] Json解析正确！
+
+[2023-08-22 15:11:39] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 15:11:39] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"baudRate\": \"9600\",\n                \"dataBits\": \"6\",\n                \"parity\": \"none\",\n                \"port\": \"com1\",\n                \"portName\": \"1231\",\n                \"stopBits\": \"1\"\n            }\n        ]\n    },\n    \"responseTime\": 1,\n    \"taskID\": 2,\n    \"taskName\": \"ChannelTableSave\"\n}\n","errorCode":200,"response":"ok"}
+
+[2023-08-22 15:11:39] [error] 错误码: 200
+
+[2023-08-22 15:12:08] [debug] [handle_request]req.body: {"taskID":5,"taskName":"DevSave","responseTime":1,"data":{"name":"adsf","port":"1231","protocol":"modbus","communicationAddress":"12","category":"pcs","model":"1231","sn":"wd","deviceStatus":"2341"}}
+
+[2023-08-22 15:12:09] [debug] 任务id: 5
+
+[2023-08-22 15:12:09] [debug] dev action: 0
+
+[2023-08-22 15:12:09] [debug] dev addr: 12
+
+[2023-08-22 15:12:09] [debug] dev category: pcs
+
+[2023-08-22 15:12:09] [debug] dev deviceStatus: 2341
+
+[2023-08-22 15:12:09] [debug] dev devName: adsf
+
+[2023-08-22 15:12:09] [debug] dev model: 1231
+
+[2023-08-22 15:12:09] [debug] dev protocol: modbus
+
+[2023-08-22 15:12:09] [debug] dev serialInfo: 1231
+
+[2023-08-22 15:12:09] [debug] dev sn: wd
+
+[2023-08-22 15:12:09] [debug] msg action: 0
+
+[2023-08-22 15:12:09] [debug] msg add addr: 12
+
+[2023-08-22 15:12:09] [debug] msg add category: pcs
+
+[2023-08-22 15:12:09] [debug] msg add deviceStatus: 2341
+
+[2023-08-22 15:12:09] [debug] msg add devName: adsf
+
+[2023-08-22 15:12:09] [debug] msg add model: 1231
+
+[2023-08-22 15:12:09] [debug] msg add protocol: modbus
+
+[2023-08-22 15:12:09] [debug] msg add serialInfo: 1231
+
+[2023-08-22 15:12:09] [debug] msg add sn: wd
+
+[2023-08-22 15:12:09] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 15:12:09] [debug] [handle_request]response_data: {"errorCode":200,"response":"ok"}
+
+[2023-08-22 15:12:09] [error] 错误码: 200
+
+[2023-08-22 15:12:25] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-22 15:12:25] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-22 15:12:25] [debug] 任务id: 3
+
+[2023-08-22 15:12:25] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "category": "pcs",
+                "communicationAddress": "12341",
+                "deviceStatus": "3423",
+                "model": "234",
+                "name": "12123",
+                "port": "1231",
+                "protocol": "modbus",
+                "sn": "12341"
+            },
+            {
+                "category": "pcs",
+                "communicationAddress": "123423",
+                "deviceStatus": "3423",
+                "model": "34243",
+                "name": "23234",
+                "port": "1231",
+                "protocol": "modbus",
+                "sn": "12312"
+            },
+            {
+                "category": "pcs",
+                "communicationAddress": "12",
+                "deviceStatus": "2341",
+                "model": "1231",
+                "name": "adsf",
+                "port": "1231",
+                "protocol": "modbus",
+                "sn": "wd"
+            }
+        ]
+    }
+}
+
+[2023-08-22 15:12:25] [debug] Json解析正确！
+
+[2023-08-22 15:12:25] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 15:12:25] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"category\": \"pcs\",\n                \"communicationAddress\": \"12341\",\n                \"deviceStatus\": \"3423\",\n                \"model\": \"234\",\n                \"name\": \"12123\",\n                \"port\": \"1231\",\n                \"protocol\": \"modbus\",\n                \"sn\": \"12341\"\n            },\n            {\n                \"category\": \"pcs\",\n                \"communicationAddress\": \"123423\",\n                \"deviceStatus\": \"3423\",\n                \"model\": \"34243\",\n                \"name\": \"23234\",\n                \"port\": \"1231\",\n                \"protocol\": \"modbus\",\n                \"sn\": \"12312\"\n            },\n            {\n                \"category\": \"pcs\",\n                \"communicationAddress\": \"12\",\n                \"deviceStatus\": \"2341\",\n                \"model\": \"1231\",\n                \"name\": \"adsf\",\n                \"port\": \"1231\",\n                \"protocol\": \"modbus\",\n                \"sn\": \"wd\"\n            }\n        ]\n    }\n}","errorCode":200,"response":"ok"}
+
+[2023-08-22 15:12:25] [error] 错误码: 200
+
+[2023-08-22 15:12:27] [debug] 任务id: 4
+
+[2023-08-22 15:12:27] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "baudRate": "9600",
+                "dataBits": "6",
+                "parity": "none",
+                "port": "com1",
+                "portName": "1231",
+                "stopBits": "1"
+            }
+        ]
+    },
+    "responseTime": 1,
+    "taskID": 2,
+    "taskName": "ChannelTableSave"
+}
+
+
+[2023-08-22 15:12:27] [debug] Json解析正确！
+
+[2023-08-22 15:12:27] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 15:12:27] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"baudRate\": \"9600\",\n                \"dataBits\": \"6\",\n                \"parity\": \"none\",\n                \"port\": \"com1\",\n                \"portName\": \"1231\",\n                \"stopBits\": \"1\"\n            }\n        ]\n    },\n    \"responseTime\": 1,\n    \"taskID\": 2,\n    \"taskName\": \"ChannelTableSave\"\n}\n","errorCode":200,"response":"ok"}
+
+[2023-08-22 15:12:27] [error] 错误码: 200
+
+[2023-08-22 15:12:35] [debug] [handle_request]req.body: {"taskID":8,"taskName":"DevDel","responseTime":1,"data":{"table":[{}]}}
+
+[2023-08-22 15:12:37] [debug] 任务id: 8
+
+[2023-08-22 15:18:46] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-22 15:18:46] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-22 15:18:48] [debug] 任务id: 8
+
+[2023-08-22 15:19:09] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-22 15:19:09] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-22 15:19:10] [debug] 任务id: 4
+
+[2023-08-22 15:19:10] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "baudRate": "9600",
+                "dataBits": "6",
+                "parity": "none",
+                "port": "com1",
+                "portName": "1231",
+                "stopBits": "1"
+            }
+        ]
+    },
+    "responseTime": 1,
+    "taskID": 2,
+    "taskName": "ChannelTableSave"
+}
+
+
+[2023-08-22 15:19:10] [debug] Json解析正确！
+
+[2023-08-22 15:19:10] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 15:19:10] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"baudRate\": \"9600\",\n                \"dataBits\": \"6\",\n                \"parity\": \"none\",\n                \"port\": \"com1\",\n                \"portName\": \"1231\",\n                \"stopBits\": \"1\"\n            }\n        ]\n    },\n    \"responseTime\": 1,\n    \"taskID\": 2,\n    \"taskName\": \"ChannelTableSave\"\n}\n","errorCode":200,"response":"ok"}
+
+[2023-08-22 15:19:10] [error] 错误码: 200
+
+[2023-08-22 15:19:12] [debug] 任务id: 3
+
+[2023-08-22 15:19:12] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "category": "pcs",
+                "communicationAddress": "12341",
+                "deviceStatus": "3423",
+                "model": "234",
+                "name": "12123",
+                "port": "1231",
+                "protocol": "modbus",
+                "sn": "12341"
+            },
+            {
+                "category": "pcs",
+                "communicationAddress": "123423",
+                "deviceStatus": "3423",
+                "model": "34243",
+                "name": "23234",
+                "port": "1231",
+                "protocol": "modbus",
+                "sn": "12312"
+            },
+            {
+                "category": "pcs",
+                "communicationAddress": "12",
+                "deviceStatus": "2341",
+                "model": "1231",
+                "name": "adsf",
+                "port": "1231",
+                "protocol": "modbus",
+                "sn": "wd"
+            }
+        ]
+    }
+}
+
+[2023-08-22 15:19:12] [debug] Json解析正确！
+
+[2023-08-22 15:19:12] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 15:19:12] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"category\": \"pcs\",\n                \"communicationAddress\": \"12341\",\n                \"deviceStatus\": \"3423\",\n                \"model\": \"234\",\n                \"name\": \"12123\",\n                \"port\": \"1231\",\n                \"protocol\": \"modbus\",\n                \"sn\": \"12341\"\n            },\n            {\n                \"category\": \"pcs\",\n                \"communicationAddress\": \"123423\",\n                \"deviceStatus\": \"3423\",\n                \"model\": \"34243\",\n                \"name\": \"23234\",\n                \"port\": \"1231\",\n                \"protocol\": \"modbus\",\n                \"sn\": \"12312\"\n            },\n            {\n                \"category\": \"pcs\",\n                \"communicationAddress\": \"12\",\n                \"deviceStatus\": \"2341\",\n                \"model\": \"1231\",\n                \"name\": \"adsf\",\n                \"port\": \"1231\",\n                \"protocol\": \"modbus\",\n                \"sn\": \"wd\"\n            }\n        ]\n    }\n}","errorCode":200,"response":"ok"}
+
+[2023-08-22 15:19:12] [error] 错误码: 200
+
+[2023-08-22 15:19:20] [debug] [handle_request]req.body: {"taskID":7,"taskName":"DevEdit","responseTime":1,"data":{"newdata":{"name":"1122","port":"","protocol":"modbus","communicationAddress":"12","category":"pcs","model":"1231","sn":"wd","deviceStatus":"2341"},"olddata":{"name":"adsf","port":"1231","protocol":"modbus","communicationAddress":"12","category":"pcs","model":"1231","sn":"wd","deviceStatus":"2341"}}}
+
+[2023-08-22 15:19:22] [debug] 任务id: 7
+
+[2023-08-22 15:29:51] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-22 15:29:51] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-22 15:29:51] [debug] 任务id: 4
+
+[2023-08-22 15:29:51] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "baudRate": "9600",
+                "dataBits": "6",
+                "parity": "none",
+                "port": "com1",
+                "portName": "1231",
+                "stopBits": "1"
+            }
+        ]
+    },
+    "responseTime": 1,
+    "taskID": 2,
+    "taskName": "ChannelTableSave"
+}
+
+
+[2023-08-22 15:29:51] [debug] Json解析正确！
+
+[2023-08-22 15:29:51] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 15:29:51] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"baudRate\": \"9600\",\n                \"dataBits\": \"6\",\n                \"parity\": \"none\",\n                \"port\": \"com1\",\n                \"portName\": \"1231\",\n                \"stopBits\": \"1\"\n            }\n        ]\n    },\n    \"responseTime\": 1,\n    \"taskID\": 2,\n    \"taskName\": \"ChannelTableSave\"\n}\n","errorCode":200,"response":"ok"}
+
+[2023-08-22 15:29:51] [error] 错误码: 200
+
+[2023-08-22 15:29:53] [debug] 任务id: 3
+
+[2023-08-22 15:29:53] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "category": "pcs",
+                "communicationAddress": "12341",
+                "deviceStatus": "3423",
+                "model": "234",
+                "name": "12123",
+                "port": "1231",
+                "protocol": "modbus",
+                "sn": "12341"
+            },
+            {
+                "category": "pcs",
+                "communicationAddress": "123423",
+                "deviceStatus": "3423",
+                "model": "34243",
+                "name": "23234",
+                "port": "1231",
+                "protocol": "modbus",
+                "sn": "12312"
+            },
+            {
+                "category": "pcs",
+                "communicationAddress": "12",
+                "deviceStatus": "2341",
+                "model": "1231",
+                "name": "adsf",
+                "port": "1231",
+                "protocol": "modbus",
+                "sn": "wd"
+            }
+        ]
+    }
+}
+
+[2023-08-22 15:29:53] [debug] Json解析正确！
+
+[2023-08-22 15:29:53] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 15:29:53] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"category\": \"pcs\",\n                \"communicationAddress\": \"12341\",\n                \"deviceStatus\": \"3423\",\n                \"model\": \"234\",\n                \"name\": \"12123\",\n                \"port\": \"1231\",\n                \"protocol\": \"modbus\",\n                \"sn\": \"12341\"\n            },\n            {\n                \"category\": \"pcs\",\n                \"communicationAddress\": \"123423\",\n                \"deviceStatus\": \"3423\",\n                \"model\": \"34243\",\n                \"name\": \"23234\",\n                \"port\": \"1231\",\n                \"protocol\": \"modbus\",\n                \"sn\": \"12312\"\n            },\n            {\n                \"category\": \"pcs\",\n                \"communicationAddress\": \"12\",\n                \"deviceStatus\": \"2341\",\n                \"model\": \"1231\",\n                \"name\": \"adsf\",\n                \"port\": \"1231\",\n                \"protocol\": \"modbus\",\n                \"sn\": \"wd\"\n            }\n        ]\n    }\n}","errorCode":200,"response":"ok"}
+
+[2023-08-22 15:29:53] [error] 错误码: 200
+
+[2023-08-22 15:30:05] [debug] [handle_request]req.body: {"taskID":5,"taskName":"DevSave","responseTime":1,"data":{"name":"1212332","port":"1231","protocol":"modbus","communicationAddress":"123","category":"pcs","model":"3233","sn":"1231","deviceStatus":"1234234"}}
+
+[2023-08-22 15:30:05] [debug] 任务id: 5
+
+[2023-08-22 15:30:05] [debug] dev action: 0
+
+[2023-08-22 15:30:05] [debug] dev addr: 123
+
+[2023-08-22 15:30:05] [debug] dev category: pcs
+
+[2023-08-22 15:30:05] [debug] dev deviceStatus: 1234234
+
+[2023-08-22 15:30:05] [debug] dev devName: 1212332
+
+[2023-08-22 15:30:05] [debug] dev model: 3233
+
+[2023-08-22 15:30:05] [debug] dev protocol: modbus
+
+[2023-08-22 15:30:05] [debug] dev serialInfo: 1231
+
+[2023-08-22 15:30:05] [debug] dev sn: 1231
+
+[2023-08-22 15:30:06] [debug] msg action: 0
+
+[2023-08-22 15:30:06] [debug] msg add addr: 123
+
+[2023-08-22 15:30:06] [debug] msg add category: pcs
+
+[2023-08-22 15:30:06] [debug] msg add deviceStatus: 1234234
+
+[2023-08-22 15:30:06] [debug] msg add devName: 1212332
+
+[2023-08-22 15:30:06] [debug] msg add model: 3233
+
+[2023-08-22 15:30:06] [debug] msg add protocol: modbus
+
+[2023-08-22 15:30:06] [debug] msg add serialInfo: 1231
+
+[2023-08-22 15:30:06] [debug] msg add sn: 1231
+
+[2023-08-22 15:30:06] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 15:30:06] [debug] [handle_request]response_data: {"errorCode":200,"response":"ok"}
+
+[2023-08-22 15:30:06] [error] 错误码: 200
+
+[2023-08-22 15:30:13] [debug] [handle_request]req.body: {"taskID":7,"taskName":"DevEdit","responseTime":1,"data":{"newdata":{"name":"2434","port":"","protocol":"modbus","communicationAddress":"12","category":"pcs","model":"1231","sn":"wd","deviceStatus":"2341"},"olddata":{"name":"adsf","port":"1231","protocol":"modbus","communicationAddress":"12","category":"pcs","model":"1231","sn":"wd","deviceStatus":"2341"}}}
+
+[2023-08-22 15:30:14] [debug] 任务id: 7
+
+[2023-08-22 15:30:14] [error] Json解析错误
+
+[2023-08-22 15:30:14] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 15:30:14] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-22 15:30:14] [error] 错误码: 0
+
+[2023-08-22 15:30:51] [debug] [handle_request]req.body: {"taskID":8,"taskName":"DevDel","responseTime":1,"data":{"table":[{}]}}
+
+[2023-08-22 15:30:52] [debug] 任务id: 8
+
+[2023-08-22 15:31:41] [debug] [handle_request]req.body: {"taskID":8,"taskName":"DevDel","responseTime":1,"data":{"table":[{}]}}
+
+[2023-08-22 15:31:42] [debug] 任务id: 8
+
+[2023-08-22 15:35:49] [debug] [handle_request]req.body: {"taskID":7,"taskName":"DevEdit","responseTime":1,"data":{"newdata":{"name":"2323242","port":"1231","protocol":"modbus","communicationAddress":"123423","category":"pcs","model":"34243","sn":"12312","deviceStatus":"3423"},"olddata":{"name":"23234","port":"1231","protocol":"modbus","communicationAddress":"123423","category":"pcs","model":"34243","sn":"12312","deviceStatus":"3423"}}}
+
+[2023-08-22 15:35:49] [debug] 任务id: 8
+
+[2023-08-22 15:52:12] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-22 15:52:12] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-22 15:52:13] [debug] 任务id: 4
+
+[2023-08-22 15:52:13] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "baudRate": "9600",
+                "dataBits": "6",
+                "parity": "none",
+                "port": "com1",
+                "portName": "1231",
+                "stopBits": "1"
+            }
+        ]
+    },
+    "responseTime": 1,
+    "taskID": 2,
+    "taskName": "ChannelTableSave"
+}
+
+
+[2023-08-22 15:52:13] [debug] Json解析正确！
+
+[2023-08-22 15:52:13] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 15:52:13] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"baudRate\": \"9600\",\n                \"dataBits\": \"6\",\n                \"parity\": \"none\",\n                \"port\": \"com1\",\n                \"portName\": \"1231\",\n                \"stopBits\": \"1\"\n            }\n        ]\n    },\n    \"responseTime\": 1,\n    \"taskID\": 2,\n    \"taskName\": \"ChannelTableSave\"\n}\n","errorCode":200,"response":"ok"}
+
+[2023-08-22 15:52:13] [error] 错误码: 200
+
+[2023-08-22 15:52:15] [debug] 任务id: 3
+
+[2023-08-22 15:52:15] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "category": "pcs",
+                "communicationAddress": "123",
+                "deviceStatus": "1234234",
+                "model": "3233",
+                "name": "1212332",
+                "port": "1231",
+                "protocol": "modbus",
+                "sn": "1231"
+            }
+        ]
+    }
+}
+
+[2023-08-22 15:52:15] [debug] Json解析正确！
+
+[2023-08-22 15:52:15] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 15:52:15] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"category\": \"pcs\",\n                \"communicationAddress\": \"123\",\n                \"deviceStatus\": \"1234234\",\n                \"model\": \"3233\",\n                \"name\": \"1212332\",\n                \"port\": \"1231\",\n                \"protocol\": \"modbus\",\n                \"sn\": \"1231\"\n            }\n        ]\n    }\n}","errorCode":200,"response":"ok"}
+
+[2023-08-22 15:52:15] [error] 错误码: 200
+
+[2023-08-22 15:52:31] [debug] [handle_request]req.body: {"taskID":5,"taskName":"DevSave","responseTime":1,"data":{"name":"2","port":"1231","protocol":"modbus","communicationAddress":"12","category":"pcs","model":"232","sn":"asd","deviceStatus":"123"}}
+
+[2023-08-22 15:52:33] [debug] 任务id: 5
+
+[2023-08-22 15:52:33] [debug] dev action: 0
+
+[2023-08-22 15:52:33] [debug] dev addr: 12
+
+[2023-08-22 15:52:33] [debug] dev category: pcs
+
+[2023-08-22 15:52:33] [debug] dev deviceStatus: 123
+
+[2023-08-22 15:52:33] [debug] dev devName: 2
+
+[2023-08-22 15:52:33] [debug] dev model: 232
+
+[2023-08-22 15:52:33] [debug] dev protocol: modbus
+
+[2023-08-22 15:52:33] [debug] dev serialInfo: 1231
+
+[2023-08-22 15:52:33] [debug] dev sn: asd
+
+[2023-08-22 15:52:33] [debug] msg action: 0
+
+[2023-08-22 15:52:33] [debug] msg add addr: 12
+
+[2023-08-22 15:52:33] [debug] msg add category: pcs
+
+[2023-08-22 15:52:33] [debug] msg add deviceStatus: 123
+
+[2023-08-22 15:52:33] [debug] msg add devName: 2
+
+[2023-08-22 15:52:33] [debug] msg add model: 232
+
+[2023-08-22 15:52:33] [debug] msg add protocol: modbus
+
+[2023-08-22 15:52:33] [debug] msg add serialInfo: 1231
+
+[2023-08-22 15:52:33] [debug] msg add sn: asd
+
+[2023-08-22 15:52:33] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 15:52:33] [debug] [handle_request]response_data: {"errorCode":200,"response":"ok"}
+
+[2023-08-22 15:52:33] [error] 错误码: 200
+
+[2023-08-22 15:52:43] [debug] [handle_request]req.body: {"taskID":8,"taskName":"DevDel","responseTime":1,"data":{"table":[{}]}}
+
+[2023-08-22 15:52:43] [debug] 任务id: 8
+
+[2023-08-22 15:52:57] [debug] [handle_request]req.body: {"taskID":5,"taskName":"DevSave","responseTime":1,"data":{"name":"121","port":"1231","protocol":"modbus","communicationAddress":"2323","category":"pcs","model":"123","sn":"we","deviceStatus":"qw"}}
+
+[2023-08-22 15:52:59] [debug] 任务id: 8
+
+[2023-08-22 15:53:12] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-22 15:53:12] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-22 15:53:13] [debug] 任务id: 8
+
+[2023-08-22 15:53:37] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-22 15:53:37] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-22 15:53:38] [debug] 任务id: 4
+
+[2023-08-22 15:53:38] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "baudRate": "9600",
+                "dataBits": "6",
+                "parity": "none",
+                "port": "com1",
+                "portName": "1231",
+                "stopBits": "1"
+            }
+        ]
+    },
+    "responseTime": 1,
+    "taskID": 2,
+    "taskName": "ChannelTableSave"
+}
+
+
+[2023-08-22 15:53:38] [debug] Json解析正确！
+
+[2023-08-22 15:53:38] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 15:53:38] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"baudRate\": \"9600\",\n                \"dataBits\": \"6\",\n                \"parity\": \"none\",\n                \"port\": \"com1\",\n                \"portName\": \"1231\",\n                \"stopBits\": \"1\"\n            }\n        ]\n    },\n    \"responseTime\": 1,\n    \"taskID\": 2,\n    \"taskName\": \"ChannelTableSave\"\n}\n","errorCode":200,"response":"ok"}
+
+[2023-08-22 15:53:38] [error] 错误码: 200
+
+[2023-08-22 15:53:40] [debug] 任务id: 3
+
+[2023-08-22 15:53:40] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "category": "pcs",
+                "communicationAddress": "12",
+                "deviceStatus": "123",
+                "model": "232",
+                "name": "2",
+                "port": "1231",
+                "protocol": "modbus",
+                "sn": "asd"
+            }
+        ]
+    }
+}
+
+[2023-08-22 15:53:40] [debug] Json解析正确！
+
+[2023-08-22 15:53:40] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 15:53:40] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"category\": \"pcs\",\n                \"communicationAddress\": \"12\",\n                \"deviceStatus\": \"123\",\n                \"model\": \"232\",\n                \"name\": \"2\",\n                \"port\": \"1231\",\n                \"protocol\": \"modbus\",\n                \"sn\": \"asd\"\n            }\n        ]\n    }\n}","errorCode":200,"response":"ok"}
+
+[2023-08-22 15:53:40] [error] 错误码: 200
+
+[2023-08-22 15:53:52] [debug] [handle_request]req.body: {"taskID":7,"taskName":"DevEdit","responseTime":1,"data":{"newdata":{"name":"3","port":"1231","protocol":"modbus","communicationAddress":"12","category":"pcs","model":"232","sn":"asd","deviceStatus":"123"},"olddata":{"name":"2","port":"1231","protocol":"modbus","communicationAddress":"12","category":"pcs","model":"232","sn":"asd","deviceStatus":"123"}}}
+
+[2023-08-22 15:53:54] [debug] 任务id: 7
+
+[2023-08-22 15:53:54] [error] Json解析错误
+
+[2023-08-22 15:53:54] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 15:53:54] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-22 15:53:54] [error] 错误码: 0
+
+[2023-08-22 16:04:25] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-22 16:04:25] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-22 16:04:27] [debug] 任务id: 3
+
+[2023-08-22 16:04:27] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "category": "pcs",
+                "communicationAddress": "12",
+                "deviceStatus": "123",
+                "model": "232",
+                "name": "2",
+                "port": "1231",
+                "protocol": "modbus",
+                "sn": "asd"
+            }
+        ]
+    }
+}
+
+[2023-08-22 16:04:27] [debug] Json解析正确！
+
+[2023-08-22 16:04:27] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 16:04:27] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"category\": \"pcs\",\n                \"communicationAddress\": \"12\",\n                \"deviceStatus\": \"123\",\n                \"model\": \"232\",\n                \"name\": \"2\",\n                \"port\": \"1231\",\n                \"protocol\": \"modbus\",\n                \"sn\": \"asd\"\n            }\n        ]\n    }\n}","errorCode":200,"response":"ok"}
+
+[2023-08-22 16:04:27] [error] 错误码: 200
+
+[2023-08-22 16:04:29] [debug] 任务id: 4
+
+[2023-08-22 16:04:29] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "baudRate": "9600",
+                "dataBits": "6",
+                "parity": "none",
+                "port": "com1",
+                "portName": "1231",
+                "stopBits": "1"
+            }
+        ]
+    },
+    "responseTime": 1,
+    "taskID": 2,
+    "taskName": "ChannelTableSave"
+}
+
+
+[2023-08-22 16:04:29] [debug] Json解析正确！
+
+[2023-08-22 16:04:29] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 16:04:29] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"baudRate\": \"9600\",\n                \"dataBits\": \"6\",\n                \"parity\": \"none\",\n                \"port\": \"com1\",\n                \"portName\": \"1231\",\n                \"stopBits\": \"1\"\n            }\n        ]\n    },\n    \"responseTime\": 1,\n    \"taskID\": 2,\n    \"taskName\": \"ChannelTableSave\"\n}\n","errorCode":200,"response":"ok"}
+
+[2023-08-22 16:04:29] [error] 错误码: 200
+
+[2023-08-22 16:04:39] [debug] [handle_request]req.body: {"taskID":7,"taskName":"DevEdit","responseTime":1,"data":{"newdata":{"name":"3","port":"1231","protocol":"modbus","communicationAddress":"12","category":"pcs","model":"232","sn":"asd","deviceStatus":"123"},"olddata":{"name":"2","port":"1231","protocol":"modbus","communicationAddress":"12","category":"pcs","model":"232","sn":"asd","deviceStatus":"123"}}}
+
+[2023-08-22 16:04:41] [debug] 任务id: 7
+
+[2023-08-22 16:04:41] [error] Json解析错误
+
+[2023-08-22 16:04:41] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 16:04:41] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-22 16:04:41] [error] 错误码: 0
+
+[2023-08-22 16:09:29] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-22 16:09:29] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-22 16:09:29] [debug] 任务id: 4
+
+[2023-08-22 16:09:29] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "baudRate": "9600",
+                "dataBits": "6",
+                "parity": "none",
+                "port": "com1",
+                "portName": "1231",
+                "stopBits": "1"
+            }
+        ]
+    },
+    "responseTime": 1,
+    "taskID": 2,
+    "taskName": "ChannelTableSave"
+}
+
+
+[2023-08-22 16:09:29] [debug] Json解析正确！
+
+[2023-08-22 16:09:29] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 16:09:29] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"baudRate\": \"9600\",\n                \"dataBits\": \"6\",\n                \"parity\": \"none\",\n                \"port\": \"com1\",\n                \"portName\": \"1231\",\n                \"stopBits\": \"1\"\n            }\n        ]\n    },\n    \"responseTime\": 1,\n    \"taskID\": 2,\n    \"taskName\": \"ChannelTableSave\"\n}\n","errorCode":200,"response":"ok"}
+
+[2023-08-22 16:09:29] [error] 错误码: 200
+
+[2023-08-22 16:09:31] [debug] 任务id: 3
+
+[2023-08-22 16:09:31] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "category": "pcs",
+                "communicationAddress": "12",
+                "deviceStatus": "123",
+                "model": "232",
+                "name": "2",
+                "port": "1231",
+                "protocol": "modbus",
+                "sn": "asd"
+            }
+        ]
+    }
+}
+
+[2023-08-22 16:09:31] [debug] Json解析正确！
+
+[2023-08-22 16:09:31] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 16:09:31] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"category\": \"pcs\",\n                \"communicationAddress\": \"12\",\n                \"deviceStatus\": \"123\",\n                \"model\": \"232\",\n                \"name\": \"2\",\n                \"port\": \"1231\",\n                \"protocol\": \"modbus\",\n                \"sn\": \"asd\"\n            }\n        ]\n    }\n}","errorCode":200,"response":"ok"}
+
+[2023-08-22 16:09:31] [error] 错误码: 200
+
+[2023-08-22 16:09:46] [debug] [handle_request]req.body: {"taskID":7,"taskName":"DevEdit","responseTime":1,"data":{"newdata":{"name":"3","port":"1231","protocol":"modbus","communicationAddress":"12","category":"pcs","model":"232","sn":"asd","deviceStatus":"123"},"olddata":{"name":"2","port":"1231","protocol":"modbus","communicationAddress":"12","category":"pcs","model":"232","sn":"asd","deviceStatus":"123"}}}
+
+[2023-08-22 16:09:47] [debug] 任务id: 7
+
+[2023-08-22 16:09:47] [error] Json解析错误
+
+[2023-08-22 16:09:47] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 16:09:47] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-22 16:09:47] [error] 错误码: 0
+
+[2023-08-22 16:17:08] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-22 16:17:08] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-22 16:17:09] [debug] 任务id: 4
+
+[2023-08-22 16:17:09] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "baudRate": "9600",
+                "dataBits": "6",
+                "parity": "none",
+                "port": "com1",
+                "portName": "1231",
+                "stopBits": "1"
+            }
+        ]
+    },
+    "responseTime": 1,
+    "taskID": 2,
+    "taskName": "ChannelTableSave"
+}
+
+
+[2023-08-22 16:17:09] [debug] Json解析正确！
+
+[2023-08-22 16:17:09] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 16:17:09] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"baudRate\": \"9600\",\n                \"dataBits\": \"6\",\n                \"parity\": \"none\",\n                \"port\": \"com1\",\n                \"portName\": \"1231\",\n                \"stopBits\": \"1\"\n            }\n        ]\n    },\n    \"responseTime\": 1,\n    \"taskID\": 2,\n    \"taskName\": \"ChannelTableSave\"\n}\n","errorCode":200,"response":"ok"}
+
+[2023-08-22 16:17:09] [error] 错误码: 200
+
+[2023-08-22 16:17:11] [debug] 任务id: 3
+
+[2023-08-22 16:17:11] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "category": "pcs",
+                "communicationAddress": "12",
+                "deviceStatus": "123",
+                "model": "232",
+                "name": "2",
+                "port": "1231",
+                "protocol": "modbus",
+                "sn": "asd"
+            }
+        ]
+    }
+}
+
+[2023-08-22 16:17:11] [debug] Json解析正确！
+
+[2023-08-22 16:17:11] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 16:17:11] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"category\": \"pcs\",\n                \"communicationAddress\": \"12\",\n                \"deviceStatus\": \"123\",\n                \"model\": \"232\",\n                \"name\": \"2\",\n                \"port\": \"1231\",\n                \"protocol\": \"modbus\",\n                \"sn\": \"asd\"\n            }\n        ]\n    }\n}","errorCode":200,"response":"ok"}
+
+[2023-08-22 16:17:11] [error] 错误码: 200
+
+[2023-08-22 16:17:25] [debug] [handle_request]req.body: {"taskID":6,"taskName":"DevEdit","responseTime":1,"data":{"newdata":{"name":"323","port":"","protocol":"modbus","communicationAddress":"12","category":"pcs","model":"232","sn":"asd","deviceStatus":"123"},"olddata":{"name":"2","port":"1231","protocol":"modbus","communicationAddress":"12","category":"pcs","model":"232","sn":"asd","deviceStatus":"123"}}}
+
+[2023-08-22 16:17:27] [debug] 任务id: 6
+
+[2023-08-22 16:17:27] [debug] dev new action: 0
+
+[2023-08-22 16:17:27] [debug] dev new addr: 12
+
+[2023-08-22 16:17:27] [debug] dev new category: pcs
+
+[2023-08-22 16:17:27] [debug] dev new deviceStatus: 123
+
+[2023-08-22 16:17:27] [debug] dev new devName: 323
+
+[2023-08-22 16:17:27] [debug] dev new model: 232
+
+[2023-08-22 16:17:27] [debug] dev new protocol: modbus
+
+[2023-08-22 16:17:27] [debug] dev new serialInfo: 
+
+[2023-08-22 16:17:27] [debug] dev new sn: asd
+
+[2023-08-22 16:17:27] [debug] dev old action: 0
+
+[2023-08-22 16:17:27] [debug] dev old addr: 12
+
+[2023-08-22 16:17:27] [debug] dev old category: pcs
+
+[2023-08-22 16:17:27] [debug] dev old deviceStatus: 123
+
+[2023-08-22 16:17:27] [debug] dev old devName: 2
+
+[2023-08-22 16:17:27] [debug] dev old model: 232
+
+[2023-08-22 16:17:27] [debug] dev old protocol: modbus
+
+[2023-08-22 16:17:27] [debug] dev old serialInfo: 1231
+
+[2023-08-22 16:17:27] [debug] dev old sn: asd
+
+[2023-08-22 16:17:27] [debug] msg action: 0
+
+[2023-08-22 16:17:27] [debug] msg add addr: 12
+
+[2023-08-22 16:17:27] [debug] msg add category: pcs
+
+[2023-08-22 16:17:27] [debug] msg add deviceStatus: 123
+
+[2023-08-22 16:17:27] [debug] msg add devName: 323
+
+[2023-08-22 16:17:27] [debug] msg add model: 232
+
+[2023-08-22 16:17:27] [debug] msg add protocol: modbus
+
+[2023-08-22 16:17:27] [debug] msg add serialInfo: 
+
+[2023-08-22 16:17:27] [debug] msg add sn: asd
+
+[2023-08-22 16:17:27] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 16:17:27] [debug] [handle_request]response_data: {"errorCode":200,"response":"ok"}
+
+[2023-08-22 16:17:27] [error] 错误码: 200
+
+[2023-08-22 16:17:31] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-22 16:17:31] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-22 16:17:33] [debug] 任务id: 4
+
+[2023-08-22 16:17:33] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "baudRate": "9600",
+                "dataBits": "6",
+                "parity": "none",
+                "port": "com1",
+                "portName": "1231",
+                "stopBits": "1"
+            }
+        ]
+    },
+    "responseTime": 1,
+    "taskID": 2,
+    "taskName": "ChannelTableSave"
+}
+
+
+[2023-08-22 16:17:33] [debug] Json解析正确！
+
+[2023-08-22 16:17:33] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 16:17:33] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"baudRate\": \"9600\",\n                \"dataBits\": \"6\",\n                \"parity\": \"none\",\n                \"port\": \"com1\",\n                \"portName\": \"1231\",\n                \"stopBits\": \"1\"\n            }\n        ]\n    },\n    \"responseTime\": 1,\n    \"taskID\": 2,\n    \"taskName\": \"ChannelTableSave\"\n}\n","errorCode":200,"response":"ok"}
+
+[2023-08-22 16:17:33] [error] 错误码: 200
+
+[2023-08-22 16:17:33] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 16:17:33] [debug] [handle_request]response_data: 
+
+[2023-08-22 16:17:38] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-22 16:17:38] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-22 16:17:39] [debug] 任务id: 3
+
+[2023-08-22 16:17:39] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "category": "pcs",
+                "communicationAddress": "12",
+                "deviceStatus": "123",
+                "model": "232",
+                "name": "323",
+                "port": "",
+                "protocol": "modbus",
+                "sn": "asd"
+            }
+        ]
+    }
+}
+
+[2023-08-22 16:17:39] [debug] Json解析正确！
+
+[2023-08-22 16:17:39] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 16:17:39] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"category\": \"pcs\",\n                \"communicationAddress\": \"12\",\n                \"deviceStatus\": \"123\",\n                \"model\": \"232\",\n                \"name\": \"323\",\n                \"port\": \"\",\n                \"protocol\": \"modbus\",\n                \"sn\": \"asd\"\n            }\n        ]\n    }\n}","errorCode":200,"response":"ok"}
+
+[2023-08-22 16:17:39] [error] 错误码: 200
+
+[2023-08-22 16:17:41] [debug] 任务id: 4
+
+[2023-08-22 16:17:41] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "baudRate": "9600",
+                "dataBits": "6",
+                "parity": "none",
+                "port": "com1",
+                "portName": "1231",
+                "stopBits": "1"
+            }
+        ]
+    },
+    "responseTime": 1,
+    "taskID": 2,
+    "taskName": "ChannelTableSave"
+}
+
+
+[2023-08-22 16:17:41] [debug] Json解析正确！
+
+[2023-08-22 16:17:41] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 16:17:41] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"baudRate\": \"9600\",\n                \"dataBits\": \"6\",\n                \"parity\": \"none\",\n                \"port\": \"com1\",\n                \"portName\": \"1231\",\n                \"stopBits\": \"1\"\n            }\n        ]\n    },\n    \"responseTime\": 1,\n    \"taskID\": 2,\n    \"taskName\": \"ChannelTableSave\"\n}\n","errorCode":200,"response":"ok"}
+
+[2023-08-22 16:17:41] [error] 错误码: 200
+
+[2023-08-22 16:17:53] [debug] [handle_request]req.body: {"taskID":6,"taskName":"DevEdit","responseTime":1,"data":{"newdata":{"name":"231","port":"1231","protocol":"modbus","communicationAddress":"243","category":"pcs","model":"124","sn":"asd","deviceStatus":"1"},"olddata":{"name":"323","port":"","protocol":"modbus","communicationAddress":"12","category":"pcs","model":"232","sn":"asd","deviceStatus":"123"}}}
+
+[2023-08-22 16:17:53] [debug] 任务id: 6
+
+[2023-08-22 16:17:53] [debug] dev new action: 0
+
+[2023-08-22 16:17:53] [debug] dev new addr: 243
+
+[2023-08-22 16:17:53] [debug] dev new category: pcs
+
+[2023-08-22 16:17:53] [debug] dev new deviceStatus: 1
+
+[2023-08-22 16:17:53] [debug] dev new devName: 231
+
+[2023-08-22 16:17:53] [debug] dev new model: 124
+
+[2023-08-22 16:17:53] [debug] dev new protocol: modbus
+
+[2023-08-22 16:17:53] [debug] dev new serialInfo: 1231
+
+[2023-08-22 16:17:53] [debug] dev new sn: asd
+
+[2023-08-22 16:17:53] [debug] dev old action: 0
+
+[2023-08-22 16:17:53] [debug] dev old addr: 12
+
+[2023-08-22 16:17:53] [debug] dev old category: pcs
+
+[2023-08-22 16:17:53] [debug] dev old deviceStatus: 123
+
+[2023-08-22 16:17:53] [debug] dev old devName: 323
+
+[2023-08-22 16:17:53] [debug] dev old model: 232
+
+[2023-08-22 16:17:53] [debug] dev old protocol: modbus
+
+[2023-08-22 16:17:53] [debug] dev old serialInfo: 
+
+[2023-08-22 16:17:53] [debug] dev old sn: asd
+
+[2023-08-22 16:17:53] [debug] msg action: 0
+
+[2023-08-22 16:17:53] [debug] msg add addr: 243
+
+[2023-08-22 16:17:53] [debug] msg add category: pcs
+
+[2023-08-22 16:17:53] [debug] msg add deviceStatus: 1
+
+[2023-08-22 16:17:53] [debug] msg add devName: 231
+
+[2023-08-22 16:17:53] [debug] msg add model: 124
+
+[2023-08-22 16:17:53] [debug] msg add protocol: modbus
+
+[2023-08-22 16:17:53] [debug] msg add serialInfo: 1231
+
+[2023-08-22 16:17:53] [debug] msg add sn: asd
+
+[2023-08-22 16:17:53] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 16:17:53] [debug] [handle_request]response_data: {"errorCode":200,"response":"ok"}
+
+[2023-08-22 16:17:53] [error] 错误码: 200
+
+[2023-08-22 16:17:59] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-22 16:17:59] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-22 16:18:01] [debug] 任务id: 3
+
+[2023-08-22 16:18:01] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "category": "pcs",
+                "communicationAddress": "12",
+                "deviceStatus": "123",
+                "model": "232",
+                "name": "323",
+                "port": "",
+                "protocol": "modbus",
+                "sn": "asd"
+            },
+            {
+                "category": "pcs",
+                "communicationAddress": "243",
+                "deviceStatus": "1",
+                "model": "124",
+                "name": "231",
+                "port": "1231",
+                "protocol": "modbus",
+                "sn": "asd"
+            }
+        ]
+    }
+}
+
+[2023-08-22 16:18:01] [debug] Json解析正确！
+
+[2023-08-22 16:18:01] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 16:18:01] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"category\": \"pcs\",\n                \"communicationAddress\": \"12\",\n                \"deviceStatus\": \"123\",\n                \"model\": \"232\",\n                \"name\": \"323\",\n                \"port\": \"\",\n                \"protocol\": \"modbus\",\n                \"sn\": \"asd\"\n            },\n            {\n                \"category\": \"pcs\",\n                \"communicationAddress\": \"243\",\n                \"deviceStatus\": \"1\",\n                \"model\": \"124\",\n                \"name\": \"231\",\n                \"port\": \"1231\",\n                \"protocol\": \"modbus\",\n                \"sn\": \"asd\"\n            }\n        ]\n    }\n}","errorCode":200,"response":"ok"}
+
+[2023-08-22 16:18:01] [error] 错误码: 200
+
+[2023-08-22 16:18:03] [debug] 任务id: 4
+
+[2023-08-22 16:18:03] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "baudRate": "9600",
+                "dataBits": "6",
+                "parity": "none",
+                "port": "com1",
+                "portName": "1231",
+                "stopBits": "1"
+            }
+        ]
+    },
+    "responseTime": 1,
+    "taskID": 2,
+    "taskName": "ChannelTableSave"
+}
+
+
+[2023-08-22 16:18:03] [debug] Json解析正确！
+
+[2023-08-22 16:18:03] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 16:18:03] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"baudRate\": \"9600\",\n                \"dataBits\": \"6\",\n                \"parity\": \"none\",\n                \"port\": \"com1\",\n                \"portName\": \"1231\",\n                \"stopBits\": \"1\"\n            }\n        ]\n    },\n    \"responseTime\": 1,\n    \"taskID\": 2,\n    \"taskName\": \"ChannelTableSave\"\n}\n","errorCode":200,"response":"ok"}
+
+[2023-08-22 16:18:03] [error] 错误码: 200
+
+[2023-08-22 16:27:44] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-22 16:27:44] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-22 16:27:46] [debug] 任务id: 4
+
+[2023-08-22 16:27:46] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "baudRate": "9600",
+                "dataBits": "6",
+                "parity": "none",
+                "port": "com1",
+                "portName": "1231",
+                "stopBits": "1"
+            }
+        ]
+    },
+    "responseTime": 1,
+    "taskID": 2,
+    "taskName": "ChannelTableSave"
+}
+
+
+[2023-08-22 16:27:46] [debug] Json解析正确！
+
+[2023-08-22 16:27:46] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 16:27:46] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"baudRate\": \"9600\",\n                \"dataBits\": \"6\",\n                \"parity\": \"none\",\n                \"port\": \"com1\",\n                \"portName\": \"1231\",\n                \"stopBits\": \"1\"\n            }\n        ]\n    },\n    \"responseTime\": 1,\n    \"taskID\": 2,\n    \"taskName\": \"ChannelTableSave\"\n}\n","errorCode":200,"response":"ok"}
+
+[2023-08-22 16:27:46] [error] 错误码: 200
+
+[2023-08-22 16:27:48] [debug] 任务id: 3
+
+[2023-08-22 16:27:48] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "category": "pcs",
+                "communicationAddress": "12",
+                "deviceStatus": "123",
+                "model": "232",
+                "name": "323",
+                "port": "",
+                "protocol": "modbus",
+                "sn": "asd"
+            },
+            {
+                "category": "pcs",
+                "communicationAddress": "243",
+                "deviceStatus": "1",
+                "model": "124",
+                "name": "231",
+                "port": "1231",
+                "protocol": "modbus",
+                "sn": "asd"
+            }
+        ]
+    }
+}
+
+[2023-08-22 16:27:48] [debug] Json解析正确！
+
+[2023-08-22 16:27:48] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 16:27:48] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"category\": \"pcs\",\n                \"communicationAddress\": \"12\",\n                \"deviceStatus\": \"123\",\n                \"model\": \"232\",\n                \"name\": \"323\",\n                \"port\": \"\",\n                \"protocol\": \"modbus\",\n                \"sn\": \"asd\"\n            },\n            {\n                \"category\": \"pcs\",\n                \"communicationAddress\": \"243\",\n                \"deviceStatus\": \"1\",\n                \"model\": \"124\",\n                \"name\": \"231\",\n                \"port\": \"1231\",\n                \"protocol\": \"modbus\",\n                \"sn\": \"asd\"\n            }\n        ]\n    }\n}","errorCode":200,"response":"ok"}
+
+[2023-08-22 16:27:48] [error] 错误码: 200
+
+[2023-08-22 16:27:52] [debug] [handle_request]req.body: {"taskID":7,"taskName":"DevDel","responseTime":1,"data":{"table":[{}]}}
+
+[2023-08-22 16:27:54] [debug] 任务id: 7
+
+[2023-08-22 16:27:54] [error] Json解析错误
+
+[2023-08-22 16:27:54] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 16:27:54] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-22 16:27:54] [error] 错误码: 0
+
+[2023-08-22 16:28:10] [debug] [handle_request]req.body: {"taskID":5,"taskName":"DevSave","responseTime":1,"data":{"name":"12","port":"1231","protocol":"modbus","communicationAddress":"323","category":"pcs","model":"13243","sn":"1231","deviceStatus":"232"}}
+
+[2023-08-22 16:28:10] [debug] 任务id: 5
+
+[2023-08-22 16:28:10] [debug] dev action: 0
+
+[2023-08-22 16:28:10] [debug] dev addr: 323
+
+[2023-08-22 16:28:10] [debug] dev category: pcs
+
+[2023-08-22 16:28:10] [debug] dev deviceStatus: 232
+
+[2023-08-22 16:28:10] [debug] dev devName: 12
+
+[2023-08-22 16:28:10] [debug] dev model: 13243
+
+[2023-08-22 16:28:10] [debug] dev protocol: modbus
+
+[2023-08-22 16:28:10] [debug] dev serialInfo: 1231
+
+[2023-08-22 16:28:10] [debug] dev sn: 1231
+
+[2023-08-22 16:28:10] [debug] msg action: 0
+
+[2023-08-22 16:28:10] [debug] msg add addr: 323
+
+[2023-08-22 16:28:10] [debug] msg add category: pcs
+
+[2023-08-22 16:28:10] [debug] msg add deviceStatus: 232
+
+[2023-08-22 16:28:10] [debug] msg add devName: 12
+
+[2023-08-22 16:28:10] [debug] msg add model: 13243
+
+[2023-08-22 16:28:10] [debug] msg add protocol: modbus
+
+[2023-08-22 16:28:10] [debug] msg add serialInfo: 1231
+
+[2023-08-22 16:28:10] [debug] msg add sn: 1231
+
+[2023-08-22 16:28:10] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 16:28:10] [debug] [handle_request]response_data: {"errorCode":200,"response":"ok"}
+
+[2023-08-22 16:28:10] [error] 错误码: 200
+
+[2023-08-22 16:28:19] [debug] [handle_request]req.body: {"taskID":5,"taskName":"DevSave","responseTime":1,"data":{"name":"24341","port":"1231","protocol":"modbus","communicationAddress":"234","category":"pcs","model":"34","sn":"231","deviceStatus":"23"}}
+
+[2023-08-22 16:28:20] [debug] 任务id: 5
+
+[2023-08-22 16:28:20] [debug] dev action: 0
+
+[2023-08-22 16:28:20] [debug] dev addr: 234
+
+[2023-08-22 16:28:20] [debug] dev category: pcs
+
+[2023-08-22 16:28:20] [debug] dev deviceStatus: 23
+
+[2023-08-22 16:28:20] [debug] dev devName: 24341
+
+[2023-08-22 16:28:20] [debug] dev model: 34
+
+[2023-08-22 16:28:20] [debug] dev protocol: modbus
+
+[2023-08-22 16:28:20] [debug] dev serialInfo: 1231
+
+[2023-08-22 16:28:20] [debug] dev sn: 231
+
+[2023-08-22 16:28:20] [debug] msg action: 0
+
+[2023-08-22 16:28:20] [debug] msg add addr: 234
+
+[2023-08-22 16:28:20] [debug] msg add category: pcs
+
+[2023-08-22 16:28:20] [debug] msg add deviceStatus: 23
+
+[2023-08-22 16:28:20] [debug] msg add devName: 24341
+
+[2023-08-22 16:28:20] [debug] msg add model: 34
+
+[2023-08-22 16:28:20] [debug] msg add protocol: modbus
+
+[2023-08-22 16:28:20] [debug] msg add serialInfo: 1231
+
+[2023-08-22 16:28:20] [debug] msg add sn: 231
+
+[2023-08-22 16:28:20] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 16:28:20] [debug] [handle_request]response_data: {"errorCode":200,"response":"ok"}
+
+[2023-08-22 16:28:20] [error] 错误码: 200
+
+[2023-08-22 16:28:31] [debug] [handle_request]req.body: {"taskID":6,"taskName":"DevEdit","responseTime":1,"data":{"newdata":{"name":"a","port":"1231","protocol":"modbus","communicationAddress":"323","category":"pcs","model":"13243","sn":"1231","deviceStatus":"232"},"olddata":{"name":"12","port":"1231","protocol":"modbus","communicationAddress":"323","category":"pcs","model":"13243","sn":"1231","deviceStatus":"232"}}}
+
+[2023-08-22 16:28:32] [debug] 任务id: 6
+
+[2023-08-22 16:28:32] [debug] dev new action: 0
+
+[2023-08-22 16:28:32] [debug] dev new addr: 323
+
+[2023-08-22 16:28:32] [debug] dev new category: pcs
+
+[2023-08-22 16:28:32] [debug] dev new deviceStatus: 232
+
+[2023-08-22 16:28:32] [debug] dev new devName: a
+
+[2023-08-22 16:28:32] [debug] dev new model: 13243
+
+[2023-08-22 16:28:32] [debug] dev new protocol: modbus
+
+[2023-08-22 16:28:32] [debug] dev new serialInfo: 1231
+
+[2023-08-22 16:28:32] [debug] dev new sn: 1231
+
+[2023-08-22 16:28:32] [debug] dev old action: 0
+
+[2023-08-22 16:28:32] [debug] dev old addr: 323
+
+[2023-08-22 16:28:32] [debug] dev old category: pcs
+
+[2023-08-22 16:28:32] [debug] dev old deviceStatus: 232
+
+[2023-08-22 16:28:32] [debug] dev old devName: 12
+
+[2023-08-22 16:28:32] [debug] dev old model: 13243
+
+[2023-08-22 16:28:32] [debug] dev old protocol: modbus
+
+[2023-08-22 16:28:32] [debug] dev old serialInfo: 1231
+
+[2023-08-22 16:28:32] [debug] dev old sn: 1231
+
+[2023-08-22 16:28:32] [debug] msg action: 0
+
+[2023-08-22 16:28:32] [debug] msg add addr: 323
+
+[2023-08-22 16:28:32] [debug] msg add category: pcs
+
+[2023-08-22 16:28:32] [debug] msg add deviceStatus: 232
+
+[2023-08-22 16:28:32] [debug] msg add devName: a
+
+[2023-08-22 16:28:32] [debug] msg add model: 13243
+
+[2023-08-22 16:28:32] [debug] msg add protocol: modbus
+
+[2023-08-22 16:28:32] [debug] msg add serialInfo: 1231
+
+[2023-08-22 16:28:32] [debug] msg add sn: 1231
+
+[2023-08-22 16:28:32] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 16:28:32] [debug] [handle_request]response_data: {"errorCode":200,"response":"ok"}
+
+[2023-08-22 16:28:32] [error] 错误码: 200
+
+[2023-08-22 16:28:36] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-22 16:28:36] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-22 16:28:36] [debug] 任务id: 3
+
+[2023-08-22 16:28:36] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "category": "pcs",
+                "communicationAddress": "323",
+                "deviceStatus": "232",
+                "model": "13243",
+                "name": "12",
+                "port": "1231",
+                "protocol": "modbus",
+                "sn": "1231"
+            },
+            {
+                "category": "pcs",
+                "communicationAddress": "234",
+                "deviceStatus": "23",
+                "model": "34",
+                "name": "24341",
+                "port": "1231",
+                "protocol": "modbus",
+                "sn": "231"
+            },
+            {
+                "category": "pcs",
+                "communicationAddress": "323",
+                "deviceStatus": "232",
+                "model": "13243",
+                "name": "a",
+                "port": "1231",
+                "protocol": "modbus",
+                "sn": "1231"
+            }
+        ]
+    }
+}
+
+[2023-08-22 16:28:36] [debug] Json解析正确！
+
+[2023-08-22 16:28:36] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 16:28:36] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"category\": \"pcs\",\n                \"communicationAddress\": \"323\",\n                \"deviceStatus\": \"232\",\n                \"model\": \"13243\",\n                \"name\": \"12\",\n                \"port\": \"1231\",\n                \"protocol\": \"modbus\",\n                \"sn\": \"1231\"\n            },\n            {\n                \"category\": \"pcs\",\n                \"communicationAddress\": \"234\",\n                \"deviceStatus\": \"23\",\n                \"model\": \"34\",\n                \"name\": \"24341\",\n                \"port\": \"1231\",\n                \"protocol\": \"modbus\",\n                \"sn\": \"231\"\n            },\n            {\n                \"category\": \"pcs\",\n                \"communicationAddress\": \"323\",\n                \"deviceStatus\": \"232\",\n                \"model\": \"13243\",\n                \"name\": \"a\",\n                \"port\": \"1231\",\n                \"protocol\": \"modbus\",\n                \"sn\": \"1231\"\n            }\n        ]\n    }\n}","errorCode":200,"response":"ok"}
+
+[2023-08-22 16:28:36] [error] 错误码: 200
+
+[2023-08-22 16:28:36] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 16:28:36] [debug] [handle_request]response_data: 
+
+[2023-08-22 16:28:40] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-22 16:28:40] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-22 16:28:40] [debug] 任务id: 4
+
+[2023-08-22 16:28:40] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "baudRate": "9600",
+                "dataBits": "6",
+                "parity": "none",
+                "port": "com1",
+                "portName": "1231",
+                "stopBits": "1"
+            }
+        ]
+    },
+    "responseTime": 1,
+    "taskID": 2,
+    "taskName": "ChannelTableSave"
+}
+
+
+[2023-08-22 16:28:40] [debug] Json解析正确！
+
+[2023-08-22 16:28:40] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 16:28:40] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"baudRate\": \"9600\",\n                \"dataBits\": \"6\",\n                \"parity\": \"none\",\n                \"port\": \"com1\",\n                \"portName\": \"1231\",\n                \"stopBits\": \"1\"\n            }\n        ]\n    },\n    \"responseTime\": 1,\n    \"taskID\": 2,\n    \"taskName\": \"ChannelTableSave\"\n}\n","errorCode":200,"response":"ok"}
+
+[2023-08-22 16:28:40] [error] 错误码: 200
+
+[2023-08-22 16:28:42] [debug] 任务id: 3
+
+[2023-08-22 16:28:42] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "category": "pcs",
+                "communicationAddress": "323",
+                "deviceStatus": "232",
+                "model": "13243",
+                "name": "12",
+                "port": "1231",
+                "protocol": "modbus",
+                "sn": "1231"
+            },
+            {
+                "category": "pcs",
+                "communicationAddress": "234",
+                "deviceStatus": "23",
+                "model": "34",
+                "name": "24341",
+                "port": "1231",
+                "protocol": "modbus",
+                "sn": "231"
+            },
+            {
+                "category": "pcs",
+                "communicationAddress": "323",
+                "deviceStatus": "232",
+                "model": "13243",
+                "name": "a",
+                "port": "1231",
+                "protocol": "modbus",
+                "sn": "1231"
+            }
+        ]
+    }
+}
+
+[2023-08-22 16:28:42] [debug] Json解析正确！
+
+[2023-08-22 16:28:42] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 16:28:42] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"category\": \"pcs\",\n                \"communicationAddress\": \"323\",\n                \"deviceStatus\": \"232\",\n                \"model\": \"13243\",\n                \"name\": \"12\",\n                \"port\": \"1231\",\n                \"protocol\": \"modbus\",\n                \"sn\": \"1231\"\n            },\n            {\n                \"category\": \"pcs\",\n                \"communicationAddress\": \"234\",\n                \"deviceStatus\": \"23\",\n                \"model\": \"34\",\n                \"name\": \"24341\",\n                \"port\": \"1231\",\n                \"protocol\": \"modbus\",\n                \"sn\": \"231\"\n            },\n            {\n                \"category\": \"pcs\",\n                \"communicationAddress\": \"323\",\n                \"deviceStatus\": \"232\",\n                \"model\": \"13243\",\n                \"name\": \"a\",\n                \"port\": \"1231\",\n                \"protocol\": \"modbus\",\n                \"sn\": \"1231\"\n            }\n        ]\n    }\n}","errorCode":200,"response":"ok"}
+
+[2023-08-22 16:28:42] [error] 错误码: 200
+
+[2023-08-22 16:29:07] [debug] [handle_request]req.body: {"taskID":7,"taskName":"DevDel","responseTime":1,"data":{"table":[{}]}}
+
+[2023-08-22 16:29:08] [debug] 任务id: 7
+
+[2023-08-22 16:29:08] [error] Json解析错误
+
+[2023-08-22 16:29:08] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 16:29:08] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-22 16:29:08] [error] 错误码: 0
+
+[2023-08-22 16:41:31] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-22 16:41:31] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-22 16:41:33] [debug] 任务id: 3
+
+[2023-08-22 16:41:33] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "category": "pcs",
+                "communicationAddress": "323",
+                "deviceStatus": "232",
+                "model": "13243",
+                "name": "12",
+                "port": "1231",
+                "protocol": "modbus",
+                "sn": "1231"
+            },
+            {
+                "category": "pcs",
+                "communicationAddress": "234",
+                "deviceStatus": "23",
+                "model": "34",
+                "name": "24341",
+                "port": "1231",
+                "protocol": "modbus",
+                "sn": "231"
+            },
+            {
+                "category": "pcs",
+                "communicationAddress": "323",
+                "deviceStatus": "232",
+                "model": "13243",
+                "name": "a",
+                "port": "1231",
+                "protocol": "modbus",
+                "sn": "1231"
+            }
+        ]
+    }
+}
+
+[2023-08-22 16:41:33] [debug] Json解析正确！
+
+[2023-08-22 16:41:33] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 16:41:33] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"category\": \"pcs\",\n                \"communicationAddress\": \"323\",\n                \"deviceStatus\": \"232\",\n                \"model\": \"13243\",\n                \"name\": \"12\",\n                \"port\": \"1231\",\n                \"protocol\": \"modbus\",\n                \"sn\": \"1231\"\n            },\n            {\n                \"category\": \"pcs\",\n                \"communicationAddress\": \"234\",\n                \"deviceStatus\": \"23\",\n                \"model\": \"34\",\n                \"name\": \"24341\",\n                \"port\": \"1231\",\n                \"protocol\": \"modbus\",\n                \"sn\": \"231\"\n            },\n            {\n                \"category\": \"pcs\",\n                \"communicationAddress\": \"323\",\n                \"deviceStatus\": \"232\",\n                \"model\": \"13243\",\n                \"name\": \"a\",\n                \"port\": \"1231\",\n                \"protocol\": \"modbus\",\n                \"sn\": \"1231\"\n            }\n        ]\n    }\n}","errorCode":200,"response":"ok"}
+
+[2023-08-22 16:41:33] [error] 错误码: 200
+
+[2023-08-22 16:41:35] [debug] 任务id: 4
+
+[2023-08-22 16:41:35] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "baudRate": "9600",
+                "dataBits": "6",
+                "parity": "none",
+                "port": "com1",
+                "portName": "1231",
+                "stopBits": "1"
+            }
+        ]
+    },
+    "responseTime": 1,
+    "taskID": 2,
+    "taskName": "ChannelTableSave"
+}
+
+
+[2023-08-22 16:41:35] [debug] Json解析正确！
+
+[2023-08-22 16:41:35] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 16:41:35] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"baudRate\": \"9600\",\n                \"dataBits\": \"6\",\n                \"parity\": \"none\",\n                \"port\": \"com1\",\n                \"portName\": \"1231\",\n                \"stopBits\": \"1\"\n            }\n        ]\n    },\n    \"responseTime\": 1,\n    \"taskID\": 2,\n    \"taskName\": \"ChannelTableSave\"\n}\n","errorCode":200,"response":"ok"}
+
+[2023-08-22 16:41:35] [error] 错误码: 200
+
+[2023-08-22 16:41:38] [debug] [handle_request]req.body: {"taskID":7,"taskName":"DevDel","responseTime":1,"data":{"table":[{"name":"a","port":"1231","protocol":"modbus","communicationAddress":"323","category":"pcs","model":"13243","sn":"1231","deviceStatus":"232"}]}}
+
+[2023-08-22 16:41:39] [debug] 任务id: 7
+
+[2023-08-22 16:41:39] [error] Json解析错误
+
+[2023-08-22 16:41:39] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 16:41:39] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-22 16:41:39] [error] 错误码: 0
+
+[2023-08-22 16:43:40] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-22 16:43:40] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-22 16:43:41] [debug] 任务id: 3
+
+[2023-08-22 16:43:41] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "category": "pcs",
+                "communicationAddress": "323",
+                "deviceStatus": "232",
+                "model": "13243",
+                "name": "12",
+                "port": "1231",
+                "protocol": "modbus",
+                "sn": "1231"
+            },
+            {
+                "category": "pcs",
+                "communicationAddress": "234",
+                "deviceStatus": "23",
+                "model": "34",
+                "name": "24341",
+                "port": "1231",
+                "protocol": "modbus",
+                "sn": "231"
+            },
+            {
+                "category": "pcs",
+                "communicationAddress": "323",
+                "deviceStatus": "232",
+                "model": "13243",
+                "name": "a",
+                "port": "1231",
+                "protocol": "modbus",
+                "sn": "1231"
+            }
+        ]
+    }
+}
+
+[2023-08-22 16:43:41] [debug] Json解析正确！
+
+[2023-08-22 16:43:41] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 16:43:41] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"category\": \"pcs\",\n                \"communicationAddress\": \"323\",\n                \"deviceStatus\": \"232\",\n                \"model\": \"13243\",\n                \"name\": \"12\",\n                \"port\": \"1231\",\n                \"protocol\": \"modbus\",\n                \"sn\": \"1231\"\n            },\n            {\n                \"category\": \"pcs\",\n                \"communicationAddress\": \"234\",\n                \"deviceStatus\": \"23\",\n                \"model\": \"34\",\n                \"name\": \"24341\",\n                \"port\": \"1231\",\n                \"protocol\": \"modbus\",\n                \"sn\": \"231\"\n            },\n            {\n                \"category\": \"pcs\",\n                \"communicationAddress\": \"323\",\n                \"deviceStatus\": \"232\",\n                \"model\": \"13243\",\n                \"name\": \"a\",\n                \"port\": \"1231\",\n                \"protocol\": \"modbus\",\n                \"sn\": \"1231\"\n            }\n        ]\n    }\n}","errorCode":200,"response":"ok"}
+
+[2023-08-22 16:43:41] [error] 错误码: 200
+
+[2023-08-22 16:43:43] [debug] 任务id: 4
+
+[2023-08-22 16:43:43] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "baudRate": "9600",
+                "dataBits": "6",
+                "parity": "none",
+                "port": "com1",
+                "portName": "1231",
+                "stopBits": "1"
+            }
+        ]
+    },
+    "responseTime": 1,
+    "taskID": 2,
+    "taskName": "ChannelTableSave"
+}
+
+
+[2023-08-22 16:43:43] [debug] Json解析正确！
+
+[2023-08-22 16:43:43] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 16:43:43] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"baudRate\": \"9600\",\n                \"dataBits\": \"6\",\n                \"parity\": \"none\",\n                \"port\": \"com1\",\n                \"portName\": \"1231\",\n                \"stopBits\": \"1\"\n            }\n        ]\n    },\n    \"responseTime\": 1,\n    \"taskID\": 2,\n    \"taskName\": \"ChannelTableSave\"\n}\n","errorCode":200,"response":"ok"}
+
+[2023-08-22 16:43:43] [error] 错误码: 200
+
+[2023-08-22 16:43:46] [debug] [handle_request]req.body: {"taskID":7,"taskName":"DevDel","responseTime":1,"data":{"table":[{"name":"24341","port":"1231","protocol":"modbus","communicationAddress":"234","category":"pcs","model":"34","sn":"231","deviceStatus":"23"}]}}
+
+[2023-08-22 16:43:47] [debug] 任务id: 7
+
+[2023-08-22 16:43:47] [error] Json解析错误
+
+[2023-08-22 16:43:47] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 16:43:47] [debug] [handle_request]response_data: {"errorCode":0,"response":"ok"}
+
+[2023-08-22 16:43:47] [error] 错误码: 0
+
+[2023-08-22 17:12:43] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-22 17:12:43] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-22 17:12:45] [debug] 任务id: 3
+
+[2023-08-22 17:12:45] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "category": "pcs",
+                "communicationAddress": "323",
+                "deviceStatus": "232",
+                "model": "13243",
+                "name": "12",
+                "port": "1231",
+                "protocol": "modbus",
+                "sn": "1231"
+            },
+            {
+                "category": "pcs",
+                "communicationAddress": "234",
+                "deviceStatus": "23",
+                "model": "34",
+                "name": "24341",
+                "port": "1231",
+                "protocol": "modbus",
+                "sn": "231"
+            },
+            {
+                "category": "pcs",
+                "communicationAddress": "323",
+                "deviceStatus": "232",
+                "model": "13243",
+                "name": "a",
+                "port": "1231",
+                "protocol": "modbus",
+                "sn": "1231"
+            }
+        ]
+    }
+}
+
+[2023-08-22 17:12:45] [debug] Json解析正确！
+
+[2023-08-22 17:12:45] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 17:12:45] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"category\": \"pcs\",\n                \"communicationAddress\": \"323\",\n                \"deviceStatus\": \"232\",\n                \"model\": \"13243\",\n                \"name\": \"12\",\n                \"port\": \"1231\",\n                \"protocol\": \"modbus\",\n                \"sn\": \"1231\"\n            },\n            {\n                \"category\": \"pcs\",\n                \"communicationAddress\": \"234\",\n                \"deviceStatus\": \"23\",\n                \"model\": \"34\",\n                \"name\": \"24341\",\n                \"port\": \"1231\",\n                \"protocol\": \"modbus\",\n                \"sn\": \"231\"\n            },\n            {\n                \"category\": \"pcs\",\n                \"communicationAddress\": \"323\",\n                \"deviceStatus\": \"232\",\n                \"model\": \"13243\",\n                \"name\": \"a\",\n                \"port\": \"1231\",\n                \"protocol\": \"modbus\",\n                \"sn\": \"1231\"\n            }\n        ]\n    }\n}","errorCode":200,"response":"ok"}
+
+[2023-08-22 17:12:45] [error] 错误码: 200
+
+[2023-08-22 17:12:47] [debug] 任务id: 4
+
+[2023-08-22 17:12:47] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "baudRate": "9600",
+                "dataBits": "6",
+                "parity": "none",
+                "port": "com1",
+                "portName": "1231",
+                "stopBits": "1"
+            }
+        ]
+    },
+    "responseTime": 1,
+    "taskID": 2,
+    "taskName": "ChannelTableSave"
+}
+
+
+[2023-08-22 17:12:47] [debug] Json解析正确！
+
+[2023-08-22 17:12:47] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 17:12:47] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"baudRate\": \"9600\",\n                \"dataBits\": \"6\",\n                \"parity\": \"none\",\n                \"port\": \"com1\",\n                \"portName\": \"1231\",\n                \"stopBits\": \"1\"\n            }\n        ]\n    },\n    \"responseTime\": 1,\n    \"taskID\": 2,\n    \"taskName\": \"ChannelTableSave\"\n}\n","errorCode":200,"response":"ok"}
+
+[2023-08-22 17:12:47] [error] 错误码: 200
+
+[2023-08-22 17:12:59] [debug] [handle_request]req.body: {"taskID":5,"taskName":"DevSave","responseTime":1,"data":{"name":"12323","port":"1231","protocol":"modbus","communicationAddress":"23","category":"pcs","model":"42341","sn":"234","deviceStatus":"12"}}
+
+[2023-08-22 17:13:01] [debug] 任务id: 5
+
+[2023-08-22 17:13:01] [debug] dev action: 0
+
+[2023-08-22 17:13:01] [debug] dev addr: 23
+
+[2023-08-22 17:13:01] [debug] dev category: pcs
+
+[2023-08-22 17:13:01] [debug] dev deviceStatus: 12
+
+[2023-08-22 17:13:01] [debug] dev devName: 12323
+
+[2023-08-22 17:13:01] [debug] dev model: 42341
+
+[2023-08-22 17:13:01] [debug] dev protocol: modbus
+
+[2023-08-22 17:13:01] [debug] dev serialInfo: 1231
+
+[2023-08-22 17:13:01] [debug] dev sn: 234
+
+[2023-08-22 17:13:01] [debug] msg action: 0
+
+[2023-08-22 17:13:01] [debug] msg add addr: 23
+
+[2023-08-22 17:13:01] [debug] msg add category: pcs
+
+[2023-08-22 17:13:01] [debug] msg add deviceStatus: 12
+
+[2023-08-22 17:13:01] [debug] msg add devName: 12323
+
+[2023-08-22 17:13:01] [debug] msg add model: 42341
+
+[2023-08-22 17:13:01] [debug] msg add protocol: modbus
+
+[2023-08-22 17:13:01] [debug] msg add serialInfo: 1231
+
+[2023-08-22 17:13:01] [debug] msg add sn: 234
+
+[2023-08-22 17:13:01] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 17:13:01] [debug] [handle_request]response_data: {"errorCode":200,"response":"ok"}
+
+[2023-08-22 17:13:01] [error] 错误码: 200
+
+[2023-08-22 17:13:10] [debug] [handle_request]req.body: {"taskID":6,"taskName":"DevEdit","responseTime":1,"data":{"newdata":{"name":"b","port":"","protocol":"modbus","communicationAddress":"323","category":"pcs","model":"13243","sn":"1231","deviceStatus":"232"},"olddata":{"name":"a","port":"1231","protocol":"modbus","communicationAddress":"323","category":"pcs","model":"13243","sn":"1231","deviceStatus":"232"}}}
+
+[2023-08-22 17:13:11] [debug] 任务id: 6
+
+[2023-08-22 17:13:11] [debug] dev new action: 1
+
+[2023-08-22 17:13:11] [debug] dev new addr: 323
+
+[2023-08-22 17:13:11] [debug] dev new category: pcs
+
+[2023-08-22 17:13:11] [debug] dev new deviceStatus: 232
+
+[2023-08-22 17:13:11] [debug] dev new devName: b
+
+[2023-08-22 17:13:11] [debug] dev new model: 13243
+
+[2023-08-22 17:13:11] [debug] dev new protocol: modbus
+
+[2023-08-22 17:13:11] [debug] dev new serialInfo: 
+
+[2023-08-22 17:13:11] [debug] dev new sn: 1231
+
+[2023-08-22 17:13:11] [debug] dev old action: 0
+
+[2023-08-22 17:13:11] [debug] dev old addr: 323
+
+[2023-08-22 17:13:11] [debug] dev old category: pcs
+
+[2023-08-22 17:13:11] [debug] dev old deviceStatus: 232
+
+[2023-08-22 17:13:11] [debug] dev old devName: a
+
+[2023-08-22 17:13:11] [debug] dev old model: 13243
+
+[2023-08-22 17:13:11] [debug] dev old protocol: modbus
+
+[2023-08-22 17:13:11] [debug] dev old serialInfo: 1231
+
+[2023-08-22 17:13:11] [debug] dev old sn: 1231
+
+[2023-08-22 17:13:11] [debug] msg action: 0
+
+[2023-08-22 17:13:11] [debug] msg add addr: 323
+
+[2023-08-22 17:13:11] [debug] msg add category: pcs
+
+[2023-08-22 17:13:11] [debug] msg add deviceStatus: 232
+
+[2023-08-22 17:13:11] [debug] msg add devName: b
+
+[2023-08-22 17:13:11] [debug] msg add model: 13243
+
+[2023-08-22 17:13:11] [debug] msg add protocol: modbus
+
+[2023-08-22 17:13:11] [debug] msg add serialInfo: 
+
+[2023-08-22 17:13:11] [debug] msg add sn: 1231
+
+[2023-08-22 17:13:11] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 17:13:11] [debug] [handle_request]response_data: {"errorCode":200,"response":"ok"}
+
+[2023-08-22 17:13:11] [error] 错误码: 200
+
+[2023-08-22 17:13:19] [debug] [handle_request]req.body: {"taskID":7,"taskName":"DevDel","responseTime":1,"data":{"table":[{"name":"b","port":"","protocol":"modbus","communicationAddress":"323","category":"pcs","model":"13243","sn":"1231","deviceStatus":"232"}]}}
+
+[2023-08-22 17:13:19] [debug] 任务id: 7
+
+[2023-08-22 17:13:19] [debug] msg action: 2
+
+[2023-08-22 17:13:19] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 17:13:19] [debug] [handle_request]response_data: {"errorCode":200,"response":"ok"}
+
+[2023-08-22 17:13:19] [error] 错误码: 200
+
+[2023-08-22 17:13:25] [debug] [handle_request]req.body: {"taskID":7,"taskName":"DevDel","responseTime":1,"data":{"table":[{"name":"24341","port":"1231","protocol":"modbus","communicationAddress":"234","category":"pcs","model":"34","sn":"231","deviceStatus":"23"},{"name":"12323","port":"1231","protocol":"modbus","communicationAddress":"23","category":"pcs","model":"42341","sn":"234","deviceStatus":"12"}]}}
+
+[2023-08-22 17:13:27] [debug] 任务id: 7
+
+[2023-08-22 17:13:27] [debug] msg action: 2
+
+[2023-08-22 17:13:27] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 17:13:27] [debug] [handle_request]response_data: {"errorCode":200,"response":"ok"}
+
+[2023-08-22 17:13:27] [error] 错误码: 200
+
+[2023-08-22 17:14:47] [debug] [handle_request]req.body: {"taskID":5,"taskName":"DevSave","responseTime":1,"data":{"name":"1213","port":"1231","protocol":"modbus","communicationAddress":"234","category":"pcs","model":"1243","sn":"342","deviceStatus":"1243"}}
+
+[2023-08-22 17:14:49] [debug] 任务id: 5
+
+[2023-08-22 17:14:49] [debug] dev action: 0
+
+[2023-08-22 17:14:49] [debug] dev addr: 234
+
+[2023-08-22 17:14:49] [debug] dev category: pcs
+
+[2023-08-22 17:14:49] [debug] dev deviceStatus: 1243
+
+[2023-08-22 17:14:49] [debug] dev devName: 1213
+
+[2023-08-22 17:14:49] [debug] dev model: 1243
+
+[2023-08-22 17:14:49] [debug] dev protocol: modbus
+
+[2023-08-22 17:14:49] [debug] dev serialInfo: 1231
+
+[2023-08-22 17:14:49] [debug] dev sn: 342
+
+[2023-08-22 17:14:49] [debug] msg action: 0
+
+[2023-08-22 17:14:49] [debug] msg add addr: 234
+
+[2023-08-22 17:14:49] [debug] msg add category: pcs
+
+[2023-08-22 17:14:49] [debug] msg add deviceStatus: 1243
+
+[2023-08-22 17:14:49] [debug] msg add devName: 1213
+
+[2023-08-22 17:14:49] [debug] msg add model: 1243
+
+[2023-08-22 17:14:49] [debug] msg add protocol: modbus
+
+[2023-08-22 17:14:49] [debug] msg add serialInfo: 1231
+
+[2023-08-22 17:14:49] [debug] msg add sn: 342
+
+[2023-08-22 17:14:49] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 17:14:49] [debug] [handle_request]response_data: {"errorCode":200,"response":"ok"}
+
+[2023-08-22 17:14:49] [error] 错误码: 200
+
+[2023-08-22 17:15:04] [debug] [handle_request]req.body: {"taskID":3,"taskName":"getDevTable","responseTime":1}
+
+[2023-08-22 17:15:04] [debug] [handle_request]req.body: {"taskID":4,"taskName":"getChannelTable","responseTime":1}
+
+[2023-08-22 17:15:05] [debug] 任务id: 3
+
+[2023-08-22 17:15:05] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "category": "pcs",
+                "communicationAddress": "234",
+                "deviceStatus": "1243",
+                "model": "1243",
+                "name": "1213",
+                "port": "1231",
+                "protocol": "modbus",
+                "sn": "342"
+            }
+        ]
+    }
+}
+
+[2023-08-22 17:15:05] [debug] Json解析正确！
+
+[2023-08-22 17:15:05] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 17:15:05] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"category\": \"pcs\",\n                \"communicationAddress\": \"234\",\n                \"deviceStatus\": \"1243\",\n                \"model\": \"1243\",\n                \"name\": \"1213\",\n                \"port\": \"1231\",\n                \"protocol\": \"modbus\",\n                \"sn\": \"342\"\n            }\n        ]\n    }\n}","errorCode":200,"response":"ok"}
+
+[2023-08-22 17:15:05] [error] 错误码: 200
+
+[2023-08-22 17:15:07] [debug] 任务id: 4
+
+[2023-08-22 17:15:07] [debug] Json解析: {
+    "data": {
+        "table": [
+            {
+                "baudRate": "9600",
+                "dataBits": "6",
+                "parity": "none",
+                "port": "com1",
+                "portName": "1231",
+                "stopBits": "1"
+            }
+        ]
+    },
+    "responseTime": 1,
+    "taskID": 2,
+    "taskName": "ChannelTableSave"
+}
+
+
+[2023-08-22 17:15:07] [debug] Json解析正确！
+
+[2023-08-22 17:15:07] [debug] [handle_request]======================http接受回复======================
+
+[2023-08-22 17:15:07] [debug] [handle_request]response_data: {"data":"{\n    \"data\": {\n        \"table\": [\n            {\n                \"baudRate\": \"9600\",\n                \"dataBits\": \"6\",\n                \"parity\": \"none\",\n                \"port\": \"com1\",\n                \"portName\": \"1231\",\n                \"stopBits\": \"1\"\n            }\n        ]\n    },\n    \"responseTime\": 1,\n    \"taskID\": 2,\n    \"taskName\": \"ChannelTableSave\"\n}\n","errorCode":200,"response":"ok"}
+
+[2023-08-22 17:15:07] [error] 错误码: 200
+
