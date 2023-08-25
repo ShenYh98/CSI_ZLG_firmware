@@ -18,10 +18,10 @@ void Modbus::AssemblePacket(uint8_t* request) {
     // 构建Modbus RTU读取请求
     request[0] = 0x01;  // 设备地址
     request[1] = 0x03;  // 功能码
-    request[2] = 0x00;  // 起始地址高位
-    request[3] = 0x01;  // 起始地址低位
+    request[2] = 0x0b;  // 起始地址高位
+    request[3] = 0x24;  // 起始地址低位
     request[4] = 0x00;  // 寄存器数量高位
-    request[5] = 0x02;  // 寄存器数量低位
+    request[5] = 0x01;  // 寄存器数量低位
 
     // 使用libmodbus添加CRC校验
     uint16_t crc = CRC16(request, 6);

@@ -29,7 +29,7 @@ struct Responder {
     std::function<void(const Message&, std::function<void(const Response&)>)> callback;
 };
 
-template<typename Message, typename Response = void>
+template<typename Message>
 class MessageQueue {
 public:
     MessageQueue() : threadPool(MQ_THREAD_MIN, MQ_THREAD_MAX) {}
@@ -57,6 +57,8 @@ public:
     }
 
 private:
+
+public:
     std::vector<Subscriber<Message>> subscribers;
     ThreadPool threadPool;
     std::mutex mutex;

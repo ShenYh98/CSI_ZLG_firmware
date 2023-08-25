@@ -234,6 +234,81 @@ void  NetWorkLayerImp::operation() {
             }
             break;
         }
+        case taskId::AddChannel: {
+            int result = addChannel(recv_data);
+            if ( 200 ==  result ) {
+                // 创建 JSON 对象
+                nlohmann::json jsonObject;
+                jsonObject["response"] = "ok";
+                jsonObject["errorCode"] = result;
+
+                // 将 JSON 对象序列化为字符串
+                std::string jsonString = jsonObject.dump();
+
+                this->send(jsonString);
+            } else {
+                // 创建 JSON 对象
+                nlohmann::json jsonObject;
+                jsonObject["response"] = "ok";
+                jsonObject["errorCode"] = result;
+
+                // 将 JSON 对象序列化为字符串
+                std::string jsonString = jsonObject.dump();
+
+                this->send(jsonString);
+            }
+            break;
+        }
+        case taskId::EditChannel: {
+            int result = editChannel(recv_data);
+            if ( 200 ==  result ) {
+                // 创建 JSON 对象
+                nlohmann::json jsonObject;
+                jsonObject["response"] = "ok";
+                jsonObject["errorCode"] = result;
+
+                // 将 JSON 对象序列化为字符串
+                std::string jsonString = jsonObject.dump();
+
+                this->send(jsonString);
+            } else {
+                // 创建 JSON 对象
+                nlohmann::json jsonObject;
+                jsonObject["response"] = "ok";
+                jsonObject["errorCode"] = result;
+
+                // 将 JSON 对象序列化为字符串
+                std::string jsonString = jsonObject.dump();
+
+                this->send(jsonString);
+            }
+            break;
+        }
+        case taskId::DelChannel: {
+            int result = delChannel(recv_data);
+            if ( 200 ==  result ) {
+                // 创建 JSON 对象
+                nlohmann::json jsonObject;
+                jsonObject["response"] = "ok";
+                jsonObject["errorCode"] = result;
+
+                // 将 JSON 对象序列化为字符串
+                std::string jsonString = jsonObject.dump();
+
+                this->send(jsonString);
+            } else {
+                // 创建 JSON 对象
+                nlohmann::json jsonObject;
+                jsonObject["response"] = "ok";
+                jsonObject["errorCode"] = result;
+
+                // 将 JSON 对象序列化为字符串
+                std::string jsonString = jsonObject.dump();
+
+                this->send(jsonString);
+            }
+            break;
+        }
         
         default:
             break;
@@ -522,7 +597,7 @@ int NetWorkLayerImp::editDev(const std::string recv_data) {
         LOG_DEBUG("dev new sn: {}\n", srv_devInfo.devInfo.sn);
 
         // 获取字段的旧值
-        srv_devInfo.act = Action::Add;
+        srv_devInfo.act = Action::Edit;
         srv_devInfo.oldDevInfo.addr = std::stoi(http_jsonData["data"]["olddata"]["communicationAddress"].get<std::string>());
         srv_devInfo.oldDevInfo.category = http_jsonData["data"]["olddata"]["category"].get<std::string>();
         srv_devInfo.oldDevInfo.deviceStatus = std::stoi(http_jsonData["data"]["olddata"]["deviceStatus"].get<std::string>());
@@ -594,6 +669,166 @@ int NetWorkLayerImp::delDev(const std::string recv_data) {
     }
 
     auto publish = ServiceQueue< std::vector<srv_DevInfo>, std::string >::getInstance().service_publish("devTable/addDev", v_devInfo);
+    auto res = publish.get();
+    if (res == "ok") {
+        return 200;
+    } else {
+        return 0;
+    }
+
+    return 200;
+}
+
+int NetWorkLayerImp::addChannel(const std::string recv_data) {
+    // 解析JSON数据
+    json http_jsonData;
+    std::vector<srv_SerialInfo> v_serialInfo;
+    try {
+        http_jsonData = json::parse(recv_data);
+
+        // 验证JSON数据的有效性
+        if (!http_jsonData.is_object()) {
+            throw std::runtime_error("Invalid JSON data: not an object");
+        }
+
+        // 获取字段的值
+        srv_SerialInfo srv_serialInfo;
+
+        srv_serialInfo.act = Action::Add;
+        srv_serialInfo.serialInfo.name = http_jsonData["data"]["portName"].get<std::string>();
+        srv_serialInfo.serialInfo.SerialName = http_jsonData["data"]["port"].get<std::string>();
+        srv_serialInfo.serialInfo.serialParamInfo.baudrate = std::stoi(http_jsonData["data"]["baudRate"].get<std::string>());
+        srv_serialInfo.serialInfo.serialParamInfo.databit = std::stoi(http_jsonData["data"]["dataBits"].get<std::string>());
+        srv_serialInfo.serialInfo.serialParamInfo.parity = http_jsonData["data"]["parity"].get<std::string>();
+        srv_serialInfo.serialInfo.serialParamInfo.stopbit = http_jsonData["data"]["stopBits"].get<std::string>();
+        srv_serialInfo.serialInfo.serialParamInfo.vmin = 255;
+        srv_serialInfo.serialInfo.serialParamInfo.vtime = 150;
+
+        v_serialInfo.push_back(srv_serialInfo);
+    } catch(const std::exception& e) {
+        // Json解析错误
+        LOG_ERROR("Json解析错误\n");
+        return 0;
+    }
+
+    auto publish = ServiceQueue<std::vector<srv_SerialInfo>, std::string>::getInstance().service_publish("SerialTable/addSerial", v_serialInfo);
+    auto res = publish.get();
+    if (res == "ok") {
+        return 200;
+    } else {
+        return 0;
+    }
+
+    return 200;
+}
+
+int NetWorkLayerImp::editChannel(const std::string recv_data) {
+    // 解析JSON数据
+    json http_jsonData;
+    std::vector<srv_SerialInfo> v_serialInfo;
+    try {
+        http_jsonData = json::parse(recv_data);
+
+        // 验证JSON数据的有效性
+        if (!http_jsonData.is_object()) {
+            throw std::runtime_error("Invalid JSON data: not an object");
+        }
+
+        // 获取字段的新值
+        srv_SerialInfo srv_serialInfo;
+
+        srv_serialInfo.act = Action::Edit;
+        srv_serialInfo.serialInfo.name                      = http_jsonData["data"]["newdata"]["portName"].get<std::string>();
+        srv_serialInfo.serialInfo.SerialName                = http_jsonData["data"]["newdata"]["port"].get<std::string>();
+        srv_serialInfo.serialInfo.serialParamInfo.baudrate  = std::stoi(http_jsonData["data"]["newdata"]["baudRate"].get<std::string>());
+        srv_serialInfo.serialInfo.serialParamInfo.databit   = std::stoi(http_jsonData["data"]["newdata"]["dataBits"].get<std::string>());
+        srv_serialInfo.serialInfo.serialParamInfo.parity    = http_jsonData["data"]["newdata"]["parity"].get<std::string>();
+        srv_serialInfo.serialInfo.serialParamInfo.stopbit   = http_jsonData["data"]["newdata"]["stopBits"].get<std::string>();
+        srv_serialInfo.serialInfo.serialParamInfo.vmin      = 255;
+        srv_serialInfo.serialInfo.serialParamInfo.vtime     = 150;
+
+        LOG_DEBUG("serial new action: {}\n",    srv_serialInfo.act);
+        LOG_DEBUG("serial new name: {}\n",      srv_serialInfo.serialInfo.name                     );
+        LOG_DEBUG("serial new baudrate: {}\n",  srv_serialInfo.serialInfo.serialParamInfo.baudrate );
+        LOG_DEBUG("serial new databit: {}\n",   srv_serialInfo.serialInfo.serialParamInfo.databit  );
+        LOG_DEBUG("serial new parity: {}\n",    srv_serialInfo.serialInfo.serialParamInfo.parity   );
+        LOG_DEBUG("serial new stopbit: {}\n",   srv_serialInfo.serialInfo.serialParamInfo.stopbit  );
+        LOG_DEBUG("serial new vmin: {}\n",      srv_serialInfo.serialInfo.serialParamInfo.vmin     );
+        LOG_DEBUG("serial new vtime: {}\n",     srv_serialInfo.serialInfo.serialParamInfo.vtime    );
+
+        // 获取字段的旧值
+        srv_serialInfo.act = Action::Edit;
+        srv_serialInfo.oldSerialInfo.name = http_jsonData["data"]["olddata"]["portName"].get<std::string>();
+        srv_serialInfo.serialInfo.SerialName = http_jsonData["data"]["olddata"]["port"].get<std::string>();
+        srv_serialInfo.oldSerialInfo.serialParamInfo.baudrate = std::stoi(http_jsonData["data"]["olddata"]["baudRate"].get<std::string>());
+        srv_serialInfo.oldSerialInfo.serialParamInfo.databit = std::stoi(http_jsonData["data"]["olddata"]["dataBits"].get<std::string>());
+        srv_serialInfo.oldSerialInfo.serialParamInfo.parity = http_jsonData["data"]["olddata"]["parity"].get<std::string>();
+        srv_serialInfo.oldSerialInfo.serialParamInfo.stopbit = http_jsonData["data"]["olddata"]["stopBits"].get<std::string>();
+        srv_serialInfo.oldSerialInfo.serialParamInfo.vmin = 255;
+        srv_serialInfo.oldSerialInfo.serialParamInfo.vtime = 150;
+
+        LOG_DEBUG("serial old action: {}\n",    srv_serialInfo.act);
+        LOG_DEBUG("serial old name: {}\n",      srv_serialInfo.oldSerialInfo.name                     );
+        LOG_DEBUG("serial old baudrate: {}\n",  srv_serialInfo.oldSerialInfo.serialParamInfo.baudrate );
+        LOG_DEBUG("serial old databit: {}\n",   srv_serialInfo.oldSerialInfo.serialParamInfo.databit  );
+        LOG_DEBUG("serial old parity: {}\n",    srv_serialInfo.oldSerialInfo.serialParamInfo.parity   );
+        LOG_DEBUG("serial old stopbit: {}\n",   srv_serialInfo.oldSerialInfo.serialParamInfo.stopbit  );
+        LOG_DEBUG("serial old vmin: {}\n",      srv_serialInfo.oldSerialInfo.serialParamInfo.vmin     );
+        LOG_DEBUG("serial old vtime: {}\n",     srv_serialInfo.oldSerialInfo.serialParamInfo.vtime    );
+
+        v_serialInfo.push_back(srv_serialInfo);
+    } catch(const std::exception& e) {
+        // Json解析错误
+        LOG_ERROR("Json解析错误: {}\n", e.what());
+        return 0;
+    }
+
+    auto publish = ServiceQueue<std::vector<srv_SerialInfo>, std::string>::getInstance().service_publish("SerialTable/addSerial", v_serialInfo);
+    auto res = publish.get();
+    if (res == "ok") {
+        return 200;
+    } else {
+        return 0;
+    }
+
+    return 200;
+}
+
+int NetWorkLayerImp::delChannel(const std::string recv_data) {
+    // 解析JSON数据
+    json http_jsonData;
+    std::vector<srv_SerialInfo> v_serialInfo;
+    try {
+        http_jsonData = json::parse(recv_data);
+
+        // 验证JSON数据的有效性
+        if (!http_jsonData.is_object()) {
+            throw std::runtime_error("Invalid JSON data: not an object");
+        }
+
+        // 获取字段的值
+        for (auto serialArray : http_jsonData["data"]["table"]) {
+            srv_SerialInfo srv_serialInfo;
+
+            srv_serialInfo.act = Action::Del;
+            srv_serialInfo.serialInfo.name = serialArray["portName"].get<std::string>();
+            srv_serialInfo.serialInfo.SerialName = serialArray["port"].get<std::string>();
+            srv_serialInfo.serialInfo.serialParamInfo.baudrate = std::stoi(serialArray["baudRate"].get<std::string>());
+            srv_serialInfo.serialInfo.serialParamInfo.databit = std::stoi(serialArray["dataBits"].get<std::string>());
+            srv_serialInfo.serialInfo.serialParamInfo.parity = serialArray["parity"].get<std::string>();
+            srv_serialInfo.serialInfo.serialParamInfo.stopbit = serialArray["stopBits"].get<std::string>();
+            srv_serialInfo.serialInfo.serialParamInfo.vmin = 255;
+            srv_serialInfo.serialInfo.serialParamInfo.vtime = 150;
+
+            v_serialInfo.push_back(srv_serialInfo);
+        }
+    } catch(const std::exception& e) {
+        // Json解析错误
+        LOG_ERROR("Json解析错误\n");
+        return 0;
+    }
+
+    auto publish = ServiceQueue<std::vector<srv_SerialInfo>, std::string>::getInstance().service_publish("SerialTable/addSerial", v_serialInfo);
     auto res = publish.get();
     if (res == "ok") {
         return 200;

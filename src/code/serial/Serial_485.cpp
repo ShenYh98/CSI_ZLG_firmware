@@ -2,18 +2,38 @@
 
 using namespace SerialMiddleware;
 
-Serial_485::Serial_485(const std::string& jsonData) {
-    if ( json_get_param(jsonData) ) {
-        serialIdInfo.SerialId = openDriver(serialIdInfo.SerialName);
-        serialIdInfo.statu = 0;
-        set_port_attr(serialIdInfo.SerialId, 
-                      serialIdInfo.serialParamInfo.baudrate,
-                      serialIdInfo.serialParamInfo.databit,
-                      serialIdInfo.serialParamInfo.stopbit.c_str(),
-                      serialIdInfo.serialParamInfo.parity,
-                      serialIdInfo.serialParamInfo.vtime,
-                      serialIdInfo.serialParamInfo.vmin);
+Serial_485::Serial_485(SerialIdInfo& serialIdInfo) {
+    std::string serialName;
+
+    if (serialIdInfo.SerialName == "RS485-1") {
+        serialName = "/dev/ttyRS485-1";
+    } else if (serialIdInfo.SerialName == "RS485-2") {
+        serialName = "/dev/ttyRS485-2";
+    } else if (serialIdInfo.SerialName == "RS485-3") {
+        serialName = "/dev/ttyRS485-3";
+    } else if (serialIdInfo.SerialName == "RS485-4") {
+        serialName = "/dev/ttyRS485-4";
+    } else if (serialIdInfo.SerialName == "RS485-5") {
+        serialName = "/dev/ttyRS485-5";
+    } else if (serialIdInfo.SerialName == "RS485-6") {
+        serialName = "/dev/ttyRS485-6";
+    } else if (serialIdInfo.SerialName == "RS485-7") {
+        serialName = "/dev/ttyRS485-7";
+    } else if (serialIdInfo.SerialName == "RS485-8") {
+        serialName = "/dev/ttyRS485-8";
     }
+
+    serialIdInfo.SerialId = openDriver(serialName);
+    serialIdInfo.statu = 0;
+    set_port_attr(serialIdInfo.SerialId, 
+                  serialIdInfo.serialParamInfo.baudrate,
+                  serialIdInfo.serialParamInfo.databit,
+                  serialIdInfo.serialParamInfo.stopbit.c_str(),
+                  serialIdInfo.serialParamInfo.parity,
+                  serialIdInfo.serialParamInfo.vtime,
+                  serialIdInfo.serialParamInfo.vmin);
+
+    serialIdtmp = serialIdInfo;
 }
 
 Serial_485::~Serial_485() {
@@ -21,7 +41,7 @@ Serial_485::~Serial_485() {
 
 void Serial_485::receive(char* buf) {
     int len;
-    len = read(serialIdInfo.SerialId, buf, sizeof(buf));                    /* 在串口读入字符串 */
+    len = read(serialIdtmp.SerialId, buf, sizeof(buf));                    /* 在串口读入字符串 */
     if (len < 0) {
         LOG_ERROR("read error \n");
     }
@@ -29,7 +49,17 @@ void Serial_485::receive(char* buf) {
 }
 void Serial_485::send(const char* buf) {
     int len;
-    len = write(serialIdInfo.SerialId, buf, sizeof(buf));  // 串口写入字符串
+
+    std::cout << "serialIdtmp.SerialName:" << serialIdtmp.SerialName << std::endl;
+    std::cout << "serialIdtmp.SerialId:" << serialIdtmp.SerialId << std::endl;
+    std::cout << "serialIdtmp.serialParamInfo.baudrate:" << serialIdtmp.serialParamInfo.baudrate << std::endl;
+    std::cout << "serialIdtmp.serialParamInfo.databit:" << serialIdtmp.serialParamInfo.databit << std::endl;
+    std::cout << "serialIdtmp.serialParamInfo.stopbit:" << serialIdtmp.serialParamInfo.stopbit << std::endl;
+    std::cout << "serialIdtmp.serialParamInfo.parity:" << serialIdtmp.serialParamInfo.parity << std::endl;
+    std::cout << "serialIdtmp.serialParamInfo.vtime:" << serialIdtmp.serialParamInfo.vtime << std::endl;
+    std::cout << "serialIdtmp.serialParamInfo.vmin:" << serialIdtmp.serialParamInfo.vmin << std::endl;
+
+    len = write(serialIdtmp.SerialId, buf, sizeof(buf));  // 串口写入字符串
     if (len < 0) {
         LOG_ERROR("write data error \n");
     }
@@ -44,46 +74,6 @@ int Serial_485::openDriver(const std::string& data) {
     }
 
     return fd;
-}
-
-int Serial_485::json_get_param(const std::string& jsonData) {
-    // 来自http的JSON数据
-    /*---------------------
-    {
-        "Serialname" : "/dev/ttyRS485-1",
-        "param" : {
-            "baudrate" : B9600,
-            "databit" : 8,
-            "stopbit" : "1",
-            "parity" : "N",
-            "vtime" : 150,
-            "vmin" : 255
-        }
-    }
-    ----------------------*/
-    json http_jsonData;
-    try {
-        http_jsonData = json::parse(jsonData);
-
-        // 验证JSON数据的有效性
-        if (!http_jsonData.is_object()) {
-            throw std::runtime_error("Invalid JSON data: not an object");
-        }
-
-        // 获取字段的值
-        serialIdInfo.SerialName = http_jsonData["Serialname"].get<std::string>();
-        serialIdInfo.serialParamInfo.baudrate = http_jsonData["param"]["baudrate"].get<int>();
-        serialIdInfo.serialParamInfo.databit = http_jsonData["param"]["databit"].get<int>();
-        serialIdInfo.serialParamInfo.parity = http_jsonData["param"]["stopbit"].get<int>();
-        serialIdInfo.serialParamInfo.stopbit = http_jsonData["param"]["parity"].get<std::string>();
-        serialIdInfo.serialParamInfo.vmin = http_jsonData["param"]["vtime"].get<int>();
-        serialIdInfo.serialParamInfo.vtime = http_jsonData["param"]["vmin"].get<int>();
-    } catch(const std::exception& e) {
-        // Json解析错误
-        LOG_ERROR("Json解析错误\n");
-        return 0;
-    }
-    return 1;
 }
 
 void Serial_485::set_baudrate (struct termios *opt, unsigned int baudrate) {
@@ -110,27 +100,23 @@ void Serial_485::set_data_bit (struct termios *opt, unsigned int databit) {
 break;
     }
 }
-void Serial_485::set_parity (struct termios *opt, char parity) {
-    switch (parity) {
-    case 'N':                                              /* 无校验        */
-case 'n':
+void Serial_485::set_parity(struct termios *opt, std::string parity) {
+    if (parity == "N" || parity == "n") {  // 无校验
         opt->c_cflag &= ~PARENB;
-        break;
-     case 'E':                                              /* 偶校验        */
-case 'e':
+    }
+    else if (parity == "E" || parity == "e") {  // 偶校验
         opt->c_cflag |= PARENB;
-    opt->c_cflag &= ~PARODD;
-    break;
-    case 'O':                                              /* 奇校验            */
-case 'o':
+        opt->c_cflag &= ~PARODD;
+    }
+    else if (parity == "O" || parity == "o") {  // 奇校验
         opt->c_cflag |= PARENB;
-    opt->c_cflag |= ~PARODD;
-    break;
-    default:                                                 /* 其它选择为无校验 */
-    opt->c_cflag &= ~PARENB;
-    break;
+        opt->c_cflag |= PARODD;
+    }
+    else {  // 其他选择为无校验
+        opt->c_cflag &= ~PARENB;
     }
 }
+
 void Serial_485::set_stopbit (struct termios *opt, const char *stopbit) {
     if (0 == strcmp (stopbit, "1")) {
         opt->c_cflag &= ~CSTOPB;                            /* 1位停止位t         */
@@ -142,7 +128,7 @@ void Serial_485::set_stopbit (struct termios *opt, const char *stopbit) {
         opt->c_cflag &= ~CSTOPB;                             /* 1 位停止位        */
     }
 }
-int  Serial_485::set_port_attr (int fd,int  baudrate, int  databit, const char *stopbit, char parity, int vtime,int vmin )
+int  Serial_485::set_port_attr (int fd,int  baudrate, int  databit, const char *stopbit, std::string parity, int vtime, int vmin )
 {
     struct termios opt;
     tcgetattr(fd, &opt);

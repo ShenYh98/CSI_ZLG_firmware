@@ -13,7 +13,10 @@ typedef enum {
     GetChannelTable,
     AddDev,
     EditDev,
-    DelDev
+    DelDev,
+    AddChannel,
+    EditChannel,
+    DelChannel
 } taskId;
 
 typedef enum {
@@ -37,7 +40,7 @@ typedef struct {
     int baudrate;           // 波特率
     int databit;            // 数据为
     std::string stopbit;    // 停止位
-    char parity;            // 奇偶性
+    std::string parity;     // 奇偶性
     int vtime;              // 最小字节
     int vmin;               // 最迟响应时间
 } SerialParamInfo;
@@ -76,3 +79,9 @@ typedef struct {
     DevInfo devInfo;
     DevInfo oldDevInfo;
 } srv_DevInfo;
+
+typedef struct {
+    Action act;
+    SerialIdInfo serialInfo;
+    SerialIdInfo oldSerialInfo;
+} srv_SerialInfo;

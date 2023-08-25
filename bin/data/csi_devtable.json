@@ -3,13 +3,13 @@
         "table": [
             {
                 "category": "pcs",
-                "communicationAddress": "234",
-                "deviceStatus": "1243",
-                "model": "1243",
-                "name": "1213",
-                "port": "1231",
+                "communicationAddress": "1",
+                "deviceStatus": "1",
+                "model": "B204",
+                "name": "pcs1",
+                "port": "rs485",
                 "protocol": "modbus",
-                "sn": "342"
+                "sn": "SN0000001"
             }
         ]
     }

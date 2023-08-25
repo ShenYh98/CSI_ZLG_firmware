@@ -26,6 +26,9 @@ private:
     int addDev(const std::string recv_data);
     int editDev(const std::string recv_data);
     int delDev(const std::string recv_data);
+    int addChannel(const std::string recv_data);
+    int editChannel(const std::string recv_data);
+    int delChannel(const std::string recv_data);
 
 private:
     NetworkService* _networkSrv;

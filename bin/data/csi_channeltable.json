@@ -3,15 +3,14 @@
         "table": [
             {
                 "baudRate": "9600",
-                "dataBits": "6",
-                "parity": "none",
-                "port": "com1",
-                "portName": "1231",
-                "stopBits": "1"
+                "dataBits": "8",
+                "parity": "N",
+                "port": "RS485-1",
+                "portName": "rs485",
+                "stopBits": "1",
+                "vmin": "255",
+                "vtime": "150"
             }
         ]
-    },
-    "responseTime": 1,
-    "taskID": 2,
-    "taskName": "ChannelTableSave"
+    }
 }
