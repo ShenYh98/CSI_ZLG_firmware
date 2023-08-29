@@ -85,3 +85,39 @@ typedef struct {
     SerialIdInfo serialInfo;
     SerialIdInfo oldSerialInfo;
 } srv_SerialInfo;
+
+/*
+ *   task类数据结构
+ */
+
+typedef enum {
+    ready,
+    start,
+    stop,
+    cancel
+} taskState;
+
+typedef struct {
+    std::string taskname;
+    taskState taskstate;
+} taskInfo;
+
+/*
+ *   modubs的数据结构
+ */
+
+typedef struct {
+    std::string name;                   // 测点名称
+    std::string description;            // 测点描述
+    std::string dataType;               // 数据类型
+    int res;                            // 是否请求
+    int invalid;                        // 有效性
+    std::vector<modbusPkg> mpkg;        // 一个测点相当于一帧，一帧可以读一个包也可以多个包，也可以一个包的连续寄存器
+} modbusPoint;
+
+typedef struct {
+    uint8_t address;            // 报文头（地址）
+    uint8_t func;               // 功能码（保持/写入）
+    uint8_t* reg;               // 寄存器地址
+    uint8_t* len;               // 数据长度
+} modbusPkg;

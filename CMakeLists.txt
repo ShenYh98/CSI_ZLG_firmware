@@ -19,6 +19,8 @@ message("当前编译工具: ${CMAKE_CXX_COMPILER}")
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)  # 可执行文件输出到 bin 目录
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/plug)  # 生成的库文件输出到 lib 目录
 
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g")
+
 # 添加头文件搜索路径
 include_directories(
 	${CMAKE_SOURCE_DIR}/src/inc_base
@@ -47,7 +49,7 @@ if(ARGUMENT)
 	)
 	# 链接库文件
 	target_link_libraries(${ARGUMENT} ${LIBRARIES})
-	target_link_libraries(${ARGUMENT} PRIVATE pthread)
+	target_link_libraries(${ARGUMENT} PRIVATE pthread modbus)
 else()
 	# 生成可执行文件
 	add_executable(csiexec ${SOURCES} ${CMAKE_SOURCE_DIR}/src/main.cpp)

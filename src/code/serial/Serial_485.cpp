@@ -50,15 +50,6 @@ void Serial_485::receive(char* buf) {
 void Serial_485::send(const char* buf) {
     int len;
 
-    std::cout << "serialIdtmp.SerialName:" << serialIdtmp.SerialName << std::endl;
-    std::cout << "serialIdtmp.SerialId:" << serialIdtmp.SerialId << std::endl;
-    std::cout << "serialIdtmp.serialParamInfo.baudrate:" << serialIdtmp.serialParamInfo.baudrate << std::endl;
-    std::cout << "serialIdtmp.serialParamInfo.databit:" << serialIdtmp.serialParamInfo.databit << std::endl;
-    std::cout << "serialIdtmp.serialParamInfo.stopbit:" << serialIdtmp.serialParamInfo.stopbit << std::endl;
-    std::cout << "serialIdtmp.serialParamInfo.parity:" << serialIdtmp.serialParamInfo.parity << std::endl;
-    std::cout << "serialIdtmp.serialParamInfo.vtime:" << serialIdtmp.serialParamInfo.vtime << std::endl;
-    std::cout << "serialIdtmp.serialParamInfo.vmin:" << serialIdtmp.serialParamInfo.vmin << std::endl;
-
     len = write(serialIdtmp.SerialId, buf, sizeof(buf));  // 串口写入字符串
     if (len < 0) {
         LOG_ERROR("write data error \n");

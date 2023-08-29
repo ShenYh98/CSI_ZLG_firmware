@@ -11,7 +11,7 @@ public:
     ~Modbus();
 
     virtual void ParsePacket(const uint8_t* request) override;
-    virtual void AssemblePacket(uint8_t* request) override;
+    virtual int AssemblePacket(uint8_t* request) override;
 
     virtual void receive(char* buf) override;
     virtual void send(const char* buf) override;
@@ -19,6 +19,8 @@ public:
 private:
     //CRC校验码公式
     uint16_t CRC16(uint8_t* pDataBuf, int DataLen);
+
+    void getPointFromJson(const std::string& path);
 
 private:
     SerialAbstract* _serial;

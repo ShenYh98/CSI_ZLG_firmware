@@ -12,21 +12,23 @@ Modbus::~Modbus() {
 void Modbus::ParsePacket(const uint8_t* request) {
 }
 
-void Modbus::AssemblePacket(uint8_t* request) {
-    int request_len;
+int Modbus::AssemblePacket(uint8_t* request) {
+    int len = -1;
 
     // 构建Modbus RTU读取请求
-    request[0] = 0x01;  // 设备地址
-    request[1] = 0x03;  // 功能码
-    request[2] = 0x0b;  // 起始地址高位
-    request[3] = 0x24;  // 起始地址低位
-    request[4] = 0x00;  // 寄存器数量高位
-    request[5] = 0x01;  // 寄存器数量低位
+    request[len++] = 0x01;  // 设备地址
+    request[len++] = 0x03;  // 功能码
+    request[len++] = 0x0b;  // 起始地址高位
+    request[len++] = 0x24;  // 起始地址低位
+    request[len++] = 0x00;  // 寄存器数量高位
+    request[len++] = 0x01;  // 寄存器数量低位
 
     // 使用libmodbus添加CRC校验
-    uint16_t crc = CRC16(request, 6);
-    request[6] = (crc & 0xFF);
-    request[7] = (crc >> 8);
+    uint16_t crc = CRC16(request, 6); 
+    request[len++] = (crc & 0xFF);
+    request[len++] = (crc >> 8);
+
+    return len;
 }
 
 void Modbus::receive(char* buf) {
@@ -54,4 +56,8 @@ uint16_t Modbus::CRC16(uint8_t* pDataBuf, int DataLen) {
     }// End of for(i)
 
     return crc;
+}
+
+void Modbus::getPointFromJson(const std::string& path) {
+    
 }
