@@ -1,0 +1,64 @@
+{
+    "points" : [
+        {
+            "name" : "协议版本号",
+            "description" : "",
+            "dataType" : "U16",
+            "res" : 1,
+            "invalid" : 1,
+            "mpkg" : [
+                "0x03,0x0b,0x00,0x00,0x01"
+            ]
+        },
+        {
+            "name" : "机器版本号",
+            "description" : "",
+            "dataType" : "U16",
+            "res" : 1,
+            "invalid" : 1,
+            "mpkg" : [
+                "0x03,0x0b,0x01,0x00,0x01"
+            ]
+        },
+        {
+            "name" : "DSPM软件版本号",
+            "description" : "",
+            "dataType" : "U16",
+            "res" : 1,
+            "invalid" : 1,
+            "mpkg" : [
+                "0x03,0x0b,0x02,0x00,0x01"
+            ]
+        },
+        {
+            "name" : "ARMS软件版本号",
+            "description" : "",
+            "dataType" : "U16",
+            "res" : 1,
+            "invalid" : 1,
+            "mpkg" : [
+                "0x03,0x0b,0x03,0x00,0x01"
+            ]
+        },
+        {
+            "name" : "ARMC软件版本号",
+            "description" : "",
+            "dataType" : "U16",
+            "res" : 1,
+            "invalid" : 1,
+            "mpkg" : [
+                "0x03,0x0b,0x04,0x00,0x01"
+            ]
+        },
+        {
+            "name" : "CPLD软件版本号",
+            "description" : "",
+            "dataType" : "U16",
+            "res" : 1,
+            "invalid" : 1,
+            "mpkg" : [
+                "0x03,0x0b,0x05,0x00,0x01"
+            ]
+        }
+    ]
+}

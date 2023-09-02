@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <sstream>
 
 #include "nlohmann/json.hpp"
 
@@ -16,7 +17,7 @@ using namespace CommonLib;
 class NetWorkLayer {
 public:
     virtual void operation() = 0;
-    virtual void operation(RTtaskId rttaskId) = 0;
+    virtual void operation(s_RTtask rttask) = 0;
 private:
     virtual void receive(std::string& data) = 0;
     virtual void send(std::string& data) = 0;

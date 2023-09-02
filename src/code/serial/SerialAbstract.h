@@ -16,8 +16,8 @@ using namespace CommonLib;
 
 class SerialAbstract {
 public:
-    virtual void receive(char* buf) = 0;
-    virtual void send(const char* buf) = 0;
+    virtual int receive(char* buf) = 0;
+    virtual int send(const char* buf) = 0;
 
 private:
     virtual int openDriver(const std::string& data) = 0;

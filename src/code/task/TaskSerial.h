@@ -8,6 +8,9 @@
 using namespace ProtocolMiddleware;
 using namespace SerialMiddleware;
 
+#define SENDBUF     64
+#define RECVBUF     64
+
 namespace TaskMiddleWare {
 
 class TaskSerial : public TaskAbstract {
@@ -30,8 +33,8 @@ private:
 
     std::vector<DevInfo> devList;
     std::vector<SerialIdInfo> serialList;
-    std::unordered_map< std::string, std::unique_ptr<SerialAbstract> > serialInfoMap;
-    std::unordered_map< std::string, std::unique_ptr<Protocol> > protocolInfoMap;
+    std::unordered_map< std::string, std::shared_ptr<SerialAbstract> > serialInfoMap;
+    std::unordered_map< std::string, std::shared_ptr<Protocol> > protocolInfoMap;
 
     bool is_loadDevList;
     bool is_loadSerialList;
@@ -39,6 +42,7 @@ private:
 
 private:
     void loadAllList();
+    int HexToDec(const uint8_t* data, std::size_t length);
 };
 
 }

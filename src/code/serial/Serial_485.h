@@ -8,8 +8,8 @@ public:
     Serial_485(SerialIdInfo& serialIdInfo);
     ~Serial_485();
 
-    void receive(char* buf) override;
-    void send(const char* buf) override;
+    int receive(char* buf) override;
+    int send(const char* buf) override;
 
 private:
     int openDriver(const std::string& data) override;

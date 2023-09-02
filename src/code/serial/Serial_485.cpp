@@ -39,7 +39,7 @@ Serial_485::Serial_485(SerialIdInfo& serialIdInfo) {
 Serial_485::~Serial_485() {
 }
 
-void Serial_485::receive(char* buf) {
+int Serial_485::receive(char* buf) {
     int len;
     len = read(serialIdtmp.SerialId, buf, sizeof(buf));                    /* 在串口读入字符串 */
     if (len < 0) {
@@ -47,7 +47,7 @@ void Serial_485::receive(char* buf) {
     }
     LOG_DEBUG("recv buf: {}\n", buf);
 }
-void Serial_485::send(const char* buf) {
+int Serial_485::send(const char* buf) {
     int len;
 
     len = write(serialIdtmp.SerialId, buf, sizeof(buf));  // 串口写入字符串

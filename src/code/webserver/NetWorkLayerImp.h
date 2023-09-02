@@ -12,7 +12,7 @@ public:
     ~NetWorkLayerImp();
 
     void operation() override;
-    void operation(RTtaskId rttaskId) override;
+    void operation(s_RTtask rttask) override;
 private:
     void receive(std::string& data) override;
     void send(std::string& data) override;
@@ -29,6 +29,8 @@ private:
     int addChannel(const std::string recv_data);
     int editChannel(const std::string recv_data);
     int delChannel(const std::string recv_data);
+
+    int getRTData(const std::string recv_data);
 
 private:
     NetworkService* _networkSrv;

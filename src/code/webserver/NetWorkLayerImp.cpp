@@ -309,15 +309,60 @@ void  NetWorkLayerImp::operation() {
             }
             break;
         }
+        case taskId::GetRTData: {
+            int result = getRTData(recv_data);
+            if ( 200 ==  result ) {
+                // 创建 JSON 对象
+                nlohmann::json jsonObject;
+                jsonObject["response"] = "ok";
+                jsonObject["errorCode"] = result;
+
+                // 将 JSON 对象序列化为字符串
+                std::string jsonString = jsonObject.dump();
+
+                this->send(jsonString);
+            } else {
+                // 创建 JSON 对象
+                nlohmann::json jsonObject;
+                jsonObject["response"] = "ok";
+                jsonObject["errorCode"] = result;
+
+                // 将 JSON 对象序列化为字符串
+                std::string jsonString = jsonObject.dump();
+
+                this->send(jsonString);
+            }
+            break;
+        }
         
         default:
             break;
     }
 }
 
-void NetWorkLayerImp::operation(RTtaskId rttaskId) {
-    switch (rttaskId) {
+void NetWorkLayerImp::operation(s_RTtask rttask) {
+    switch (rttask.id) {
         case RTtaskId::Yc : {
+            // std::string sourceName1 = "电压";
+            // std::string sourceName2 = "电流";
+            // static int value1 = 190;
+            // static int value2 = 1;
+            // std::string unit1 = "V";
+            // std::string unit2 = "A";
+
+            // std::ostringstream payloadStream;
+            // payloadStream << R"([)"
+            //               << R"({"sourceName":")" << sourceName1 << R"(", "value":")" << std::to_string(value1) << R"(", "unit":")" << unit1 << R"("})"
+            //               << R"(,)"
+            //               << R"({"sourceName":")" << sourceName2 << R"(", "value":")" << std::to_string(value2) << R"(", "unit":")" << unit2 << R"("})"
+            //               << R"(])";
+            // auto str = payloadStream.str();
+
+            // value1++;
+            // value2++;
+
+            // this->send(str);
+
             break;
         }
         default:
@@ -833,6 +878,47 @@ int NetWorkLayerImp::delChannel(const std::string recv_data) {
     if (res == "ok") {
         return 200;
     } else {
+        return 0;
+    }
+
+    return 200;
+}
+
+int NetWorkLayerImp::getRTData(const std::string recv_data) {
+    // 解析JSON数据
+    json http_jsonData;
+
+    s_RTtask rttask;
+
+    try {
+        http_jsonData = json::parse(recv_data);
+
+        // 验证JSON数据的有效性
+        if (!http_jsonData.is_object()) {
+            throw std::runtime_error("Invalid JSON data: not an object");
+        }
+
+        auto tmpstr = http_jsonData["data"]["RTtaskId"].get<std::string>();
+        // 获取字段的值
+        if ( tmpstr == "Yc") {
+            rttask.id = RTtaskId::Yc;
+        } else if ( tmpstr == "Yk") {
+            rttask.id = RTtaskId::Yk;
+        } else if ( tmpstr == "Yt") {
+            rttask.id = RTtaskId::Yt;
+        } else if ( tmpstr == "Yx") {
+            rttask.id = RTtaskId::Yx;
+        }
+        rttask.isOn = http_jsonData["data"]["isOn"].get<int>();
+        rttask.dev_sn = http_jsonData["data"]["dev_sn"].get<std::string>();
+
+        LOG_DEBUG("id: {} / isOn: {} / sn: {} \n",rttask.id ,rttask.isOn ,rttask.dev_sn);
+
+        MessageQueue<s_RTtask>::getInstance().publish("TaskWebSocket/getRtData", rttask);
+
+    } catch(const std::exception& e) {
+        // Json解析错误
+        LOG_ERROR("Json解析错误\n");
         return 0;
     }
 

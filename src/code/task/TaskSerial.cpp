@@ -26,7 +26,7 @@ TaskSerial::TaskSerial() {
                         for (auto s_it = serialInfoMap.begin(); s_it != serialInfoMap.end(); s_it++) {
                             if (s_it->first == dev.serialInfo.name) {
                                 if ("modbus" == dev.protocol) {
-                                    protocolInfoMap[dev.devName] = std::make_unique<Modbus>(s_it->second.get());
+                                    protocolInfoMap[dev.devName] = std::make_shared<Modbus>(s_it->second.get());
                                 }
                             }
                             // 这里最好加一个未匹配到串口名的错误检测
@@ -37,12 +37,18 @@ TaskSerial::TaskSerial() {
                 }  
             } else if (devList.size() > msg.size()) { // 删除
                 for ( auto dev = devList.begin(); dev != devList.end(); ) {
-                    auto it = std::find_if(msg.begin(), msg.end(), [&](const DevInfo& v) {
-                        return v.devName == dev->devName;  // 自定义比较逻辑
-                    });
+                    int match = 0;
+                    for (auto it : msg) {
+                        if (it.devName == dev->devName) {
+                            match = 1;
+                            break;
+                        }
+                    }
 
-                    if (it == msg.end()) {
+                    if (!match) {
                         devList.erase(dev);
+
+                        LOG_DEBUG("destruct protocol list success\n");
                     } else {
                         dev++;
                     }
@@ -57,7 +63,7 @@ TaskSerial::TaskSerial() {
                         }
                     }
 
-                    if (match) {
+                    if (!match) {
                         protocolInfoMap.erase(protocol);
 
                         LOG_DEBUG("destruct protocol success\n");
@@ -95,7 +101,7 @@ TaskSerial::TaskSerial() {
                             serial.SerialName == "RS485-8" ) 
                         {
                             // 创建一个485串口
-                            serialInfoMap[serial.name] = std::make_unique<Serial_485>(serial);
+                            serialInfoMap[serial.name] = std::make_shared<Serial_485>(serial);
                             LOG_DEBUG("create serial_485 success {}/{}/{}/{}/{}/{}/{}/{}/{}\n", 
                                         serial.name, serial.SerialName, serial.SerialId, 
                                         serial.serialParamInfo.baudrate, 
@@ -111,12 +117,17 @@ TaskSerial::TaskSerial() {
                 }
             } else if (serialList.size() > msg.size()) { // 删除
                 for ( auto serial = serialList.begin(); serial != serialList.end(); ) {
-                    auto it = std::find_if(msg.begin(), msg.end(), [&](const SerialIdInfo& s) {
-                        return s.name == serial->name;  // 自定义比较逻辑
-                    });
+                    int match = 0;
+                    for (auto it : msg) {
+                        if (it.name == serial->name) {
+                            match = 1;
+                            break;
+                        }
+                    }
 
-                    if (it == msg.end()) {
+                    if (!match) {
                         serialList.erase(serial);
+                        LOG_DEBUG("destruct serial_485 list success\n");
                     } else {
                         serial++;
                     }
@@ -131,7 +142,7 @@ TaskSerial::TaskSerial() {
                         }
                     }
 
-                    if (match) {
+                    if (!match) {
                         serialInfoMap.erase(serial);
 
                         LOG_DEBUG("destruct serial_485 success\n");
@@ -154,14 +165,14 @@ TaskSerial::TaskSerial() {
              while (taskinfo.taskstate != taskState::start) {
                 std::unique_lock<std::mutex> lock(handle_mutex);
 
-                LOG_DEBUG("[TaskHttp]work wait\n");
+                LOG_DEBUG("[TaskSerial]work wait\n");
                 if (!isStopThread) {
                     handle_cv.wait(lock);
                 } 
                 if (isStopThread) {
                     return;
                 }
-                LOG_DEBUG("[TaskHttp]work start\n");
+                LOG_DEBUG("[TaskSerial]work start\n");
 
                 taskinfo.taskstate = taskState::start;
             }
@@ -171,13 +182,32 @@ TaskSerial::TaskSerial() {
             } else {
                 {
                     std::unique_lock<std::mutex> list_lck(list_mutex);
-                    for (auto& it : protocolInfoMap) {
-                        uint8_t buf[8];
-                        it.second->AssemblePacket(buf);
-                        it.second->send((char*)buf);
+                    for (auto it : protocolInfoMap) {
+                        while (true) {
+                            auto pit = it.second;
+                            uint8_t send_buf[SENDBUF];
+                            auto send_len = pit->AssemblePacket(send_buf);
+                            if (-1 != send_len) {
+                                pit->send((char*)send_buf);
+                                std::this_thread::sleep_for(std::chrono::milliseconds(200));
+                            } else {
+                                break;
+                            }
 
-                        // 添加延时
-                        std::this_thread::sleep_for(std::chrono::milliseconds(200));
+                            uint8_t recv_buf[RECVBUF];
+                            int recv_len = 0;
+                            recv_len = pit->receive((char*)recv_buf);
+
+                            if (recv_len != 0) {
+                                auto parse_len = pit->ParsePacket(recv_buf, recv_len);
+                                if (parse_len) {
+                                    // 收到了报文回复
+                                    LOG_DEBUG("[TaskSerial]recv len:{}\n", recv_len);
+
+                                    printf("0x%02x 0x%02x\n", recv_buf[0], recv_buf[1]);
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -238,7 +268,7 @@ void TaskSerial::loadAllList() {
             serial.SerialName == "RS485-8" ) 
         {
             // 创建一个485串口
-            serialInfoMap[serial.name] = std::make_unique<Serial_485>(serial);
+            serialInfoMap[serial.name] = std::make_shared<Serial_485>(serial);
             LOG_DEBUG("create serial_485 success {}/{}/{}/{}/{}/{}/{}/{}/{}\n", 
                         serial.name, serial.SerialName, serial.SerialId, 
                         serial.serialParamInfo.baudrate, 
@@ -253,7 +283,7 @@ void TaskSerial::loadAllList() {
         for (auto& serial : serialInfoMap) {
             if (dev.serialInfo.name == serial.first) {
                 if ("modbus" == dev.protocol) {
-                    protocolInfoMap[dev.devName] = std::make_unique<Modbus>(serial.second.get());
+                    protocolInfoMap[dev.devName] = std::make_shared<Modbus>(serial.second.get());
 
                     break;
                 }
@@ -262,4 +292,20 @@ void TaskSerial::loadAllList() {
     }
 
     is_mergeDevAndSerial = false;
+}
+
+int TaskSerial::HexToDec(const uint8_t* data, std::size_t length) {
+    std::ostringstream hexStream;
+    for (std::size_t i = 0; i < length; ++i) {
+        hexStream << std::hex  << std::setfill('0') << std::setw(2) << static_cast<int>(data[i]);
+    }
+
+    std::string hexString = hexStream.str();
+
+    try {
+        int result = std::stoi(hexString, nullptr, 16);
+        return result;
+    } catch (const std::invalid_argument& e) {
+        return -1;
+    }
 }

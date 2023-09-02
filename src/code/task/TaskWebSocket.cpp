@@ -14,7 +14,7 @@ TaskWebSocket::TaskWebSocket() {
     rttask.dev_sn = "";
 
     // 订阅实时监控任务
-    MessageQueue<s_RTtask>::getInstance().subscribe("websocket/task", [&](const s_RTtask& task) {
+    MessageQueue<s_RTtask>::getInstance().subscribe("TaskWebSocket/getRtData", [&](const s_RTtask& task) {
         LOG_DEBUG("Received id: {}\n", task.id);
         LOG_DEBUG("Received dev_sn: {}\n", task.dev_sn);
         LOG_DEBUG("Received isOn: {}\n", task.isOn);
@@ -42,7 +42,7 @@ TaskWebSocket::TaskWebSocket() {
             }
             
             if (rttask.isOn) { // 需要http下发启动指令，再去遥测
-                ptr_wsWork->operation(rttask.id);
+                ptr_wsWork->operation(rttask);
             }
             std::this_thread::sleep_for(3s);
         }

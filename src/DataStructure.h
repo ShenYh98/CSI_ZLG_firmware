@@ -16,7 +16,8 @@ typedef enum {
     DelDev,
     AddChannel,
     EditChannel,
-    DelChannel
+    DelChannel,
+    GetRTData
 } taskId;
 
 typedef enum {
@@ -31,6 +32,12 @@ typedef struct {
     std::string dev_sn;
     RTtaskId id;
 } s_RTtask;
+
+typedef struct {
+    std::string sourceName;     // 源名
+    int value;                  // 值
+    std::string unit;           // 单位
+} s_RTSrcInfo;
 
 /*
  *   串口的数据结构
@@ -107,6 +114,13 @@ typedef struct {
  */
 
 typedef struct {
+    uint8_t address;            // 报文头（地址）
+    uint8_t func;               // 功能码（保持/写入）
+    uint8_t* reg;               // 寄存器地址
+    uint8_t* len;               // 数据长度
+} modbusPkg;
+
+typedef struct {
     std::string name;                   // 测点名称
     std::string description;            // 测点描述
     std::string dataType;               // 数据类型
@@ -116,8 +130,10 @@ typedef struct {
 } modbusPoint;
 
 typedef struct {
-    uint8_t address;            // 报文头（地址）
-    uint8_t func;               // 功能码（保持/写入）
-    uint8_t* reg;               // 寄存器地址
-    uint8_t* len;               // 数据长度
-} modbusPkg;
+    std::string dataType;
+    int idata;
+    uint8_t u8Data;
+    uint16_t u16Data;
+    std::string sData;
+} modbusDataInfo;
+

@@ -10,20 +10,24 @@ public:
     Modbus(SerialAbstract* serial);
     ~Modbus();
 
-    virtual void ParsePacket(const uint8_t* request) override;
+    virtual int ParsePacket(uint8_t* request, int length) override;
     virtual int AssemblePacket(uint8_t* request) override;
 
-    virtual void receive(char* buf) override;
+    virtual int receive(char* buf) override;
     virtual void send(const char* buf) override;
 
 private:
     //CRC校验码公式
     uint16_t CRC16(uint8_t* pDataBuf, int DataLen);
 
-    void getPointFromJson(const std::string& path);
+    int loadPointFromJson(const std::string& path);
+    int parseFunc(uint8_t* request, int length);
 
 private:
     SerialAbstract* _serial;
+    std::vector<modbusPoint> v_point;
+    std::string pointJsonPath;
+    int nextPkg;
 };
 
 }
