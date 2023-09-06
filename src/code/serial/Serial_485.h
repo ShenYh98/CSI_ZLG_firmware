@@ -1,6 +1,9 @@
 #pragma once
 #include "SerialAbstract.h"
 
+#define MAXRECVSIZE 64
+#define MAXSENDSIZE 8
+
 namespace SerialMiddleware {
 
 class Serial_485 : public SerialAbstract {

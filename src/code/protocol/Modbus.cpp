@@ -9,11 +9,14 @@ Modbus::Modbus(SerialAbstract* serial) {
     _serial = serial;
 
     loadPointFromJson(pointJsonPath);
+
+    MessageQueue<std::vector<modbusPoint>>::getInstance().publish("modbus/point", v_point);
 }
 
 Modbus::~Modbus() {
 }
 
+// 0回复错误83 -1解析crc错误 其他值为正确
 int Modbus::ParsePacket(uint8_t* request, int length) {
     if (length < 4) {
         LOG_ERROR("[ParsePacket] length < 4\n");
@@ -23,12 +26,13 @@ int Modbus::ParsePacket(uint8_t* request, int length) {
     uint8_t *temp;
     std::copy(request,request+length-2,temp);
     uint16_t calculatedCrc;
-    
     calculatedCrc = CRC16(temp,length-2);
-
     int parse_len;
 
-    if ( calculatedCrc == ( request[length - 2]  << 8 | (request[length - 1]) ) ) {
+    LOG_DEBUG("calculatedCrc: 0x%04x\n", calculatedCrc);
+    LOG_DEBUG("request: 0x%04x\n", ( request[length - 2] | (request[length - 1]) << 8 ) );
+
+    if ( calculatedCrc == ( request[length - 2] | (request[length - 1]) << 8 ) ) {
         parse_len = parseFunc(request, length);
         if (parse_len) {
             LOG_ERROR("[ParsePacket] parse function success\n");
@@ -38,7 +42,7 @@ int Modbus::ParsePacket(uint8_t* request, int length) {
         }
     } else {  
         LOG_ERROR("[ParsePacket] parse crc error\n");
-        return 0;
+        return -1;
     } 
 
     return parse_len;
@@ -73,7 +77,7 @@ int Modbus::receive(char* buf) {
     int len = 0;
     len = _serial->receive(buf);
 
-    return len-1;
+    return len;
 }
 
 void Modbus::send(const char* buf) {
@@ -173,12 +177,10 @@ int Modbus::parseFunc(uint8_t* request, int length) {
     if (0x80 == ( functionCode & 0x80 ) ) {
         return 0;   
     }
-
     dataLength = request[2];
     if (dataLength + 5 != length) {
         return 0;
     }
-
     if (0x03 == functionCode || 0x04 == functionCode) { // 遥测
         //直接修改传入进来的request，即将实际数据传出
         std::copy(request+3,request+3+dataLength,request);

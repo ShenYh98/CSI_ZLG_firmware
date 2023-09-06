@@ -6,11 +6,14 @@ TaskSerial::TaskSerial() {
     is_loadDevList = true;
     is_loadSerialList = true;
     is_mergeDevAndSerial = true;
+    is_RecvRun = true;
 
     devList.clear();
     serialList.clear();
     serialInfoMap.clear();
     protocolInfoMap.clear();
+
+    total_recv_buf.clear();
 
     MessageQueue<std::vector<DevInfo>>::getInstance().subscribe("Setting/DevList", [&](const std::vector<DevInfo>& msg) {
         std::unique_lock<std::mutex> list_lck(list_mutex);
@@ -158,11 +161,48 @@ TaskSerial::TaskSerial() {
         serialList = msg;
     });
 
+    MessageQueue<std::vector<modbusPoint>>::getInstance().subscribe("modbus/point", [&](const std::vector<modbusPoint>& msg) {
+        LOG_DEBUG("recv point len:%d\n", msg.size());
+        v_point = msg;
+    });
+
+    recv_thread = std::thread([&]() {
+        while(true) {
+            // 这个信号量等待主线程先启动
+            {
+                std::unique_lock<std::mutex> wait_lock(recv_wait_mutex);
+                while (true == is_RecvRun) {
+                    recv_cv.wait(wait_lock);
+                }
+
+                uint8_t recv_buf[RECVBUF];
+                int recv_len = 0;
+                std::weak_ptr<Protocol> recv_pit = pit;
+                if (auto sharedPtr = recv_pit.lock()) {
+                    recv_len = sharedPtr->receive((char*)recv_buf);
+                } else {
+                    LOG_ERROR("The object has been destroyed.\n");
+                }
+
+                {
+                    std::unique_lock<std::mutex> lock(recv_mutex);
+                    LOG_DEBUG("recv_len:%d\n", recv_len);
+
+                    for (int i = 0; i < recv_len; i++) {
+                        total_recv_buf.push_back(recv_buf[i]);
+                    }
+                }
+                
+                is_RecvRun = true;
+            }
+        }
+    });
+
     serial_thread = std::thread([&]() {
         LOG_DEBUG("[TaskSerial]http thread is run\n");
 
         while (true) {
-             while (taskinfo.taskstate != taskState::start) {
+            while (taskinfo.taskstate != taskState::start) {
                 std::unique_lock<std::mutex> lock(handle_mutex);
 
                 LOG_DEBUG("[TaskSerial]work wait\n");
@@ -183,31 +223,111 @@ TaskSerial::TaskSerial() {
                 {
                     std::unique_lock<std::mutex> list_lck(list_mutex);
                     for (auto it : protocolInfoMap) {
+                        std::vector<s_RTSrcInfo> v_rtSrcInfo;
+                        int pointCount = 0;
+                        pit = it.second;
+
                         while (true) {
-                            auto pit = it.second;
+                            // auto send_pit = pit; // 复制智能指针，避免段错误
                             uint8_t send_buf[SENDBUF];
-                            auto send_len = pit->AssemblePacket(send_buf);
-                            if (-1 != send_len) {
-                                pit->send((char*)send_buf);
-                                std::this_thread::sleep_for(std::chrono::milliseconds(200));
-                            } else {
-                                break;
-                            }
+                            s_RTSrcInfo rtSrcInfo;
+                            int send_len = -1;
 
-                            uint8_t recv_buf[RECVBUF];
-                            int recv_len = 0;
-                            recv_len = pit->receive((char*)recv_buf);
+                            // send_len = send_pit->AssemblePacket(send_buf);
 
-                            if (recv_len != 0) {
-                                auto parse_len = pit->ParsePacket(recv_buf, recv_len);
-                                if (parse_len) {
-                                    // 收到了报文回复
-                                    LOG_DEBUG("[TaskSerial]recv len:{}\n", recv_len);
+                            std::weak_ptr<Protocol> send_pit = pit;
+                            if (auto sharedPtr = send_pit.lock()) {
+                                send_len = sharedPtr->AssemblePacket(send_buf);
+                            
+                                if (-1 != send_len) {
+                                    sharedPtr->send((char*)send_buf);
 
-                                    printf("0x%02x 0x%02x\n", recv_buf[0], recv_buf[1]);
+                                    rtSrcInfo.sourceName = v_point[pointCount].name;
+                                    rtSrcInfo.unit = "V";
+                                    pointCount++;
+
+                                    is_RecvRun = false;
+                                    recv_cv.notify_all();
+                                    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+
+                                    bool is_recvAll = false; // 判断是否收到的完整数据
+                                    // int checkCount = 0;
+                                    // while (!is_recvAll && checkCount < 2) {
+                                    while (!is_recvAll) {
+                                        {
+                                            std::unique_lock<std::mutex> lock(recv_mutex);
+
+                                            LOG_DEBUG("[TaskSerial]recv len:{}\n", total_recv_buf.size());
+
+                                            int len = total_recv_buf.size();
+
+                                            if (len) {
+                                                uint8_t recv_buf[len];
+                                                int i = 0;
+
+                                                for (auto it : total_recv_buf) {
+                                                    recv_buf[i] = it;
+                                                    i++;
+                                                }
+
+                                                int parse_len = 0;
+                                                std::weak_ptr<Protocol> parse_pit = pit;
+                                                if (auto sharedPtr = parse_pit.lock()) {
+                                                    parse_len = sharedPtr->ParsePacket(recv_buf, len);
+
+                                                    if (parse_len == 0) {
+                                                        LOG_DEBUG("crc check success, parse failed\n");
+                                                        rtSrcInfo.value = 0;
+                                                        is_recvAll = true;
+                                                        total_recv_buf.clear();
+
+                                                    } else if (parse_len == -1) { // 如果收到的报文没有通过crc校验，那么延时5s等待收全
+                                                        LOG_DEBUG("crc check failed\n");
+
+                                                        rtSrcInfo.value = 0;
+                                                        // checkCount++;
+                                                        is_recvAll = false;
+
+                                                        is_RecvRun = false;
+                                                        recv_cv.notify_all();
+
+                                                        std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+                                                    } else {
+                                                        LOG_DEBUG("crc check success, parse success\n");
+                                                            
+                                                        // // 收到了报文回复
+                                                        auto value = HexToDec(recv_buf, parse_len);
+                                                        LOG_DEBUG("value:%d len:%d\n", value, parse_len);
+
+                                                        rtSrcInfo.value = value;
+                                                            
+                                                        is_recvAll = true;
+                                                        total_recv_buf.clear();
+
+                                                        // break;
+                                                    }
+                                                } else {
+                                                    LOG_ERROR("The object has been destroyed.\n");
+                                                }
+                                            } else {
+                                                is_RecvRun = false;
+                                                recv_cv.notify_all();
+                                            }
+                                        }
+                                    }
+
+                                    v_rtSrcInfo.push_back(rtSrcInfo);
+                                } else {
+                                    break;
                                 }
+
+                            } else {
+                                LOG_ERROR("The object has been destroyed.\n");
                             }
                         }
+
+                        LOG_DEBUG("publish rtSrcInfo\n");
+                        MessageQueue<std::vector<s_RTSrcInfo>>::getInstance().publish("TaskSerial/rtSrcInfo", v_rtSrcInfo);
                     }
                 }
             }

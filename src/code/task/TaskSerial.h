@@ -8,8 +8,8 @@
 using namespace ProtocolMiddleware;
 using namespace SerialMiddleware;
 
-#define SENDBUF     64
 #define RECVBUF     64
+#define SENDBUF     8
 
 namespace TaskMiddleWare {
 
@@ -40,6 +40,17 @@ private:
     bool is_loadSerialList;
     bool is_mergeDevAndSerial;
 
+    std::vector<modbusPoint> v_point;
+
+    std::thread recv_thread;
+    std::shared_ptr<Protocol> pit;
+    std::condition_variable recv_cv;
+    std::mutex recv_mutex;
+    std::mutex recv_wait_mutex;
+
+    std::vector<uint8_t> total_recv_buf;
+
+    bool is_RecvRun;
 private:
     void loadAllList();
     int HexToDec(const uint8_t* data, std::size_t length);

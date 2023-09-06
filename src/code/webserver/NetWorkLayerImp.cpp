@@ -4,6 +4,12 @@ using namespace NetWorkMiddleware;
 
 NetWorkLayerImp::NetWorkLayerImp(NetworkService* networkSrv) {
     _networkSrv = networkSrv;
+
+    MessageQueue<std::vector<s_RTSrcInfo>>::getInstance().subscribe("TaskSerial/rtSrcInfo", [&](const std::vector<s_RTSrcInfo>& msg) {
+        LOG_DEBUG("rt source len {}\n", msg.size());
+
+        v_rtSrcInfo = msg;
+    });
 }
 
 NetWorkLayerImp::~NetWorkLayerImp() {
@@ -343,25 +349,22 @@ void  NetWorkLayerImp::operation() {
 void NetWorkLayerImp::operation(s_RTtask rttask) {
     switch (rttask.id) {
         case RTtaskId::Yc : {
-            // std::string sourceName1 = "电压";
-            // std::string sourceName2 = "电流";
-            // static int value1 = 190;
-            // static int value2 = 1;
-            // std::string unit1 = "V";
-            // std::string unit2 = "A";
+            std::ostringstream payloadStream;
 
-            // std::ostringstream payloadStream;
-            // payloadStream << R"([)"
-            //               << R"({"sourceName":")" << sourceName1 << R"(", "value":")" << std::to_string(value1) << R"(", "unit":")" << unit1 << R"("})"
-            //               << R"(,)"
-            //               << R"({"sourceName":")" << sourceName2 << R"(", "value":")" << std::to_string(value2) << R"(", "unit":")" << unit2 << R"("})"
-            //               << R"(])";
-            // auto str = payloadStream.str();
+            payloadStream << R"([)";
+            for (size_t i = 0; i < v_rtSrcInfo.size(); ++i) {
+                payloadStream << R"({"sourceName":")" << v_rtSrcInfo[i].sourceName 
+                              << R"(", "value":")" << std::to_string(v_rtSrcInfo[i].value) 
+                              << R"(", "unit":")" << v_rtSrcInfo[i].unit << R"("})";
+                if (i != v_rtSrcInfo.size() - 1) {
+                    payloadStream << R"(,)";
+                }
+            }
+            payloadStream << R"(])";
 
-            // value1++;
-            // value2++;
+            auto str = payloadStream.str();
 
-            // this->send(str);
+            this->send(str);
 
             break;
         }

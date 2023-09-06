@@ -41,19 +41,40 @@ Serial_485::~Serial_485() {
 
 int Serial_485::receive(char* buf) {
     int len;
-    len = read(serialIdtmp.SerialId, buf, sizeof(buf));                    /* 在串口读入字符串 */
+
+    // len = read( serialIdtmp.SerialId, buf, sizeof(buf) );                    /* 在串口读入字符串 */
+    len = read( serialIdtmp.SerialId, buf, MAXRECVSIZE);
+
     if (len < 0) {
         LOG_ERROR("read error \n");
     }
-    LOG_DEBUG("recv buf: {}\n", buf);
+
+    LOG_DEBUG("recv buf len {}\n", len);
+    LOG_DEBUG("recv buf: ");
+    for (int i = 0; i < len; i++) {
+        LOG_DEBUG("0x%02x ", buf[i]);
+    }
+    LOG_DEBUG("\n");
+
+    return len;
 }
 int Serial_485::send(const char* buf) {
     int len;
 
-    len = write(serialIdtmp.SerialId, buf, sizeof(buf));  // 串口写入字符串
+    len = write( serialIdtmp.SerialId, buf, MAXSENDSIZE);  // 串口写入字符串
+
     if (len < 0) {
         LOG_ERROR("write data error \n");
     }
+    
+    LOG_DEBUG("write buf len {}\n", len);
+    LOG_DEBUG("write buf: ");
+    for (int i = 0; i < len; i++) {
+        LOG_DEBUG("0x%02x ", buf[i]);
+    }
+    LOG_DEBUG("\n");
+
+    return len;
 }
 int Serial_485::openDriver(const std::string& data) {
     int fd;
@@ -135,3 +156,5 @@ int  Serial_485::set_port_attr (int fd,int  baudrate, int  databit, const char *
     tcflush (fd, TCIFLUSH);
     return (tcsetattr (fd, TCSANOW, &opt));
 }
+
+
