@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <list>
 
 #include "../common/CommonLog.h"
 #include "../common/MessageQueue.hpp"

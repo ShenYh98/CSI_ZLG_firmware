@@ -21,6 +21,9 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/plug)  # 生成的库文�
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g")
 
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O0")
+
 # 添加头文件搜索路径
 include_directories(
 	${CMAKE_SOURCE_DIR}/src/inc_base

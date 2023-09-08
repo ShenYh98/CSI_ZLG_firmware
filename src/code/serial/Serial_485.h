@@ -1,7 +1,7 @@
 #pragma once
 #include "SerialAbstract.h"
 
-#define MAXRECVSIZE 64
+#define MAXRECVSIZE 512
 #define MAXSENDSIZE 8
 
 namespace SerialMiddleware {

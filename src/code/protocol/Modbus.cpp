@@ -20,17 +20,20 @@ Modbus::~Modbus() {
 int Modbus::ParsePacket(uint8_t* request, int length) {
     if (length < 4) {
         LOG_ERROR("[ParsePacket] length < 4\n");
-        return 0;
+        return -1;
     }
 
-    uint8_t *temp;
-    std::copy(request,request+length-2,temp);
+    uint8_t temp[length-2];
+    for (int i = 0; i < length-2; i++) {
+        temp[i] = request[i];
+    }
     uint16_t calculatedCrc;
-    calculatedCrc = CRC16(temp,length-2);
-    int parse_len;
+    calculatedCrc = ReverseCRC16(temp,length-2);
 
-    LOG_DEBUG("calculatedCrc: 0x%04x\n", calculatedCrc);
-    LOG_DEBUG("request: 0x%04x\n", ( request[length - 2] | (request[length - 1]) << 8 ) );
+    int parse_len = 0;
+
+    printf("calculatedCrc: 0x%04x\n", calculatedCrc);
+    printf("request: 0x%04x\n", ( request[length - 2] | (request[length - 1]) << 8 ) );
 
     if ( calculatedCrc == ( request[length - 2] | (request[length - 1]) << 8 ) ) {
         parse_len = parseFunc(request, length);
@@ -99,6 +102,24 @@ uint16_t Modbus::CRC16(uint8_t* pDataBuf, int DataLen) {
             }
         }// End of for(j)
     }// End of for(i)
+
+    return crc;
+}
+
+uint16_t Modbus::ReverseCRC16(uint8_t* pDataBuf, int DataLen) {
+    uint16_t crc = 0xFFFF; // 初值为0xFFFF
+
+    for (int i = 0; i < DataLen; i++) {
+        crc ^= static_cast<uint16_t>(pDataBuf[i]);
+
+        for (int j = 0; j < 8; j++) {
+            if (crc & 0x0001) {
+                crc = (crc >> 1) ^ 0xA001; // 0xA001是CRC16-Modbus的多项式
+            } else {
+                crc = crc >> 1;
+            }
+        }
+    }
 
     return crc;
 }

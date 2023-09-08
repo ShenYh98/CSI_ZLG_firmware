@@ -8,7 +8,7 @@
 using namespace ProtocolMiddleware;
 using namespace SerialMiddleware;
 
-#define RECVBUF     64
+#define RECVBUF     512
 #define SENDBUF     8
 
 namespace TaskMiddleWare {

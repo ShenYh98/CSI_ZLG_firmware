@@ -749,8 +749,8 @@ int NetWorkLayerImp::addChannel(const std::string recv_data) {
         srv_serialInfo.serialInfo.serialParamInfo.databit = std::stoi(http_jsonData["data"]["dataBits"].get<std::string>());
         srv_serialInfo.serialInfo.serialParamInfo.parity = http_jsonData["data"]["parity"].get<std::string>();
         srv_serialInfo.serialInfo.serialParamInfo.stopbit = http_jsonData["data"]["stopBits"].get<std::string>();
-        srv_serialInfo.serialInfo.serialParamInfo.vmin = 255;
-        srv_serialInfo.serialInfo.serialParamInfo.vtime = 150;
+        srv_serialInfo.serialInfo.serialParamInfo.vmin = 1;
+        srv_serialInfo.serialInfo.serialParamInfo.vtime = 15;
 
         v_serialInfo.push_back(srv_serialInfo);
     } catch(const std::exception& e) {
@@ -792,8 +792,8 @@ int NetWorkLayerImp::editChannel(const std::string recv_data) {
         srv_serialInfo.serialInfo.serialParamInfo.databit   = std::stoi(http_jsonData["data"]["newdata"]["dataBits"].get<std::string>());
         srv_serialInfo.serialInfo.serialParamInfo.parity    = http_jsonData["data"]["newdata"]["parity"].get<std::string>();
         srv_serialInfo.serialInfo.serialParamInfo.stopbit   = http_jsonData["data"]["newdata"]["stopBits"].get<std::string>();
-        srv_serialInfo.serialInfo.serialParamInfo.vmin      = 255;
-        srv_serialInfo.serialInfo.serialParamInfo.vtime     = 150;
+        srv_serialInfo.serialInfo.serialParamInfo.vmin      = 1;
+        srv_serialInfo.serialInfo.serialParamInfo.vtime     = 15;
 
         LOG_DEBUG("serial new action: {}\n",    srv_serialInfo.act);
         LOG_DEBUG("serial new name: {}\n",      srv_serialInfo.serialInfo.name                     );
@@ -812,8 +812,8 @@ int NetWorkLayerImp::editChannel(const std::string recv_data) {
         srv_serialInfo.oldSerialInfo.serialParamInfo.databit = std::stoi(http_jsonData["data"]["olddata"]["dataBits"].get<std::string>());
         srv_serialInfo.oldSerialInfo.serialParamInfo.parity = http_jsonData["data"]["olddata"]["parity"].get<std::string>();
         srv_serialInfo.oldSerialInfo.serialParamInfo.stopbit = http_jsonData["data"]["olddata"]["stopBits"].get<std::string>();
-        srv_serialInfo.oldSerialInfo.serialParamInfo.vmin = 255;
-        srv_serialInfo.oldSerialInfo.serialParamInfo.vtime = 150;
+        srv_serialInfo.oldSerialInfo.serialParamInfo.vmin = 1;
+        srv_serialInfo.oldSerialInfo.serialParamInfo.vtime = 15;
 
         LOG_DEBUG("serial old action: {}\n",    srv_serialInfo.act);
         LOG_DEBUG("serial old name: {}\n",      srv_serialInfo.oldSerialInfo.name                     );
@@ -865,8 +865,8 @@ int NetWorkLayerImp::delChannel(const std::string recv_data) {
             srv_serialInfo.serialInfo.serialParamInfo.databit = std::stoi(serialArray["dataBits"].get<std::string>());
             srv_serialInfo.serialInfo.serialParamInfo.parity = serialArray["parity"].get<std::string>();
             srv_serialInfo.serialInfo.serialParamInfo.stopbit = serialArray["stopBits"].get<std::string>();
-            srv_serialInfo.serialInfo.serialParamInfo.vmin = 255;
-            srv_serialInfo.serialInfo.serialParamInfo.vtime = 150;
+            srv_serialInfo.serialInfo.serialParamInfo.vmin = 1;
+            srv_serialInfo.serialInfo.serialParamInfo.vtime = 15;
 
             v_serialInfo.push_back(srv_serialInfo);
         }

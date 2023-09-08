@@ -41,7 +41,6 @@ Serial_485::~Serial_485() {
 
 int Serial_485::receive(char* buf) {
     int len;
-
     // len = read( serialIdtmp.SerialId, buf, sizeof(buf) );                    /* 在串口读入字符串 */
     len = read( serialIdtmp.SerialId, buf, MAXRECVSIZE);
 
@@ -49,12 +48,13 @@ int Serial_485::receive(char* buf) {
         LOG_ERROR("read error \n");
     }
 
-    LOG_DEBUG("recv buf len {}\n", len);
-    LOG_DEBUG("recv buf: ");
-    for (int i = 0; i < len; i++) {
-        LOG_DEBUG("0x%02x ", buf[i]);
+    if (len > 0) {
+        printf("recv buf: ");
+        for (int i = 0; i < len; i++) {
+            printf("0x%02x ", buf[i]);
+        }
+        printf("\n");
     }
-    LOG_DEBUG("\n");
 
     return len;
 }
@@ -66,19 +66,18 @@ int Serial_485::send(const char* buf) {
     if (len < 0) {
         LOG_ERROR("write data error \n");
     }
-    
-    LOG_DEBUG("write buf len {}\n", len);
-    LOG_DEBUG("write buf: ");
+
+    printf("write buf: ");
     for (int i = 0; i < len; i++) {
-        LOG_DEBUG("0x%02x ", buf[i]);
+        printf("0x%02x ", buf[i]);
     }
-    LOG_DEBUG("\n");
+    printf("\n");
 
     return len;
 }
 int Serial_485::openDriver(const std::string& data) {
     int fd;
-    fd = open(data.c_str(), O_RDWR | O_NOCTTY);
+    fd = open(data.c_str(), O_RDWR | O_NOCTTY | O_NDELAY );
     if (fd < 0) { // 判断接口是否打开成功
         LOG_ERROR("open Serial device error\n");
 

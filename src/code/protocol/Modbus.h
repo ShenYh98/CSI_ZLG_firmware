@@ -19,6 +19,7 @@ public:
 private:
     //CRC校验码公式
     uint16_t CRC16(uint8_t* pDataBuf, int DataLen);
+    uint16_t ReverseCRC16(uint8_t* pDataBuf, int DataLen);
 
     int loadPointFromJson(const std::string& path);
     int parseFunc(uint8_t* request, int length);

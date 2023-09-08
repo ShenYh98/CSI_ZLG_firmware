@@ -8,8 +8,8 @@
                 "port": "RS485-1",
                 "portName": "rs485",
                 "stopBits": "1",
-                "vmin": "255",
-                "vtime": "150"
+                "vmin": "1",
+                "vtime": "15"
             }
         ]
     }
