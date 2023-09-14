@@ -27,12 +27,17 @@ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O0")
 # 添加头文件搜索路径
 include_directories(
 	${CMAKE_SOURCE_DIR}/src/inc_base
+	${CMAKE_SOURCE_DIR}/src/code/common
+	${CMAKE_SOURCE_DIR}/src/inc_plug
+	/mnt/usr/CSI_Project/src/inc_plug
 	/opt/libmodbus/include
 )
 
 # 添加链接库搜索路径
 link_directories(
 	${CMAKE_SOURCE_DIR}/src/lib_base
+	${CMAKE_SOURCE_DIR}/src/lib_plug
+	/mnt/usr/CSI_Project/src/lib_plug
 	/opt/libmodbus/lib
 )
 
@@ -40,6 +45,7 @@ link_directories(
 file(GLOB_RECURSE SOURCES 
 	${CMAKE_SOURCE_DIR}/src/code/*.cpp
 	${CMAKE_SOURCE_DIR}/src/code/*.c
+	${CMAKE_SOURCE_DIR}/src/code/common/*
 )
 
 # 判断是否输入了参数
@@ -49,9 +55,10 @@ if(ARGUMENT)
   
 	file(GLOB_RECURSE LIBRARIES 
 	  ${CMAKE_SOURCE_DIR}/src/lib_base/*.so
+	  ${CMAKE_SOURCE_DIR}/src/lib_plug/*.so
 	)
 	# 链接库文件
-	target_link_libraries(${ARGUMENT} ${LIBRARIES})
+	target_link_libraries(${ARGUMENT} PRIVATE ${LIBRARIES})
 	target_link_libraries(${ARGUMENT} PRIVATE pthread modbus)
 else()
 	# 生成可执行文件
@@ -59,8 +66,9 @@ else()
   
 	file(GLOB_RECURSE LIBRARIES 
 	  ${CMAKE_SOURCE_DIR}/src/lib_base/*.so
+	  ${CMAKE_SOURCE_DIR}/src/lib_plug/*.so
 	)
 	# 链接库文件
-	target_link_libraries(csiexec ${LIBRARIES})
+	target_link_libraries(csiexec PRIVATE ${LIBRARIES})
 	target_link_libraries(csiexec PRIVATE pthread modbus)
 endif()

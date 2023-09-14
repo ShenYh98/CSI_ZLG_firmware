@@ -39,9 +39,28 @@ Serial_485::Serial_485(SerialIdInfo& serialIdInfo) {
 Serial_485::~Serial_485() {
 }
 
-int Serial_485::receive(char* buf) {
+// int Serial_485::receive(char* buf) {
+//     int len;
+
+//     len = read( serialIdtmp.SerialId, buf, MAXRECVSIZE);
+
+//     if (len < 0) {
+//         LOG_ERROR("read error \n");
+//     }
+
+//     if (len > 0) {
+//         printf("recv buf: ");
+//         for (int i = 0; i < len; i++) {
+//             printf("0x%02x ", buf[i]);
+//         }
+//         printf("\n");
+//     }
+
+//     return len;
+// }
+int Serial_485::receive(uint8_t* buf) {
     int len;
-    // len = read( serialIdtmp.SerialId, buf, sizeof(buf) );                    /* 在串口读入字符串 */
+
     len = read( serialIdtmp.SerialId, buf, MAXRECVSIZE);
 
     if (len < 0) {

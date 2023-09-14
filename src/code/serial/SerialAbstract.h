@@ -16,7 +16,8 @@ using namespace CommonLib;
 
 class SerialAbstract {
 public:
-    virtual int receive(char* buf) = 0;
+    // virtual int receive(char* buf) = 0;
+    virtual int receive(uint8_t* buf) = 0;
     virtual int send(const char* buf) = 0;
 
 private:

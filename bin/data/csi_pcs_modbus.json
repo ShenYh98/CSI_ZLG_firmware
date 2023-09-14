@@ -1,114 +1,1544 @@
 {
-    "points" : [
+    "points": [
         {
-            "name" : "设备信息",
-            "description" : "",
-            "dataType" : "U16",
-            "res" : 1,
-            "invalid" : 1,
-            "mpkg" : [
-                "0x04,0x0c,0xe4,0x00,0x1e"
-            ]
+            "addr": 2300,
+            "name": "ARMC主版本号",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
         },
         {
-            "name" : "PCS运行信息",
-            "description" : "",
-            "dataType" : "U16",
-            "res" : 1,
-            "invalid" : 1,
-            "mpkg" : [
-                "0x04,0x0e,0x10,0x00,0x50"
-            ]
+            "addr": 2301,
+            "name": "ARMC子版本号",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
         },
         {
-            "name" : "电池组信息",
-            "description" : "",
-            "dataType" : "U16",
-            "res" : 1,
-            "invalid" : 1,
-            "mpkg" : [
-                "0x03,0x0e,0x60,0x00,0x14"
-            ]
+            "addr": 2302,
+            "name": "ARMS主版本号",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
         },
         {
-            "name" : "运行参数",
-            "description" : "",
-            "dataType" : "U16",
-            "res" : 1,
-            "invalid" : 1,
-            "mpkg" : [
-                "0x03,0x0f,0x3c,0x00,0x50"
-            ]
+            "addr": 2303,
+            "name": "ARMS子版本号",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
         },
         {
-            "name" : "保护参数",
-            "description" : "",
-            "dataType" : "U16",
-            "res" : 1,
-            "invalid" : 1,
-            "mpkg" : [
-                "0x03,0x0e,0xd8,0x00,0x50"
-            ]
+            "addr": 2304,
+            "name": "外部升级标志",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
         },
         {
-            "name" : "采样校正",
-            "description" : "",
-            "dataType" : "U16",
-            "res" : 1,
-            "invalid" : 1,
-            "mpkg" : [
-                "0x03,0x13,0x88,0x00,0x26"
-            ]
+            "addr": 2305,
+            "name": "SN序列*10",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "ASCII"
         },
         {
-            "name" : "并离网模式设置",
-            "description" : "",
-            "dataType" : "U16",
-            "res" : 1,
-            "invalid" : 1,
-            "mpkg" : [
-                "0x03,0x1f,0x40,0x00,0x15"
-            ]
+            "addr": 2315,
+            "name": "ARMC通讯地址",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
         },
         {
-            "name" : "无功调节",
-            "description" : "",
-            "dataType" : "U16",
-            "res" : 1,
-            "invalid" : 1,
-            "mpkg" : [
-                "0x03,0x1f,0x5e,0x00,0x0b"
-            ]
+            "addr": 2316,
+            "name": "设备编码*10",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "ASCII"
         },
         {
-            "name" : "低电压穿越参数",
-            "description" : "",
-            "dataType" : "U16",
-            "res" : 1,
-            "invalid" : 1,
-            "mpkg" : [
-                "0x03,0x1f,0xa4,0x00,0x0b"
-            ]
+            "addr": 2336,
+            "name": "年",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
         },
         {
-            "name" : "高电压穿越参数",
-            "description" : "",
-            "dataType" : "U16",
-            "res" : 1,
-            "invalid" : 1,
-            "mpkg" : [
-                "0x03,0x1f,0xd6,0x00,0x0a"
-            ]
+            "addr": 2337,
+            "name": "月",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
         },
         {
-            "name" : "功率缓启",
-            "description" : "",
-            "dataType" : "U16",
-            "res" : 1,
-            "invalid" : 1,
-            "mpkg" : [
-                "0x03,0x20,0x08,0x00,0x05"
-            ]
+            "addr": 2338,
+            "name": "日",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 2339,
+            "name": "时",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 2340,
+            "name": "分",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 2341,
+            "name": "秒",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 3300,
+            "name": "DSP主版本号",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 3301,
+            "name": "DSP子版本号",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 3600,
+            "name": "AB线电压",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "V"
+        },
+        {
+            "addr": 3601,
+            "name": "BC线电压",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "V"
+        },
+        {
+            "addr": 3602,
+            "name": "C A线电压",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "V"
+        },
+        {
+            "addr": 3603,
+            "name": "A相电流",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "A"
+        },
+        {
+            "addr": 3604,
+            "name": "B相电流",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "A"
+        },
+        {
+            "addr": 3605,
+            "name": "C相电流",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "A"
+        },
+        {
+            "addr": 3606,
+            "name": "A相逆变电压",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "V"
+        },
+        {
+            "addr": 3607,
+            "name": "B相逆变电压",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "V"
+        },
+        {
+            "addr": 3608,
+            "name": "C相逆变电压",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "V"
+        },
+        {
+            "addr": 3609,
+            "name": "电网频率",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "Hz"
+        },
+        {
+            "addr": 3610,
+            "name": "离网频率",
+            "dataType": "U16",
+            "factor": 0.01,
+            "unit": "Hz"
+        },
+        {
+            "addr": 3611,
+            "name": "输出视在功率",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "KVar"
+        },
+        {
+            "addr": 3612,
+            "name": "输出有功功率",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "KW"
+        },
+        {
+            "addr": 3613,
+            "name": "输出无功功率",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "KVar"
+        },
+        {
+            "addr": 3614,
+            "name": "功率因数",
+            "dataType": "U16",
+            "factor": 0.001,
+            "unit": "NULL"
+        },
+        {
+            "addr": 3618,
+            "name": "电池电压",
+            "dataType": "S16",
+            "factor": 0.1,
+            "unit": "V"
+        },
+        {
+            "addr": 3619,
+            "name": "直流电流",
+            "dataType": "S16",
+            "factor": 0.1,
+            "unit": "A"
+        },
+        {
+            "addr": 3620,
+            "name": "直流功率",
+            "dataType": "S16",
+            "factor": 0.1,
+            "unit": "KW"
+        },
+        {
+            "addr": 3621,
+            "name": "总母线电压",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "V"
+        },
+        {
+            "addr": 3622,
+            "name": "正半母线电压",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "V"
+        },
+        {
+            "addr": 3623,
+            "name": "负半母线电压",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "V"
+        },
+        {
+            "addr": 3624,
+            "name": "交流漏电流",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "A"
+        },
+        {
+            "addr": 3625,
+            "name": "A相DCI",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "A"
+        },
+        {
+            "addr": 3626,
+            "name": "B相DCI",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "A"
+        },
+        {
+            "addr": 3627,
+            "name": "C相DCI",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "A"
+        },
+        {
+            "addr": 3628,
+            "name": "正对地ISO高字",
+            "dataType": "U32",
+            "factor": 1,
+            "unit": "KΩ"
+        },
+        {
+            "addr": 3629,
+            "name": "正对地ISO低字",
+            "dataType": "U32",
+            "factor": 1,
+            "unit": "KΩ"
+        },
+        {
+            "addr": 3630,
+            "name": "负对地ISO高字",
+            "dataType": "U32",
+            "factor": 1,
+            "unit": "KΩ"
+        },
+        {
+            "addr": 3631,
+            "name": "负对地ISO低字",
+            "dataType": "U32",
+            "factor": 1,
+            "unit": "KΩ"
+        },
+        {
+            "addr": 3632,
+            "name": "模块温度1",
+            "dataType": "S16",
+            "factor": 0.1,
+            "unit": "℃"
+        },
+        {
+            "addr": 3633,
+            "name": "模块温度2",
+            "dataType": "S16",
+            "factor": 0.1,
+            "unit": "℃"
+        },
+        {
+            "addr": 3634,
+            "name": "模块温度3",
+            "dataType": "S16",
+            "factor": 0.1,
+            "unit": "℃"
+        },
+        {
+            "addr": 3635,
+            "name": "环境温度",
+            "dataType": "S16",
+            "factor": 0.1,
+            "unit": "℃"
+        },
+        {
+            "addr": 3636,
+            "name": "电感温度",
+            "dataType": "S16",
+            "factor": 0.1,
+            "unit": "℃"
+        },
+        {
+            "addr": 3637,
+            "name": "预留温度1",
+            "dataType": "S16",
+            "factor": 0.1,
+            "unit": "℃"
+        },
+        {
+            "addr": 3638,
+            "name": "预留温度2",
+            "dataType": "S16",
+            "factor": 0.1,
+            "unit": "℃"
+        },
+        {
+            "addr": 3639,
+            "name": "预留温度3",
+            "dataType": "S16",
+            "factor": 0.1,
+            "unit": "℃"
+        },
+        {
+            "addr": 3640,
+            "name": "充放电状态",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 3641,
+            "name": "告警运行状态1",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 3642,
+            "name": "告警运行状态2",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 3643,
+            "name": "故障编码1高字",
+            "dataType": "U32",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 3644,
+            "name": "故障编码1低字",
+            "dataType": "U32",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 3645,
+            "name": "故障编码2高字",
+            "dataType": "U32",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 3646,
+            "name": "故障编码2低字",
+            "dataType": "U32",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 3647,
+            "name": "故障编码3高字",
+            "dataType": "U32",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 3648,
+            "name": "故障编码3低字",
+            "dataType": "U32",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 3649,
+            "name": "日充电量高字",
+            "dataType": "U32",
+            "factor": 0.1,
+            "unit": "KWh"
+        },
+        {
+            "addr": 3650,
+            "name": "日充电量低字",
+            "dataType": "U32",
+            "factor": 0.1,
+            "unit": "KWh"
+        },
+        {
+            "addr": 3651,
+            "name": "日放电量高字",
+            "dataType": "U32",
+            "factor": 0.1,
+            "unit": "KWh"
+        },
+        {
+            "addr": 3652,
+            "name": "日放电量低字",
+            "dataType": "U32",
+            "factor": 0.1,
+            "unit": "KWh"
+        },
+        {
+            "addr": 3653,
+            "name": "总充电量高字",
+            "dataType": "U32",
+            "factor": 1,
+            "unit": "KWh"
+        },
+        {
+            "addr": 3654,
+            "name": "总充电量低字",
+            "dataType": "U32",
+            "factor": 1,
+            "unit": "KWh"
+        },
+        {
+            "addr": 3655,
+            "name": "总放电量高字",
+            "dataType": "U32",
+            "factor": 1,
+            "unit": "KWh"
+        },
+        {
+            "addr": 3656,
+            "name": "总放点量低字",
+            "dataType": "U32",
+            "factor": 1,
+            "unit": "KWh"
+        },
+        {
+            "addr": 3657,
+            "name": "工作状态",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 3658,
+            "name": "工作模式",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 3659,
+            "name": "停机码",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 3660,
+            "name": "PCS干节点状态",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 3661,
+            "name": "日充电时间",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "min"
+        },
+        {
+            "addr": 3662,
+            "name": "日放电时间",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "min"
+        },
+        {
+            "addr": 3663,
+            "name": "总充电时间高字",
+            "dataType": "U32",
+            "factor": 1,
+            "unit": "h"
+        },
+        {
+            "addr": 3664,
+            "name": "总充电时间低字",
+            "dataType": "U32",
+            "factor": 1,
+            "unit": "h"
+        },
+        {
+            "addr": 3665,
+            "name": "总放电时间高字",
+            "dataType": "U32",
+            "factor": 1,
+            "unit": "h"
+        },
+        {
+            "addr": 3666,
+            "name": "总放电时间高字",
+            "dataType": "U32",
+            "factor": 1,
+            "unit": "h"
+        },
+        {
+            "addr": 3667,
+            "name": "电池状态字",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 3680,
+            "name": "BMS系统状态",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 3681,
+            "name": "电池组总电压",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "V"
+        },
+        {
+            "addr": 3682,
+            "name": "电池组电流",
+            "dataType": "S16",
+            "factor": 0.1,
+            "unit": "A"
+        },
+        {
+            "addr": 3683,
+            "name": "电池组SOC",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "%"
+        },
+        {
+            "addr": 3684,
+            "name": "电池组SOH",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "%"
+        },
+        {
+            "addr": 3685,
+            "name": "充电限制电流",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "A"
+        },
+        {
+            "addr": 3686,
+            "name": "放电限制电流",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "A"
+        },
+        {
+            "addr": 3687,
+            "name": "充电限制电压",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "V"
+        },
+        {
+            "addr": 3688,
+            "name": "充电限制电压",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "V"
+        },
+        {
+            "addr": 3689,
+            "name": "充电可用电量",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "KWh"
+        },
+        {
+            "addr": 3690,
+            "name": "放电可用电量",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "KWh"
+        },
+        {
+            "addr": 3691,
+            "name": "单体最高电压",
+            "dataType": "U16",
+            "factor": 0.001,
+            "unit": "V"
+        },
+        {
+            "addr": 3692,
+            "name": "单体最低电压",
+            "dataType": "U16",
+            "factor": 0.001,
+            "unit": "V"
+        },
+        {
+            "addr": 3693,
+            "name": "单体最高温度",
+            "dataType": "S16",
+            "factor": 0.1,
+            "unit": "℃"
+        },
+        {
+            "addr": 3694,
+            "name": "单体最低温度",
+            "dataType": "S16",
+            "factor": 0.1,
+            "unit": "℃"
+        },
+        {
+            "addr": 3900,
+            "name": "开机/关机/待机",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 3901,
+            "name": "并离网模式",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 3902,
+            "name": "无功调节方式",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 3903,
+            "name": "无功比例设置",
+            "dataType": "S16",
+            "factor": 0.1,
+            "unit": "%"
+        },
+        {
+            "addr": 3904,
+            "name": "功率因数设置",
+            "dataType": "S16",
+            "factor": 0.001,
+            "unit": "NULL"
+        },
+        {
+            "addr": 3906,
+            "name": "远程/本地",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 3907,
+            "name": "有功/无功优先",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 3908,
+            "name": "功率缓启使能",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 3909,
+            "name": "电池能量管理选择",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 3910,
+            "name": "并网充放电设置",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 3911,
+            "name": "恒流模式电流",
+            "dataType": "S16",
+            "factor": 0.1,
+            "unit": "A"
+        },
+        {
+            "addr": 3912,
+            "name": "恒压模式电压",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "V"
+        },
+        {
+            "addr": 3913,
+            "name": "恒压模式限值电流",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "A"
+        },
+        {
+            "addr": 3914,
+            "name": "恒功率模式功率（AC）",
+            "dataType": "S16",
+            "factor": 0.1,
+            "unit": "%"
+        },
+        {
+            "addr": 3915,
+            "name": "恒功率模式功率（DC）",
+            "dataType": "S16",
+            "factor": 0.1,
+            "unit": "%"
+        },
+        {
+            "addr": 3916,
+            "name": "独立逆变电压",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "V"
+        },
+        {
+            "addr": 3917,
+            "name": "独立逆变频率",
+            "dataType": "U16",
+            "factor": 0.001,
+            "unit": "Hz"
+        },
+        {
+            "addr": 3918,
+            "name": "电池充电电压上限",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "V"
+        },
+        {
+            "addr": 3919,
+            "name": "电池放电电压上限",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "V"
+        },
+        {
+            "addr": 3920,
+            "name": "电池最大充电电流",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "A"
+        },
+        {
+            "addr": 3921,
+            "name": "电池最大放电电流",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "A"
+        },
+        {
+            "addr": 3922,
+            "name": "频率穿越使能",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 3923,
+            "name": "频率穿越补偿因子",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 3929,
+            "name": "VSG输出额定电压",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "V"
+        },
+        {
+            "addr": 3930,
+            "name": "VSG输出额定频率",
+            "dataType": "U16",
+            "factor": 0.01,
+            "unit": "Hz"
+        },
+        {
+            "addr": 3931,
+            "name": "VSG频率下垂斜率",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 3932,
+            "name": "VSG电压下垂斜率",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 3933,
+            "name": "VSG有功设置值",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "%"
+        },
+        {
+            "addr": 3934,
+            "name": "VSG无功设置值",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "%"
+        },
+        {
+            "addr": 3935,
+            "name": "有功上升斜率",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "%/s"
+        },
+        {
+            "addr": 3936,
+            "name": "有功下降斜率",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "%/s"
+        },
+        {
+            "addr": 3937,
+            "name": "无功上升斜率",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "%/s"
+        },
+        {
+            "addr": 3938,
+            "name": "无功下降斜率",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "%"
+        },
+        {
+            "addr": 3939,
+            "name": "QU电压上升起点",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "%"
+        },
+        {
+            "addr": 3940,
+            "name": "QU电压上升终点",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "%"
+        },
+        {
+            "addr": 3941,
+            "name": "QU电压上升起点",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "%"
+        },
+        {
+            "addr": 3942,
+            "name": "QU电压下降终点",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "%"
+        },
+        {
+            "addr": 3943,
+            "name": "QU工作模式",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 3944,
+            "name": "QU最大无功",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "%"
+        },
+        {
+            "addr": 3945,
+            "name": "QU最大PF",
+            "dataType": "U16",
+            "factor": 0.001,
+            "unit": "NULL"
+        },
+        {
+            "addr": 3946,
+            "name": "QU启用功率",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "%"
+        },
+        {
+            "addr": 3947,
+            "name": "关机延时时间",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "s"
+        },
+        {
+            "addr": 3948,
+            "name": "关机斜率",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "%/s"
+        },
+        {
+            "addr": 3949,
+            "name": "海拔降额使能开关",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 3950,
+            "name": "海拔高度",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "m"
+        },
+        {
+            "addr": 3951,
+            "name": "故障恢复时间",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "s"
+        },
+        {
+            "addr": 3952,
+            "name": "主动孤岛使能",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 3953,
+            "name": "ISO使能开关",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 3954,
+            "name": "高穿使能",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 3955,
+            "name": "低穿使能",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 3800,
+            "name": "电网过压1级保护值",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "%"
+        },
+        {
+            "addr": 3801,
+            "name": "电网过压2级保护值",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "%"
+        },
+        {
+            "addr": 3802,
+            "name": "电网过压恢复值",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "%"
+        },
+        {
+            "addr": 3803,
+            "name": "电网欠压1级保护值",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "%"
+        },
+        {
+            "addr": 3804,
+            "name": "电网欠压2级保护值",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "%"
+        },
+        {
+            "addr": 3805,
+            "name": "电网欠压恢复值",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "%"
+        },
+        {
+            "addr": 3806,
+            "name": "电网过频1级保护值",
+            "dataType": "U16",
+            "factor": 0.01,
+            "unit": "Hz"
+        },
+        {
+            "addr": 3807,
+            "name": "电网过频2级保护值",
+            "dataType": "U16",
+            "factor": 0.01,
+            "unit": "Hz"
+        },
+        {
+            "addr": 3808,
+            "name": "电网过频恢复值",
+            "dataType": "U16",
+            "factor": 0.01,
+            "unit": "Hz"
+        },
+        {
+            "addr": 3809,
+            "name": "电网欠频1级保护值",
+            "dataType": "U16",
+            "factor": 0.01,
+            "unit": "Hz"
+        },
+        {
+            "addr": 3810,
+            "name": "电网欠频2级保护值",
+            "dataType": "U16",
+            "factor": 0.01,
+            "unit": "Hz"
+        },
+        {
+            "addr": 3811,
+            "name": "电网欠频恢复值",
+            "dataType": "U16",
+            "factor": 0.01,
+            "unit": "Hz"
+        },
+        {
+            "addr": 3812,
+            "name": "交流平均过流点",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "A"
+        },
+        {
+            "addr": 3813,
+            "name": "交流瞬时过流点",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "A"
+        },
+        {
+            "addr": 3814,
+            "name": "直流欠压点",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "V"
+        },
+        {
+            "addr": 3815,
+            "name": "直流过压点",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "V"
+        },
+        {
+            "addr": 3816,
+            "name": "直流过流点",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "A"
+        },
+        {
+            "addr": 3817,
+            "name": "漏电流过流点",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "A"
+        },
+        {
+            "addr": 3821,
+            "name": "ISO保护阈值",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "kΩ"
+        },
+        {
+            "addr": 3823,
+            "name": "LVRT电压1",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "%"
+        },
+        {
+            "addr": 3824,
+            "name": "LVRT电压2",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "%"
+        },
+        {
+            "addr": 3825,
+            "name": "LVRT电压3",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "%"
+        },
+        {
+            "addr": 3826,
+            "name": "LVRT电压4",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "%"
+        },
+        {
+            "addr": 3827,
+            "name": "LVRT电压5",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "%"
+        },
+        {
+            "addr": 3828,
+            "name": "LVRT T1",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "ms"
+        },
+        {
+            "addr": 3829,
+            "name": "LVRT T2",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "ms"
+        },
+        {
+            "addr": 3830,
+            "name": "LVRT T3",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "ms"
+        },
+        {
+            "addr": 3831,
+            "name": "LVRT T4",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "ms"
+        },
+        {
+            "addr": 3832,
+            "name": "LVRT T5",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "ms"
+        },
+        {
+            "addr": 3833,
+            "name": "LVRT动态无功系数",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "%"
+        },
+        {
+            "addr": 3834,
+            "name": "HVRT电压1",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "%"
+        },
+        {
+            "addr": 3835,
+            "name": "HVRT电压2",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "%"
+        },
+        {
+            "addr": 3836,
+            "name": "HVRT电压3",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "%"
+        },
+        {
+            "addr": 3837,
+            "name": "HVRT电压4",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "%"
+        },
+        {
+            "addr": 3838,
+            "name": "HVRT电压5",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "%"
+        },
+        {
+            "addr": 3839,
+            "name": "HVRT T1",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "ms"
+        },
+        {
+            "addr": 3840,
+            "name": "HVRT T2",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "ms"
+        },
+        {
+            "addr": 3841,
+            "name": "HVRT T3",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "ms"
+        },
+        {
+            "addr": 3842,
+            "name": "HVRT T4",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "ms"
+        },
+        {
+            "addr": 3843,
+            "name": "HVRT T5",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "ms"
+        },
+        {
+            "addr": 3844,
+            "name": "网压不平衡保护",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "%"
+        },
+        {
+            "addr": 3845,
+            "name": "网压不平衡保护时间",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "s"
+        },
+        {
+            "addr": 5000,
+            "name": "AB电网线电压系数",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 5001,
+            "name": "AB电网线电压零漂",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 5002,
+            "name": "BC电网线电压系数",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 5003,
+            "name": "BC电网线电压零漂",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 5004,
+            "name": "CA电网线电压系数",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 5005,
+            "name": "CA电网线电压零漂",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 5006,
+            "name": "AB逆变器电压系数",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 5007,
+            "name": "AB逆变器电压零漂",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 5008,
+            "name": "BC逆变器电压系数",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 5009,
+            "name": "BC逆变器电压零漂",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 5010,
+            "name": "CA逆变器电压系数",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 5011,
+            "name": "CA逆变器电压零漂",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 5012,
+            "name": "A相逆变电流系数",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 5013,
+            "name": "A相逆变电流零漂",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 5014,
+            "name": "B相逆变电流系数",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 5015,
+            "name": "B相逆变电流零漂",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 5016,
+            "name": "C相逆变电流系数",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 5017,
+            "name": "C相逆变电流零漂",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 5024,
+            "name": "电池电压系数",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 5025,
+            "name": "电池电压零漂",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 5026,
+            "name": "充放电电流系数",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 5027,
+            "name": "充放电电流零漂",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 5028,
+            "name": "放电电流系数",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 5029,
+            "name": "放电电流零漂",
+            "dataType": "U16",
+            "factor": 1,
+            "unit": "NULL"
+        },
+        {
+            "addr": 5030,
+            "name": "DC母线电压系数",
+            "dataType": "U16",
+            "factor": 0.001,
+            "unit": "NULL"
+        },
+        {
+            "addr": 5031,
+            "name": "DC母线电压零漂",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "V"
+        },
+        {
+            "addr": 5032,
+            "name": "正半母线电压系数",
+            "dataType": "U16",
+            "factor": 0.001,
+            "unit": "NULL"
+        },
+        {
+            "addr": 5033,
+            "name": "正半母线电压零漂",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "V"
+        },
+        {
+            "addr": 5034,
+            "name": "负半母线电压系数",
+            "dataType": "U16",
+            "factor": 0.001,
+            "unit": "NULL"
+        },
+        {
+            "addr": 5035,
+            "name": "负半母线电压零漂",
+            "dataType": "U16",
+            "factor": 0.1,
+            "unit": "V"
+        },
+        {
+            "addr": 5036,
+            "name": "直流分量系数",
+            "dataType": "U16",
+            "factor": 0.001,
+            "unit": "NULL"
+        },
+        {
+            "addr": 5037,
+            "name": "漏电流系数",
+            "dataType": "U16",
+            "factor": 0.001,
+            "unit": "NULL"
         }
     ]
 }

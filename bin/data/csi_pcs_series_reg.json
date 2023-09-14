@@ -1,0 +1,114 @@
+{
+    "points" : [
+        {
+            "name" : "设备信息",
+            "description" : "",
+            "dataType" : "U16",
+            "res" : 1,
+            "invalid" : 1,
+            "mpkg" : [
+                "0x04,0x0c,0xe4,0x00,0x1e"
+            ]
+        },
+        {
+            "name" : "运行信息",
+            "description" : "",
+            "dataType" : "U16",
+            "res" : 1,
+            "invalid" : 1,
+            "mpkg" : [
+                "0x04,0x0e,0x10,0x00,0x50"
+            ]
+        },
+        {
+            "name" : "电池组信息",
+            "description" : "",
+            "dataType" : "U16",
+            "res" : 1,
+            "invalid" : 1,
+            "mpkg" : [
+                "0x03,0x0e,0x60,0x00,0x14"
+            ]
+        },
+        {
+            "name" : "运行参数",
+            "description" : "",
+            "dataType" : "U16",
+            "res" : 1,
+            "invalid" : 1,
+            "mpkg" : [
+                "0x03,0x0f,0x3c,0x00,0x50"
+            ]
+        },
+        {
+            "name" : "保护参数",
+            "description" : "",
+            "dataType" : "U16",
+            "res" : 1,
+            "invalid" : 1,
+            "mpkg" : [
+                "0x03,0x0e,0xd8,0x00,0x50"
+            ]
+        },
+        {
+            "name" : "采样校正",
+            "description" : "",
+            "dataType" : "U16",
+            "res" : 1,
+            "invalid" : 1,
+            "mpkg" : [
+                "0x03,0x13,0x88,0x00,0x26"
+            ]
+        },
+        {
+            "name" : "并离网模式设置",
+            "description" : "",
+            "dataType" : "U16",
+            "res" : 1,
+            "invalid" : 1,
+            "mpkg" : [
+                "0x03,0x1f,0x40,0x00,0x15"
+            ]
+        },
+        {
+            "name" : "无功调节",
+            "description" : "",
+            "dataType" : "U16",
+            "res" : 1,
+            "invalid" : 1,
+            "mpkg" : [
+                "0x03,0x1f,0x5e,0x00,0x0b"
+            ]
+        },
+        {
+            "name" : "低电压穿越参数",
+            "description" : "",
+            "dataType" : "U16",
+            "res" : 1,
+            "invalid" : 1,
+            "mpkg" : [
+                "0x03,0x1f,0xa4,0x00,0x0b"
+            ]
+        },
+        {
+            "name" : "高电压穿越参数",
+            "description" : "",
+            "dataType" : "U16",
+            "res" : 1,
+            "invalid" : 1,
+            "mpkg" : [
+                "0x03,0x1f,0xd6,0x00,0x0a"
+            ]
+        },
+        {
+            "name" : "功率缓启",
+            "description" : "",
+            "dataType" : "U16",
+            "res" : 1,
+            "invalid" : 1,
+            "mpkg" : [
+                "0x03,0x20,0x08,0x00,0x05"
+            ]
+        }
+    ]
+}

@@ -11,7 +11,8 @@ public:
     Serial_485(SerialIdInfo& serialIdInfo);
     ~Serial_485();
 
-    int receive(char* buf) override;
+    // int receive(char* buf) override;
+    int receive(uint8_t* buf) override;
     int send(const char* buf) override;
 
 private:

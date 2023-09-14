@@ -34,9 +34,16 @@ typedef struct {
 } s_RTtask;
 
 typedef struct {
-    std::string sourceName;     // 源名
-    int value;                  // 值
-    std::string unit;           // 单位
+    int idata;
+    double ddata;
+    std::string sData;
+} s_RTValueType;
+
+typedef struct {
+    std::string sourceName;         // 源名
+    s_RTValueType value;            // 值            
+    std::vector<uint8_t> buf;   // 原始报文
+    std::string unit;               // 单位
 } s_RTSrcInfo;
 
 /*
@@ -124,16 +131,9 @@ typedef struct {
     std::string name;                   // 测点名称
     std::string description;            // 测点描述
     std::string dataType;               // 数据类型
+    double factor;                      // 偏移系数
+    std::string unit;                   // 单位
     int res;                            // 是否请求
     int invalid;                        // 有效性
     std::vector<modbusPkg> mpkg;        // 一个测点相当于一帧，一帧可以读一个包也可以多个包，也可以一个包的连续寄存器
 } modbusPoint;
-
-typedef struct {
-    std::string dataType;
-    int idata;
-    uint8_t u8Data;
-    uint16_t u16Data;
-    std::string sData;
-} modbusDataInfo;
-

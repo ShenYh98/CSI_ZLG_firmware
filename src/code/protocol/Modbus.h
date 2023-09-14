@@ -13,13 +13,13 @@ public:
     virtual int ParsePacket(uint8_t* request, int length) override;
     virtual int AssemblePacket(uint8_t* request) override;
 
-    virtual int receive(char* buf) override;
+    // virtual int receive(char* buf) override;
+    virtual int receive(uint8_t* buf) override;
     virtual void send(const char* buf) override;
 
 private:
     //CRC校验码公式
     uint16_t CRC16(uint8_t* pDataBuf, int DataLen);
-    uint16_t ReverseCRC16(uint8_t* pDataBuf, int DataLen);
 
     int loadPointFromJson(const std::string& path);
     int parseFunc(uint8_t* request, int length);

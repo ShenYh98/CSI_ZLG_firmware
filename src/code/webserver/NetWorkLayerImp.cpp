@@ -5,11 +5,14 @@ using namespace NetWorkMiddleware;
 NetWorkLayerImp::NetWorkLayerImp(NetworkService* networkSrv) {
     _networkSrv = networkSrv;
 
-    MessageQueue<std::vector<s_RTSrcInfo>>::getInstance().subscribe("TaskSerial/rtSrcInfo", [&](const std::vector<s_RTSrcInfo>& msg) {
-        LOG_DEBUG("rt source len {}\n", msg.size());
+    // 接收发送的连续寄存器的数据
+    MessageQueue< std::pair<std::string, std::vector<s_RTSrcInfo>> >::getInstance().subscribe("TaskSerial/seriesRTSrcInfo", 
+        [&](const std::pair<std::string, std::vector<s_RTSrcInfo>>& msg) {
+            LOG_DEBUG("rt source len {}\n", msg.second.size());
 
-        v_rtSrcInfo = msg;
-    });
+            v_RTSrcInfo = msg.second;
+            sn = msg.first;
+        });
 }
 
 NetWorkLayerImp::~NetWorkLayerImp() {
@@ -351,19 +354,63 @@ void NetWorkLayerImp::operation(s_RTtask rttask) {
         case RTtaskId::Yc : {
             std::ostringstream payloadStream;
 
-            payloadStream << R"([)";
-            for (size_t i = 0; i < v_rtSrcInfo.size(); ++i) {
-                payloadStream << R"({"sourceName":")" << v_rtSrcInfo[i].sourceName 
-                              << R"(", "value":")" << std::to_string(v_rtSrcInfo[i].value) 
-                              << R"(", "unit":")" << v_rtSrcInfo[i].unit << R"("})";
-                if (i != v_rtSrcInfo.size() - 1) {
-                    payloadStream << R"(,)";
+            printf("rttask.dev_sn:%s sn:%s\n", rttask.dev_sn.c_str(), sn.c_str());
+            if (rttask.dev_sn == sn) {
+                payloadStream << R"([)";
+                for (size_t i = 0; i < v_RTSrcInfo.size(); ++i) {
+                    if (v_RTSrcInfo[i].value.idata == -1 && v_RTSrcInfo[i].value.sData == "NULL") {
+                        payloadStream << R"({"sourceName":")" << v_RTSrcInfo[i].sourceName 
+                                << R"(", "value":")" << std::to_string(v_RTSrcInfo[i].value.ddata) 
+                                << R"(", "unit":")" << v_RTSrcInfo[i].unit << R"("})";
+                    } else if (v_RTSrcInfo[i].value.ddata == -1.0 && v_RTSrcInfo[i].value.sData == "NULL") {
+                        payloadStream << R"({"sourceName":")" << v_RTSrcInfo[i].sourceName 
+                                << R"(", "value":")" << std::to_string(v_RTSrcInfo[i].value.idata) 
+                                << R"(", "unit":")" << v_RTSrcInfo[i].unit << R"("})";
+                    } else {
+                        payloadStream << R"({"sourceName":")" << v_RTSrcInfo[i].sourceName 
+                                << R"(", "value":")" << v_RTSrcInfo[i].value.sData
+                                << R"(", "unit":")" << v_RTSrcInfo[i].unit << R"("})";
+                    }
+                    
+                    if (i != v_RTSrcInfo.size() - 1) {
+                        payloadStream << R"(,)";
+                    }
                 }
+                payloadStream << R"(])";
+                
+                v_PreRTSrcInfo = v_RTSrcInfo;
+            } else if (preSn == rttask.dev_sn) {
+                payloadStream << R"([)";
+                for (size_t i = 0; i < v_PreRTSrcInfo.size(); ++i) {
+                    if (v_PreRTSrcInfo[i].value.idata == -1 && v_PreRTSrcInfo[i].value.sData == "NULL") {
+                        payloadStream << R"({"sourceName":")" << v_PreRTSrcInfo[i].sourceName 
+                                << R"(", "value":")" << std::to_string(v_PreRTSrcInfo[i].value.ddata) 
+                                << R"(", "unit":")" << v_PreRTSrcInfo[i].unit << R"("})";
+                    } else if (v_PreRTSrcInfo[i].value.ddata == -1.0 && v_PreRTSrcInfo[i].value.sData == "NULL") {
+                        payloadStream << R"({"sourceName":")" << v_PreRTSrcInfo[i].sourceName 
+                                << R"(", "value":")" << std::to_string(v_PreRTSrcInfo[i].value.idata) 
+                                << R"(", "unit":")" << v_PreRTSrcInfo[i].unit << R"("})";
+                    } else {
+                        payloadStream << R"({"sourceName":")" << v_PreRTSrcInfo[i].sourceName 
+                                << R"(", "value":")" << v_PreRTSrcInfo[i].value.sData
+                                << R"(", "unit":")" << v_PreRTSrcInfo[i].unit << R"("})";
+                    }
+                    
+                    if (i != v_PreRTSrcInfo.size() - 1) {
+                        payloadStream << R"(,)";
+                    }
+                }
+                payloadStream << R"(])";
+            } else {
+                payloadStream << R"([)";
+                payloadStream << R"({"sourceName":")" << ""
+                            << R"(", "value":")" << ""
+                            << R"(", "unit":")" << "" << R"("})";
+                payloadStream << R"(])";
             }
-            payloadStream << R"(])";
+            preSn = rttask.dev_sn;
 
             auto str = payloadStream.str();
-
             this->send(str);
 
             break;

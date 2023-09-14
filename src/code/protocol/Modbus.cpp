@@ -3,7 +3,7 @@
 using namespace ProtocolMiddleware;
 
 Modbus::Modbus(SerialAbstract* serial) {
-    pointJsonPath = "data/csi_pcs_modbus.json";
+    pointJsonPath = "data/csi_pcs_series_reg.json";
     nextPkg = 0;
     
     _serial = serial;
@@ -18,44 +18,76 @@ Modbus::~Modbus() {
 
 // 0回复错误83 -1解析crc错误 其他值为正确
 int Modbus::ParsePacket(uint8_t* request, int length) {
-    if (length < 4) {
+    // 长度不可小于5，否则判定没有收完整
+    if (length < 5) {
         LOG_ERROR("[ParsePacket] length < 4\n");
         return -1;
     }
 
-    uint8_t temp[length-2];
-    for (int i = 0; i < length-2; i++) {
-        temp[i] = request[i];
-    }
-    uint16_t calculatedCrc;
-    calculatedCrc = ReverseCRC16(temp,length-2);
-
     int parse_len = 0;
 
-    printf("calculatedCrc: 0x%04x\n", calculatedCrc);
-    printf("request: 0x%04x\n", ( request[length - 2] | (request[length - 1]) << 8 ) );
+    uint8_t fun = request[1];
+    uint8_t pkglen = request[2];
 
-    if ( calculatedCrc == ( request[length - 2] | (request[length - 1]) << 8 ) ) {
-        parse_len = parseFunc(request, length);
-        if (parse_len) {
-            LOG_ERROR("[ParsePacket] parse function success\n");
-        } else {
-            LOG_ERROR("[ParsePacket] parse function error\n");
-            return 0;
-        }
-    } else {  
-        LOG_ERROR("[ParsePacket] parse crc error\n");
+    if (fun == 0x83) { // 逆变器回复错误
+        printf("[ParsePacket] parse function error\n");
+        LOG_ERROR("[ParsePacket] parse function error\n");
+        return 0;
+    } else if (fun != 0x03 && fun != 0x04) {
+        printf("[ParsePacket] parse function error\n");
+        LOG_ERROR("[ParsePacket] parse function error\n");
         return -1;
-    } 
+    }
+    if ((int)pkglen <= 0) {
+        printf("[ParsePacket] parse data len error\n");
+        LOG_ERROR("[ParsePacket] parse data len error\n");
+        return 0;
+    }
+    if ((int)pkglen != length - 5) {
+        printf("[ParsePacket] parse data incomplete\n");
+        LOG_ERROR("[ParsePacket] parse data incomplete\n");
+        return -1;
+    }
+
+    parse_len = parseFunc(request, length);
 
     return parse_len;
+
+    // uint16_t temp[length-2];
+    // for (int i = 0; i < length-2; i++) {
+    //     temp[i] = (uint16_t)request[i];
+    // }
+
+    // uint16_t calculatedCrc;
+    // int parse_len = 0;
+
+    // printf("debug1: %d/%d\n", length, (uint8_t)length);
+    // calculatedCrc = CRC16(temp, length-2);
+
+    // printf("calculatedCrc: 0x%04x\n", calculatedCrc);
+    // printf("request: 0x%04x\n", ( request[length - 2] | (request[length - 1]) << 8 ) );
+
+    // if ( calculatedCrc == ( request[length - 2] | (request[length - 1]) << 8 ) ) {
+    //     parse_len = parseFunc(request, length);
+    //     if (parse_len) {
+    //         LOG_ERROR("[ParsePacket] parse function success\n");
+    //     } else {
+    //         LOG_ERROR("[ParsePacket] parse function error\n");
+    //         return 0;
+    //     }
+    // } else {  
+    //     LOG_ERROR("[ParsePacket] parse crc error\n");
+    //     return -1;
+    // } 
+
+    // return parse_len;
 }
 
 int Modbus::AssemblePacket(uint8_t* request) {
     int len = -1;
     if ( nextPkg < v_point.size() ) {
         // 构建Modbus RTU读取请求
-        request[++len] = 0x01;  // 设备地址
+        request[++len] = 0x64;  // 设备地址
         request[++len] = v_point[nextPkg].mpkg[0].func;  // 功能码
         request[++len] = v_point[nextPkg].mpkg[0].reg[0];  // 起始地址高位
         request[++len] = v_point[nextPkg].mpkg[0].reg[1];  // 起始地址低位
@@ -76,7 +108,14 @@ int Modbus::AssemblePacket(uint8_t* request) {
     return len;
 }
 
-int Modbus::receive(char* buf) {
+// int Modbus::receive(char* buf) {
+//     int len = 0;
+//     len = _serial->receive(buf);
+
+//     return len;
+// }
+
+int Modbus::receive(uint8_t* buf) {
     int len = 0;
     len = _serial->receive(buf);
 
@@ -102,24 +141,6 @@ uint16_t Modbus::CRC16(uint8_t* pDataBuf, int DataLen) {
             }
         }// End of for(j)
     }// End of for(i)
-
-    return crc;
-}
-
-uint16_t Modbus::ReverseCRC16(uint8_t* pDataBuf, int DataLen) {
-    uint16_t crc = 0xFFFF; // 初值为0xFFFF
-
-    for (int i = 0; i < DataLen; i++) {
-        crc ^= static_cast<uint16_t>(pDataBuf[i]);
-
-        for (int j = 0; j < 8; j++) {
-            if (crc & 0x0001) {
-                crc = (crc >> 1) ^ 0xA001; // 0xA001是CRC16-Modbus的多项式
-            } else {
-                crc = crc >> 1;
-            }
-        }
-    }
 
     return crc;
 }

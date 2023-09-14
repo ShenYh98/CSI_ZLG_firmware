@@ -10,7 +10,7 @@
 #include "code/common/ThreadPool.h"
 #include "code/common/MessageQueue.hpp"
 
-#include "code/setting/Setting.h"
+#include "inc_plug/Setting.h"
 
 #include "code/webserver/NetWorkLayerImp.h"
 

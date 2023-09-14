@@ -42,8 +42,8 @@ private:
 
     std::vector<modbusPoint> v_point;
 
-    std::thread recv_thread;
     std::shared_ptr<Protocol> pit;
+    std::thread recv_thread;
     std::condition_variable recv_cv;
     std::mutex recv_mutex;
     std::mutex recv_wait_mutex;
@@ -51,9 +51,21 @@ private:
     std::vector<uint8_t> total_recv_buf;
 
     bool is_RecvRun;
+    int pointCount;
+
+    std::string pscProtocolPath;
+    std::vector<modbusPoint> v_points;
+    std::vector<s_RTSrcInfo> v_singleRTSrcInfo;
 private:
     void loadAllList();
-    int HexToDec(const uint8_t* data, std::size_t length);
+    void serialTaskRun();
+    
+    bool sendPacketProc(s_RTSrcInfo& rtSrcInfo);
+    bool parsePacketProc(s_RTSrcInfo& rtSrcInfo);
+
+    void handleAllRecvData(vector<s_RTSrcInfo>& v_rtSrcInfo);
+    void handleRecvData(s_RTSrcInfo& it, const int&& haddr, const int&& taddr);
+    int loadPcsProtocolByJson(const std::string filename);
 };
 
 }

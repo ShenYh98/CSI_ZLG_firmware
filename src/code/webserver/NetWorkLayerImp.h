@@ -35,7 +35,10 @@ private:
 private:
     NetworkService* _networkSrv;
 
-    std::vector<s_RTSrcInfo> v_rtSrcInfo;
+    std::vector<s_RTSrcInfo> v_RTSrcInfo;
+    std::vector<s_RTSrcInfo> v_PreRTSrcInfo;
+    std::string sn;
+    std::string preSn;
 };
 
 }

@@ -20,6 +20,7 @@ public:
     // modbus的默认组包模式是rtu模式
     virtual int AssemblePacket(uint8_t* request) = 0;
 
-    virtual int receive(char* buf) = 0;
+    // virtual int receive(char* buf) = 0;
+    virtual int receive(uint8_t* buf) = 0;
     virtual void send(const char* buf) = 0;
 };
