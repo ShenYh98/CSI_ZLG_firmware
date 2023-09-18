@@ -833,12 +833,13 @@ int NetWorkLayerImp::editChannel(const std::string recv_data) {
         srv_SerialInfo srv_serialInfo;
 
         srv_serialInfo.act = Action::Edit;
-        srv_serialInfo.serialInfo.name                      = http_jsonData["data"]["newdata"]["portName"].get<std::string>();
-        srv_serialInfo.serialInfo.SerialName                = http_jsonData["data"]["newdata"]["port"].get<std::string>();
-        srv_serialInfo.serialInfo.serialParamInfo.baudrate  = std::stoi(http_jsonData["data"]["newdata"]["baudRate"].get<std::string>());
-        srv_serialInfo.serialInfo.serialParamInfo.databit   = std::stoi(http_jsonData["data"]["newdata"]["dataBits"].get<std::string>());
-        srv_serialInfo.serialInfo.serialParamInfo.parity    = http_jsonData["data"]["newdata"]["parity"].get<std::string>();
-        srv_serialInfo.serialInfo.serialParamInfo.stopbit   = http_jsonData["data"]["newdata"]["stopBits"].get<std::string>();
+        srv_serialInfo.serialInfo.name                      = http_jsonData["data"]["portName"].get<std::string>();
+        srv_serialInfo.serialInfo.Id                        = http_jsonData["data"]["Id"].get<std::string>();
+        srv_serialInfo.serialInfo.SerialName                = http_jsonData["data"]["port"].get<std::string>();
+        srv_serialInfo.serialInfo.serialParamInfo.baudrate  = std::stoi(http_jsonData["data"]["baudRate"].get<std::string>());
+        srv_serialInfo.serialInfo.serialParamInfo.databit   = std::stoi(http_jsonData["data"]["dataBits"].get<std::string>());
+        srv_serialInfo.serialInfo.serialParamInfo.parity    = http_jsonData["data"]["parity"].get<std::string>();
+        srv_serialInfo.serialInfo.serialParamInfo.stopbit   = http_jsonData["data"]["stopBits"].get<std::string>();
         srv_serialInfo.serialInfo.serialParamInfo.vmin      = 1;
         srv_serialInfo.serialInfo.serialParamInfo.vtime     = 15;
 
@@ -850,26 +851,6 @@ int NetWorkLayerImp::editChannel(const std::string recv_data) {
         LOG_DEBUG("serial new stopbit: {}\n",   srv_serialInfo.serialInfo.serialParamInfo.stopbit  );
         LOG_DEBUG("serial new vmin: {}\n",      srv_serialInfo.serialInfo.serialParamInfo.vmin     );
         LOG_DEBUG("serial new vtime: {}\n",     srv_serialInfo.serialInfo.serialParamInfo.vtime    );
-
-        // 获取字段的旧值
-        srv_serialInfo.act = Action::Edit;
-        srv_serialInfo.oldSerialInfo.name = http_jsonData["data"]["olddata"]["portName"].get<std::string>();
-        srv_serialInfo.serialInfo.SerialName = http_jsonData["data"]["olddata"]["port"].get<std::string>();
-        srv_serialInfo.oldSerialInfo.serialParamInfo.baudrate = std::stoi(http_jsonData["data"]["olddata"]["baudRate"].get<std::string>());
-        srv_serialInfo.oldSerialInfo.serialParamInfo.databit = std::stoi(http_jsonData["data"]["olddata"]["dataBits"].get<std::string>());
-        srv_serialInfo.oldSerialInfo.serialParamInfo.parity = http_jsonData["data"]["olddata"]["parity"].get<std::string>();
-        srv_serialInfo.oldSerialInfo.serialParamInfo.stopbit = http_jsonData["data"]["olddata"]["stopBits"].get<std::string>();
-        srv_serialInfo.oldSerialInfo.serialParamInfo.vmin = 1;
-        srv_serialInfo.oldSerialInfo.serialParamInfo.vtime = 15;
-
-        LOG_DEBUG("serial old action: {}\n",    srv_serialInfo.act);
-        LOG_DEBUG("serial old name: {}\n",      srv_serialInfo.oldSerialInfo.name                     );
-        LOG_DEBUG("serial old baudrate: {}\n",  srv_serialInfo.oldSerialInfo.serialParamInfo.baudrate );
-        LOG_DEBUG("serial old databit: {}\n",   srv_serialInfo.oldSerialInfo.serialParamInfo.databit  );
-        LOG_DEBUG("serial old parity: {}\n",    srv_serialInfo.oldSerialInfo.serialParamInfo.parity   );
-        LOG_DEBUG("serial old stopbit: {}\n",   srv_serialInfo.oldSerialInfo.serialParamInfo.stopbit  );
-        LOG_DEBUG("serial old vmin: {}\n",      srv_serialInfo.oldSerialInfo.serialParamInfo.vmin     );
-        LOG_DEBUG("serial old vtime: {}\n",     srv_serialInfo.oldSerialInfo.serialParamInfo.vtime    );
 
         v_serialInfo.push_back(srv_serialInfo);
     } catch(const std::exception& e) {
@@ -902,21 +883,20 @@ int NetWorkLayerImp::delChannel(const std::string recv_data) {
         }
 
         // 获取字段的值
-        for (auto serialArray : http_jsonData["data"]["table"]) {
-            srv_SerialInfo srv_serialInfo;
+        srv_SerialInfo srv_serialInfo;
 
-            srv_serialInfo.act = Action::Del;
-            srv_serialInfo.serialInfo.name = serialArray["portName"].get<std::string>();
-            srv_serialInfo.serialInfo.SerialName = serialArray["port"].get<std::string>();
-            srv_serialInfo.serialInfo.serialParamInfo.baudrate = std::stoi(serialArray["baudRate"].get<std::string>());
-            srv_serialInfo.serialInfo.serialParamInfo.databit = std::stoi(serialArray["dataBits"].get<std::string>());
-            srv_serialInfo.serialInfo.serialParamInfo.parity = serialArray["parity"].get<std::string>();
-            srv_serialInfo.serialInfo.serialParamInfo.stopbit = serialArray["stopBits"].get<std::string>();
-            srv_serialInfo.serialInfo.serialParamInfo.vmin = 1;
-            srv_serialInfo.serialInfo.serialParamInfo.vtime = 15;
+        srv_serialInfo.act = Action::Del;
+        srv_serialInfo.serialInfo.Id = http_jsonData["data"]["Id"].get<std::string>();
+        srv_serialInfo.serialInfo.name = http_jsonData["data"]["portName"].get<std::string>();
+        srv_serialInfo.serialInfo.SerialName = http_jsonData["data"]["port"].get<std::string>();
+        srv_serialInfo.serialInfo.serialParamInfo.baudrate = std::stoi(http_jsonData["data"]["baudRate"].get<std::string>());
+        srv_serialInfo.serialInfo.serialParamInfo.databit = std::stoi(http_jsonData["data"]["dataBits"].get<std::string>());
+        srv_serialInfo.serialInfo.serialParamInfo.parity = http_jsonData["data"]["parity"].get<std::string>();
+        srv_serialInfo.serialInfo.serialParamInfo.stopbit = http_jsonData["data"]["stopBits"].get<std::string>();
+        srv_serialInfo.serialInfo.serialParamInfo.vmin = 1;
+        srv_serialInfo.serialInfo.serialParamInfo.vtime = 15;
 
-            v_serialInfo.push_back(srv_serialInfo);
-        }
+        v_serialInfo.push_back(srv_serialInfo);
     } catch(const std::exception& e) {
         // Json解析错误
         LOG_ERROR("Json解析错误\n");

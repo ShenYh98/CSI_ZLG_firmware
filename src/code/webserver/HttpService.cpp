@@ -22,7 +22,7 @@ HttpService::HttpService(const std::string& httpPath, int port) {
             std::lock_guard<std::mutex> lock(queue_mutex);
             recv_queue.push(req.body);
         }
-        
+        printf("recv http request!\n");
         handle_request(req, res);
     });
 

@@ -31,13 +31,13 @@ int main() {
     COMMONLOG_INIT("config/csi_config.json");
 
     std::unique_ptr<TaskAbstract> task_http = std::make_unique<TaskHttp>();
-    std::unique_ptr<TaskAbstract> task_websocket = std::make_unique<TaskWebSocket>();
-    std::unique_ptr<TaskAbstract> task_serial = std::make_unique<TaskSerial>();
+    // std::unique_ptr<TaskAbstract> task_websocket = std::make_unique<TaskWebSocket>();
+    // std::unique_ptr<TaskAbstract> task_serial = std::make_unique<TaskSerial>();
     std::unique_ptr<Setting> setting = std::make_unique<Setting>();
 
     task_http->start();
-    task_websocket->start();
-    task_serial->start();
+    // task_websocket->start();
+    // task_serial->start();
 
     while (true) {
     }

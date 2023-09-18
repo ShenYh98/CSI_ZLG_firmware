@@ -64,6 +64,7 @@ typedef struct {
     int statu;                  // 0未使能 1使能
     std::string SerialName;     // 驱动文件名
     std::string name;           // 串口名
+    std::string Id;             // 任务id
     SerialParamInfo serialParamInfo;
 } SerialIdInfo;
 
