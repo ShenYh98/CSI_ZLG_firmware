@@ -2,41 +2,23 @@
     "data": {
         "table": [
             {
+                "Id": "1253",
                 "baudRate": "9600",
                 "dataBits": "5",
                 "parity": "N",
                 "port": "RS485-1",
-                "portName": "123123",
+                "portName": "xzx",
                 "stopBits": "1",
                 "vmin": "1",
                 "vtime": "15"
             },
             {
+                "Id": "1996",
                 "baudRate": "9600",
-                "dataBits": "8",
-                "parity": "N",
+                "dataBits": "5",
+                "parity": "E",
                 "port": "RS485-1",
-                "portName": "485",
-                "stopBits": "1",
-                "vmin": "1",
-                "vtime": "15"
-            },
-            {
-                "baudRate": "9600",
-                "dataBits": "8",
-                "parity": "N",
-                "port": "RS485-1",
-                "portName": "485",
-                "stopBits": "1",
-                "vmin": "1",
-                "vtime": "15"
-            },
-            {
-                "baudRate": "19200",
-                "dataBits": "6",
-                "parity": "0",
-                "port": "RS485-2",
-                "portName": "123",
+                "portName": "shenyi",
                 "stopBits": "1",
                 "vmin": "1",
                 "vtime": "15"

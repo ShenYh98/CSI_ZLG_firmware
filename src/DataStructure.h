@@ -69,6 +69,7 @@ typedef struct {
 } SerialIdInfo;
 
 typedef struct {
+    std::string Id;
     std::string devName;        // 设备名
     SerialIdInfo serialInfo;    // 串口
     std::string protocol;       // 规约
@@ -98,7 +99,6 @@ typedef struct {
 typedef struct {
     Action act;
     SerialIdInfo serialInfo;
-    SerialIdInfo oldSerialInfo;
 } srv_SerialInfo;
 
 /*

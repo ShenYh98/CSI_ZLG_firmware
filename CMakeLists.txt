@@ -59,7 +59,7 @@ if(ARGUMENT)
 	)
 	# 链接库文件
 	target_link_libraries(${ARGUMENT} PRIVATE ${LIBRARIES})
-	target_link_libraries(${ARGUMENT} PRIVATE pthread modbus)
+	target_link_libraries(${ARGUMENT} PRIVATE pthread )
 else()
 	# 生成可执行文件
 	add_executable(csiexec ${SOURCES} ${CMAKE_SOURCE_DIR}/src/main.cpp)
@@ -70,5 +70,5 @@ else()
 	)
 	# 链接库文件
 	target_link_libraries(csiexec PRIVATE ${LIBRARIES})
-	target_link_libraries(csiexec PRIVATE pthread modbus)
+	target_link_libraries(csiexec PRIVATE pthread )
 endif()

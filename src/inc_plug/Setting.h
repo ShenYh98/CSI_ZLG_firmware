@@ -1,6 +1,8 @@
 #pragma once
 
 #include <iostream>
+#include <ctime>
+#include <cstdlib>
 
 #include "MessageQueue.hpp"
 #include "CommonLog.h"
