@@ -4,6 +4,7 @@
 #include <ctime>
 #include <cstdlib>
 
+
 #include "MessageQueue.hpp"
 #include "CommonLog.h"
 
@@ -23,9 +24,9 @@ public:
     ~Setting();
 
 private:
-    void srvDevActionTask(const std::vector<srv_DevInfo>& msg, std::function<void(const std::string&)> responder);
+    void srvDevActionTask(const std::vector<srv_DevInfo>& msg, std::function<void(const srv_GetInfo &)> responder);
 
-    void srvSerialActionTask(const std::vector<srv_SerialInfo>& msg, std::function<void(const std::string&)> responder);
+    void srvSerialActionTask(const std::vector<srv_SerialInfo>& msg, std::function<void(const srv_GetInfo &)> responder);
 
     void saveDevJson(const std::string& fileName);
 

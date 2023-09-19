@@ -87,7 +87,8 @@ typedef struct {
 typedef enum {
     Add,
     Edit,
-    Del
+    Del,
+    Get
 } Action;
 
 typedef struct {
@@ -100,6 +101,15 @@ typedef struct {
     Action act;
     SerialIdInfo serialInfo;
 } srv_SerialInfo;
+
+//新增用于get请求的结构体,9-19Ywz
+typedef struct {
+    std::vector<DevInfo> DevList;
+    std::vector<SerialIdInfo> SerialList;
+    std::string status;
+}srv_GetInfo;
+
+
 
 /*
  *   task类数据结构
