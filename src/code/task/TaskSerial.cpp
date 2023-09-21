@@ -372,7 +372,7 @@ bool TaskSerial::sendPacketProc(s_RTSrcInfo& rtSrcInfo) {
         if (-1 != send_len) {
             sharedPtr->send((char*)send_buf);
 
-            rtSrcInfo.sourceName = v_point[pointCount].name;
+            rtSrcInfo.title = v_point[pointCount].name;
             pointCount++;
 
             is_RecvRun = false;
@@ -455,32 +455,32 @@ bool TaskSerial::parsePacketProc(s_RTSrcInfo& rtSrcInfo) {
 void TaskSerial::handleAllRecvData(vector<s_RTSrcInfo>& v_rtSrcInfo) {
     v_singleRTSrcInfo.clear();
     for (auto it : v_rtSrcInfo) {
-        if (it.sourceName == "设备信息") {
+        if (it.title == "设备信息") {
             handleRecvData(it, 3300, 3321);
-        } else if (it.sourceName == "运行信息") {
+        } else if (it.title == "运行信息") {
             handleRecvData(it, 3600, 3614);
             handleRecvData(it, 3618, 3667);
-        } else if (it.sourceName == "电池组信息") {
+        } else if (it.title == "电池组信息") {
             handleRecvData(it, 3680, 3694);
-        } else if (it.sourceName == "运行参数") {
+        } else if (it.title == "运行参数") {
             handleRecvData(it, 3900, 3904);
             handleRecvData(it, 3906, 3923);
             handleRecvData(it, 3929, 3955);
-        } else if (it.sourceName == "保护参数") {
+        } else if (it.title == "保护参数") {
             handleRecvData(it, 3800, 3845);
-        } else if (it.sourceName == "采样校正") {
+        } else if (it.title == "采样校正") {
             handleRecvData(it, 5000, 5017);
             handleRecvData(it, 5024, 5037);
-        } else if (it.sourceName == "并离网模式设置") {
+        } else if (it.title == "并离网模式设置") {
             handleRecvData(it, 8000, 8012);
             handleRecvData(it, 8014, 8019);
-        } else if (it.sourceName == "无功调节") {
+        } else if (it.title == "无功调节") {
             handleRecvData(it, 8030, 8040);
-        } else if (it.sourceName == "低电压穿越参数") {
+        } else if (it.title == "低电压穿越参数") {
             handleRecvData(it, 8100, 8110);
-        } else if (it.sourceName == "高电压穿越参数") {
+        } else if (it.title == "高电压穿越参数") {
             handleRecvData(it, 8150, 8159);
-        } else if (it.sourceName == "功率缓启") {
+        } else if (it.title == "功率缓启") {
             handleRecvData(it, 8200, 8204);
         } else {
             LOG_ERROR("recv buf no name\n");
@@ -502,6 +502,7 @@ void TaskSerial::handleRecvData(s_RTSrcInfo& it, const int&& haddr, const int&& 
 
             if (merged >= haddr && merged <= taddr) {
                 int value = 0;
+                RTSrcInfo.title = it.title;
                 if (pit.dataType == "U16" || pit.dataType == "S16") {
                     uint8_t tmp[2];
                     tmp[0] = it.buf[count++];

@@ -87,7 +87,7 @@ int Modbus::AssemblePacket(uint8_t* request) {
     int len = -1;
     if ( nextPkg < v_point.size() ) {
         // 构建Modbus RTU读取请求
-        request[++len] = 0x64;  // 设备地址
+        request[++len] = 0x01;  // 设备地址
         request[++len] = v_point[nextPkg].mpkg[0].func;  // 功能码
         request[++len] = v_point[nextPkg].mpkg[0].reg[0];  // 起始地址高位
         request[++len] = v_point[nextPkg].mpkg[0].reg[1];  // 起始地址低位

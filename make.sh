@@ -32,7 +32,7 @@ elif [ $1 = "x86" ]; then
   # 检查cmake是否成功
   if [ $? -eq 0 ]; then
     # 使用make编译程序
-    make
+    make -j8
 
     # 检查make编译是否成功
     if [ $? -eq 0 ]; then
@@ -60,7 +60,7 @@ elif [ $1 = "arm" ]; then
   # 检查cmake是否成功
   if [ $? -eq 0 ]; then
     # 使用make编译程序
-    make
+    make -j8
 
     # 检查make编译是否成功
     if [ $? -eq 0 ]; then

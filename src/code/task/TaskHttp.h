@@ -7,10 +7,10 @@
 
 using namespace NetWorkMiddleware;
 
-// #define PATH        "192.168.1.136"
-// #define PORT        9000
-#define PATH        "172.16.138.129"
+#define PATH        "192.168.1.136"
 #define PORT        8081
+// #define PATH        "192.168.60.128"
+// #define PORT        8081
 
 namespace TaskMiddleWare {
 

@@ -40,6 +40,7 @@ typedef struct {
 } s_RTValueType;
 
 typedef struct {
+    std::string title;
     std::string sourceName;         // 源名
     s_RTValueType value;            // 值            
     std::vector<uint8_t> buf;   // 原始报文

@@ -21,18 +21,18 @@ private:
     int getPassWord(const std::string filename, const std::string recv_data);
     int devTableSave(const std::string filename, const std::string recv_data);
     int channelTableSave(const std::string filename, const std::string recv_data);
-
     int addDev(const std::string recv_data);
     int editDev(const std::string recv_data);
     int delDev(const std::string recv_data);
     int addChannel(const std::string recv_data);
     int editChannel(const std::string recv_data);
     int delChannel(const std::string recv_data);
-    
     int getChannelTable(std::string& data);
     int getDevTable(std::string& data);
 
     int getRTData(const std::string recv_data);
+
+    void sendDataToWeb(const s_RTtask& rttask, std::ostringstream& payloadStream);
 
 private:
     NetworkService* _networkSrv;

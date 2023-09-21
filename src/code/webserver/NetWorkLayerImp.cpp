@@ -353,63 +353,8 @@ void NetWorkLayerImp::operation(s_RTtask rttask) {
     switch (rttask.id) {
         case RTtaskId::Yc : {
             std::ostringstream payloadStream;
-
             printf("rttask.dev_sn:%s sn:%s\n", rttask.dev_sn.c_str(), sn.c_str());
-            if (rttask.dev_sn == sn) {
-                payloadStream << R"([)";
-                for (size_t i = 0; i < v_RTSrcInfo.size(); ++i) {
-                    if (v_RTSrcInfo[i].value.idata == -1 && v_RTSrcInfo[i].value.sData == "NULL") {
-                        payloadStream << R"({"sourceName":")" << v_RTSrcInfo[i].sourceName 
-                                << R"(", "value":")" << std::to_string(v_RTSrcInfo[i].value.ddata) 
-                                << R"(", "unit":")" << v_RTSrcInfo[i].unit << R"("})";
-                    } else if (v_RTSrcInfo[i].value.ddata == -1.0 && v_RTSrcInfo[i].value.sData == "NULL") {
-                        payloadStream << R"({"sourceName":")" << v_RTSrcInfo[i].sourceName 
-                                << R"(", "value":")" << std::to_string(v_RTSrcInfo[i].value.idata) 
-                                << R"(", "unit":")" << v_RTSrcInfo[i].unit << R"("})";
-                    } else {
-                        payloadStream << R"({"sourceName":")" << v_RTSrcInfo[i].sourceName 
-                                << R"(", "value":")" << v_RTSrcInfo[i].value.sData
-                                << R"(", "unit":")" << v_RTSrcInfo[i].unit << R"("})";
-                    }
-                    
-                    if (i != v_RTSrcInfo.size() - 1) {
-                        payloadStream << R"(,)";
-                    }
-                }
-                payloadStream << R"(])";
-                
-                v_PreRTSrcInfo = v_RTSrcInfo;
-            } else if (preSn == rttask.dev_sn) {
-                payloadStream << R"([)";
-                for (size_t i = 0; i < v_PreRTSrcInfo.size(); ++i) {
-                    if (v_PreRTSrcInfo[i].value.idata == -1 && v_PreRTSrcInfo[i].value.sData == "NULL") {
-                        payloadStream << R"({"sourceName":")" << v_PreRTSrcInfo[i].sourceName 
-                                << R"(", "value":")" << std::to_string(v_PreRTSrcInfo[i].value.ddata) 
-                                << R"(", "unit":")" << v_PreRTSrcInfo[i].unit << R"("})";
-                    } else if (v_PreRTSrcInfo[i].value.ddata == -1.0 && v_PreRTSrcInfo[i].value.sData == "NULL") {
-                        payloadStream << R"({"sourceName":")" << v_PreRTSrcInfo[i].sourceName 
-                                << R"(", "value":")" << std::to_string(v_PreRTSrcInfo[i].value.idata) 
-                                << R"(", "unit":")" << v_PreRTSrcInfo[i].unit << R"("})";
-                    } else {
-                        payloadStream << R"({"sourceName":")" << v_PreRTSrcInfo[i].sourceName 
-                                << R"(", "value":")" << v_PreRTSrcInfo[i].value.sData
-                                << R"(", "unit":")" << v_PreRTSrcInfo[i].unit << R"("})";
-                    }
-                    
-                    if (i != v_PreRTSrcInfo.size() - 1) {
-                        payloadStream << R"(,)";
-                    }
-                }
-                payloadStream << R"(])";
-            } else {
-                payloadStream << R"([)";
-                payloadStream << R"({"sourceName":")" << ""
-                            << R"(", "value":")" << ""
-                            << R"(", "unit":")" << "" << R"("})";
-                payloadStream << R"(])";
-            }
-            preSn = rttask.dev_sn;
-
+            sendDataToWeb(rttask, payloadStream);
             auto str = payloadStream.str();
             this->send(str);
 
@@ -418,6 +363,63 @@ void NetWorkLayerImp::operation(s_RTtask rttask) {
         default:
             break;
     }
+}
+
+void NetWorkLayerImp::sendDataToWeb(const s_RTtask& rttask, std::ostringstream& payloadStream) {
+    if (rttask.dev_sn == sn) {
+        payloadStream << R"([)";
+        for (size_t i = 0; i < v_RTSrcInfo.size(); ++i) {
+            if (v_RTSrcInfo[i].value.idata == -1 && v_RTSrcInfo[i].value.sData == "NULL") {
+                payloadStream << R"({"sourceName":")" << v_RTSrcInfo[i].sourceName 
+                        << R"(", "value":")" << std::to_string(v_RTSrcInfo[i].value.ddata) 
+                        << R"(", "unit":")" << v_RTSrcInfo[i].unit << R"("})";
+            } else if (v_RTSrcInfo[i].value.ddata == -1.0 && v_RTSrcInfo[i].value.sData == "NULL") {
+                payloadStream << R"({"sourceName":")" << v_RTSrcInfo[i].sourceName 
+                        << R"(", "value":")" << std::to_string(v_RTSrcInfo[i].value.idata) 
+                        << R"(", "unit":")" << v_RTSrcInfo[i].unit << R"("})";
+            } else {
+                payloadStream << R"({"sourceName":")" << v_RTSrcInfo[i].sourceName 
+                        << R"(", "value":")" << v_RTSrcInfo[i].value.sData
+                        << R"(", "unit":")" << v_RTSrcInfo[i].unit << R"("})";
+            }
+            
+            if (i != v_RTSrcInfo.size() - 1) {
+                payloadStream << R"(,)";
+            }
+        }
+        payloadStream << R"(])";
+        
+        v_PreRTSrcInfo = v_RTSrcInfo;
+    } else if (preSn == rttask.dev_sn) {
+        payloadStream << R"([)";
+        for (size_t i = 0; i < v_PreRTSrcInfo.size(); ++i) {
+            if (v_PreRTSrcInfo[i].value.idata == -1 && v_PreRTSrcInfo[i].value.sData == "NULL") {
+                payloadStream << R"({"sourceName":")" << v_PreRTSrcInfo[i].sourceName 
+                        << R"(", "value":")" << std::to_string(v_PreRTSrcInfo[i].value.ddata) 
+                        << R"(", "unit":")" << v_PreRTSrcInfo[i].unit << R"("})";
+            } else if (v_PreRTSrcInfo[i].value.ddata == -1.0 && v_PreRTSrcInfo[i].value.sData == "NULL") {
+                payloadStream << R"({"sourceName":")" << v_PreRTSrcInfo[i].sourceName 
+                        << R"(", "value":")" << std::to_string(v_PreRTSrcInfo[i].value.idata) 
+                        << R"(", "unit":")" << v_PreRTSrcInfo[i].unit << R"("})";
+            } else {
+                payloadStream << R"({"sourceName":")" << v_PreRTSrcInfo[i].sourceName 
+                        << R"(", "value":")" << v_PreRTSrcInfo[i].value.sData
+                        << R"(", "unit":")" << v_PreRTSrcInfo[i].unit << R"("})";
+            }
+            
+            if (i != v_PreRTSrcInfo.size() - 1) {
+                payloadStream << R"(,)";
+            }
+        }
+        payloadStream << R"(])";
+    } else {
+        payloadStream << R"([)";
+        payloadStream << R"({"sourceName":")" << ""
+                    << R"(", "value":")" << ""
+                    << R"(", "unit":")" << "" << R"("})";
+        payloadStream << R"(])";
+    }
+    preSn = rttask.dev_sn;
 }
 
 int NetWorkLayerImp::getTaskId(const std::string recv_data) {
@@ -571,7 +573,7 @@ int NetWorkLayerImp::getDevTable(std::string& data) {
     std::vector<srv_DevInfo> v_devInfo;
     srv_DevInfo srv_devInfo;
 
-    srv_devInfo.act = Action::Del;
+    srv_devInfo.act = Action::Get;
     v_devInfo.push_back(srv_devInfo);
 
     auto publish = ServiceQueue<std::vector<srv_DevInfo>, srv_GetInfo>::getInstance().service_publish("devTable/addDev", v_devInfo);
@@ -621,23 +623,14 @@ int NetWorkLayerImp::addDev(const std::string recv_data) {
 
         // 获取字段的值
         srv_DevInfo srv_devInfo;
-        printf("debug1\n");
         srv_devInfo.act = Action::Add;
-        printf("debug2\n");
         srv_devInfo.devInfo.addr = std::stoi(http_jsonData["data"]["communicationAddress"].get<std::string>());
-        printf("debug3\n");
         srv_devInfo.devInfo.category = http_jsonData["data"]["category"].get<std::string>();
-        printf("debug4\n");
         srv_devInfo.devInfo.devName = http_jsonData["data"]["name"].get<std::string>();
-        printf("debug5\n");
         srv_devInfo.devInfo.model = http_jsonData["data"]["model"].get<std::string>();
-        printf("debug6\n");
         srv_devInfo.devInfo.protocol = http_jsonData["data"]["protocol"].get<std::string>();
-        printf("debug7\n");
         srv_devInfo.devInfo.serialInfo.name = http_jsonData["data"]["port"].get<std::string>();
-        printf("debug8\n");
         srv_devInfo.devInfo.sn = http_jsonData["data"]["sn"].get<std::string>();
-        printf("debug9\n");
         LOG_DEBUG("dev action: {}\n", srv_devInfo.act);
         LOG_DEBUG("dev Id: {}\n", srv_devInfo.devInfo.Id);
         LOG_DEBUG("dev addr: {}\n", srv_devInfo.devInfo.addr);
@@ -683,13 +676,13 @@ int NetWorkLayerImp::editDev(const std::string recv_data) {
 
         srv_devInfo.act = Action::Edit;
         srv_devInfo.devInfo.Id = http_jsonData["data"]["Id"].get<std::string>();
-        srv_devInfo.devInfo.addr = std::stoi(http_jsonData["data"]["newdata"]["communicationAddress"].get<std::string>());
-        srv_devInfo.devInfo.category = http_jsonData["data"]["newdata"]["category"].get<std::string>();
-        srv_devInfo.devInfo.devName = http_jsonData["data"]["newdata"]["name"].get<std::string>();
-        srv_devInfo.devInfo.model = http_jsonData["data"]["newdata"]["model"].get<std::string>();
-        srv_devInfo.devInfo.protocol = http_jsonData["data"]["newdata"]["protocol"].get<std::string>();
-        srv_devInfo.devInfo.serialInfo.name = http_jsonData["data"]["newdata"]["port"].get<std::string>();
-        srv_devInfo.devInfo.sn = http_jsonData["data"]["newdata"]["sn"].get<std::string>();
+        srv_devInfo.devInfo.addr = std::stoi(http_jsonData["data"]["communicationAddress"].get<std::string>());
+        srv_devInfo.devInfo.category = http_jsonData["data"]["category"].get<std::string>();
+        srv_devInfo.devInfo.devName = http_jsonData["data"]["name"].get<std::string>();
+        srv_devInfo.devInfo.model = http_jsonData["data"]["model"].get<std::string>();
+        srv_devInfo.devInfo.protocol = http_jsonData["data"]["protocol"].get<std::string>();
+        srv_devInfo.devInfo.serialInfo.name = http_jsonData["data"]["port"].get<std::string>();
+        srv_devInfo.devInfo.sn = http_jsonData["data"]["sn"].get<std::string>();
 
         LOG_DEBUG("dev old action: {}\n", srv_devInfo.act);
         LOG_DEBUG("dev old Id: {}\n", srv_devInfo.devInfo.Id);
@@ -735,13 +728,13 @@ int NetWorkLayerImp::delDev(const std::string recv_data) {
         srv_DevInfo srv_devInfo;
         srv_devInfo.act = Action::Del;
         srv_devInfo.devInfo.Id = http_jsonData["data"]["Id"].get<std::string>();
-        srv_devInfo.devInfo.addr = std::stoi(http_jsonData["data"]["newdata"]["communicationAddress"].get<std::string>());
-        srv_devInfo.devInfo.category = http_jsonData["data"]["newdata"]["category"].get<std::string>();
-        srv_devInfo.devInfo.devName = http_jsonData["data"]["newdata"]["name"].get<std::string>();
-        srv_devInfo.devInfo.model = http_jsonData["data"]["newdata"]["model"].get<std::string>();
-        srv_devInfo.devInfo.protocol = http_jsonData["data"]["newdata"]["protocol"].get<std::string>();
-        srv_devInfo.devInfo.serialInfo.name = http_jsonData["data"]["newdata"]["port"].get<std::string>();
-        srv_devInfo.devInfo.sn = http_jsonData["data"]["newdata"]["sn"].get<std::string>();
+        srv_devInfo.devInfo.addr = std::stoi(http_jsonData["data"]["communicationAddress"].get<std::string>());
+        srv_devInfo.devInfo.category = http_jsonData["data"]["category"].get<std::string>();
+        srv_devInfo.devInfo.devName = http_jsonData["data"]["name"].get<std::string>();
+        srv_devInfo.devInfo.model = http_jsonData["data"]["model"].get<std::string>();
+        srv_devInfo.devInfo.protocol = http_jsonData["data"]["protocol"].get<std::string>();
+        srv_devInfo.devInfo.serialInfo.name = http_jsonData["data"]["port"].get<std::string>();
+        srv_devInfo.devInfo.sn = http_jsonData["data"]["sn"].get<std::string>();
 
         v_devInfo.push_back(srv_devInfo);
     } catch(const std::exception& e) {
